@@ -94,6 +94,44 @@ spriteTypes = {
 		texturefile = "gfx/interface/ideas/idea_acting_substitute.png"
 	}
 
+	# Bernkastel Exclusive Policy Laws & Societal Development
+	spriteType = {
+		name = "GFX_idea_BERN_law_platinum_seigniorage"
+		texturefile = "gfx/interface/ideas/idea_BERN_law_platinum_seigniorage.png"
+	}
+	spriteType = {
+		name = "GFX_idea_BERN_law_sealed_catbox_trade"
+		texturefile = "gfx/interface/ideas/idea_BERN_law_sealed_catbox_trade.png"
+	}
+	spriteType = {
+		name = "GFX_idea_BERN_law_main_core_conscription"
+		texturefile = "gfx/interface/ideas/idea_BERN_law_main_core_conscription.png"
+	}
+	spriteType = {
+		name = "GFX_idea_BERN_law_knox_military_inquisition"
+		texturefile = "gfx/interface/ideas/idea_BERN_law_knox_military_inquisition.png"
+	}
+	spriteType = {
+		name = "GFX_idea_BERN_law_erika_606_censorship"
+		texturefile = "gfx/interface/ideas/idea_BERN_law_erika_606_censorship.png"
+	}
+	spriteType = {
+		name = "GFX_idea_BERN_law_schedule_f_furniture_state"
+		texturefile = "gfx/interface/ideas/idea_BERN_law_schedule_f_furniture_state.png"
+	}
+	spriteType = {
+		name = "GFX_idea_BERN_law_van_dine_fair_play"
+		texturefile = "gfx/interface/ideas/idea_BERN_law_van_dine_fair_play.png"
+	}
+	spriteType = {
+		name = "GFX_idea_BERN_dev_shard_probability_science"
+		texturefile = "gfx/interface/ideas/idea_BERN_dev_shard_probability_science.png"
+	}
+	spriteType = {
+		name = "GFX_idea_BERN_dev_hermetic_gameboard_society"
+		texturefile = "gfx/interface/ideas/idea_BERN_dev_hermetic_gameboard_society.png"
+	}
+
 	# Balance of Power (78x88 PNG)
 	spriteType = {
 		name = "GFX_bop_BERN_planned_harmony"

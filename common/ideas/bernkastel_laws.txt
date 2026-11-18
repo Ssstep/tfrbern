@@ -1,0 +1,225 @@
+ideas = {
+	economy = {
+		BERN_law_platinum_seigniorage = {
+			picture = GFX_idea_BERN_law_platinum_seigniorage
+			cost = 100
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+			}
+			available = {
+				has_completed_focus = BERN_mint_the_trillion_coin
+			}
+			on_add = {
+				subtract_from_variable = { var = BERN_existential_boredom value = 10 }
+				clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+				BERN_recalculate_catbox_modifiers = yes
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.20
+				industrial_capacity_factory = 0.15
+				consumer_goods_factor = -0.10
+			}
+		}
+	}
+
+	trade_laws = {
+		BERN_law_sealed_catbox_trade = {
+			picture = GFX_idea_BERN_law_sealed_catbox_trade
+			cost = 100
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+			}
+			available = {
+				has_completed_focus = BERN_seal_the_doors
+			}
+			modifier = {
+				min_export = 0
+				encryption_factor = 0.30
+				intelligence_agency_defense = 2
+			}
+		}
+	}
+
+	mobilization_laws = {
+		BERN_law_main_core_conscription = {
+			picture = GFX_idea_BERN_law_main_core_conscription
+			cost = 100
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+			}
+			available = {
+				has_completed_focus = BERN_main_core_index
+			}
+			modifier = {
+				conscription = 0.06
+				mobilization_speed = 0.30
+				training_time_factor = -0.15
+			}
+		}
+	}
+
+	supervision_laws = {
+		BERN_law_knox_military_inquisition = {
+			picture = GFX_idea_BERN_law_knox_military_inquisition
+			cost = 100
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+			}
+			available = {
+				has_completed_focus = BERN_dlanor_attorney_general
+			}
+			modifier = {
+				army_org_factor = 0.10
+				planning_speed = 0.15
+				resistance_target = -0.15
+			}
+		}
+	}
+
+	education_laws = {
+		BERN_law_erika_606_censorship = {
+			picture = GFX_idea_BERN_law_erika_606_censorship
+			cost = 100
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+			}
+			available = {
+				has_completed_focus = BERN_communications_act_706
+			}
+			modifier = {
+				drift_defence_factor = 0.60
+				war_stability_factor = 0.25
+				foreign_subversive_activites = -0.50
+			}
+		}
+	}
+
+	police_laws = {
+		BERN_law_schedule_f_furniture_state = {
+			picture = GFX_idea_BERN_law_schedule_f_furniture_state
+			cost = 100
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+				NOT = { has_completed_focus = BERN_willard_rebellion_for_heart }
+			}
+			available = {
+				has_completed_focus = BERN_schedule_policy_career
+				NOT = { has_completed_focus = BERN_willard_rebellion_for_heart }
+			}
+			modifier = {
+				political_power_gain = 0.25
+				production_factory_max_efficiency_factor = 0.10
+				stability_factor = -0.05
+			}
+		}
+
+		BERN_law_van_dine_fair_play = {
+			picture = GFX_idea_BERN_law_van_dine_fair_play
+			cost = 100
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+				has_completed_focus = BERN_willard_audit
+			}
+			available = {
+				has_completed_focus = BERN_willard_audit
+			}
+			modifier = {
+				stability_factor = 0.15
+				compliance_growth = 0.15
+				political_power_factor = 0.10
+			}
+		}
+	}
+
+	academic_development = {
+		BERN_dev_shard_probability_science = {
+			picture = GFX_idea_BERN_dev_shard_probability_science
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+			}
+			allowed_to_remove = {
+				always = no
+			}
+			modifier = {
+				research_speed_factor = 0.15
+				production_speed_nuclear_reactor_factor = 0.35
+				nuclear_production_factor = 1.0
+				custom_modifier_tooltip = academic_development_modifier_tooltip
+			}
+		}
+	}
+
+	society_development = {
+		BERN_dev_hermetic_gameboard_society = {
+			picture = GFX_idea_BERN_dev_hermetic_gameboard_society
+			removal_cost = -1
+			level = 1
+			cancel_if_invalid = no
+			allowed = {
+				original_tag = USA
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+			}
+			allowed_to_remove = {
+				always = no
+			}
+			modifier = {
+				global_building_slots_factor = 0.20
+				production_factory_max_efficiency_factor = 0.10
+				line_change_production_efficiency_factor = 0.15
+				resistance_target = -0.15
+				dtg_threshold = 1.20
+				custom_modifier_tooltip = society_development_modifier_tooltip
+			}
+		}
+	}
+}

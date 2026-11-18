@@ -600,6 +600,70 @@ country_event = {
 				BERN_acting_substitute_hog
 				BERN_willard_h_wright_theorist
 			}
+			# Откат ведьмовских законов на стандарты TFR при коллапсе режима
+			if = {
+				limit = { has_idea = BERN_law_platinum_seigniorage }
+				swap_ideas = {
+					remove_idea = BERN_law_platinum_seigniorage
+					add_idea = mass_consumerism
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_sealed_catbox_trade }
+				swap_ideas = {
+					remove_idea = BERN_law_sealed_catbox_trade
+					add_idea = higher_trade
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_main_core_conscription }
+				swap_ideas = {
+					remove_idea = BERN_law_main_core_conscription
+					add_idea = lower_conscription
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_knox_military_inquisition }
+				swap_ideas = {
+					remove_idea = BERN_law_knox_military_inquisition
+					add_idea = high_supervision
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_erika_606_censorship }
+				swap_ideas = {
+					remove_idea = BERN_law_erika_606_censorship
+					add_idea = medium_education
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_schedule_f_furniture_state }
+				swap_ideas = {
+					remove_idea = BERN_law_schedule_f_furniture_state
+					add_idea = high_police
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_van_dine_fair_play }
+				swap_ideas = {
+					remove_idea = BERN_law_van_dine_fair_play
+					add_idea = high_police
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_dev_shard_probability_science }
+				swap_ideas = {
+					remove_idea = BERN_dev_shard_probability_science
+					add_idea = higher_academic
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_dev_hermetic_gameboard_society }
+				swap_ideas = {
+					remove_idea = BERN_dev_hermetic_gameboard_society
+					add_idea = high_society
+				}
+			}
 		}
 		add_stability = -0.25
 		add_political_power = -200
@@ -720,6 +784,70 @@ country_event = {
 				BERN_erika_furudo_int
 				BERN_dlanor_a_knox_sec
 				BERN_acting_substitute_hog
+			}
+			# Откат ведьмовских законов на стандарты TFR при Золотой Истине
+			if = {
+				limit = { has_idea = BERN_law_platinum_seigniorage }
+				swap_ideas = {
+					remove_idea = BERN_law_platinum_seigniorage
+					add_idea = mass_consumerism
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_sealed_catbox_trade }
+				swap_ideas = {
+					remove_idea = BERN_law_sealed_catbox_trade
+					add_idea = higher_trade
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_main_core_conscription }
+				swap_ideas = {
+					remove_idea = BERN_law_main_core_conscription
+					add_idea = lower_conscription
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_knox_military_inquisition }
+				swap_ideas = {
+					remove_idea = BERN_law_knox_military_inquisition
+					add_idea = high_supervision
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_erika_606_censorship }
+				swap_ideas = {
+					remove_idea = BERN_law_erika_606_censorship
+					add_idea = medium_education
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_schedule_f_furniture_state }
+				swap_ideas = {
+					remove_idea = BERN_law_schedule_f_furniture_state
+					add_idea = high_police
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_law_van_dine_fair_play }
+				swap_ideas = {
+					remove_idea = BERN_law_van_dine_fair_play
+					add_idea = high_police
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_dev_shard_probability_science }
+				swap_ideas = {
+					remove_idea = BERN_dev_shard_probability_science
+					add_idea = higher_academic
+				}
+			}
+			if = {
+				limit = { has_idea = BERN_dev_hermetic_gameboard_society }
+				swap_ideas = {
+					remove_idea = BERN_dev_hermetic_gameboard_society
+					add_idea = high_society
+				}
 			}
 		}
 		set_politics = {

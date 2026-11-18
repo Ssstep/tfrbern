@@ -22,6 +22,7 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 		completion_reward = {
 			add_political_power = 100
+			add_ideas = BERN_dev_hermetic_gameboard_society
 			BERN_initialize_catbox_matrix = yes
 			add_to_variable = { BERN_logic_error_progress = 5 }
 			subtract_from_variable = { BERN_existential_boredom = 10 }
@@ -53,6 +54,7 @@ focus_tree = {
 		ai_will_do = { factor = 50 }
 		completion_reward = {
 			add_ideas = USA_catbox_republic
+			add_ideas = BERN_law_sealed_catbox_trade
 			add_to_variable = { BERN_duct_tape_seal_integrity = 15 }
 			add_to_variable = { BERN_logic_error_progress = 5 }
 			subtract_from_variable = { BERN_existential_boredom = 5 }
@@ -82,6 +84,7 @@ focus_tree = {
 		ai_will_do = { factor = 40 }
 		completion_reward = {
 			# Активация 47 U.S.C. § 606 (Internet Kill Switch и опечатывание станций связи)
+			add_ideas = BERN_law_erika_606_censorship
 			add_to_variable = { BERN_duct_tape_seal_integrity = 25 }
 			subtract_from_variable = { BERN_anti_magic_toxin = 10 }
 			add_to_variable = { BERN_willard_heart_resistance = 5 }
@@ -174,6 +177,7 @@ focus_tree = {
 		ai_will_do = { factor = 40 }
 		completion_reward = {
 			# Развертывание программы DETPRO и базы индекса безопасности Main Core (8 000 000 граждан)
+			add_ideas = BERN_law_main_core_conscription
 			add_to_variable = { BERN_main_core_indexed_millions = 3.5 }
 			add_to_variable = { BERN_duct_tape_seal_integrity = 20 }
 			subtract_from_variable = { BERN_anti_magic_toxin = 12 }
@@ -312,6 +316,7 @@ focus_tree = {
 		completion_reward = {
 			# 5 U.S.C. § 7511 и Указ № 13957: перевод карьерных служащих в статус «Мебели»
 			add_ideas = USA_schedule_policy_furniture
+			add_ideas = BERN_law_schedule_f_furniture_state
 			add_to_variable = { BERN_schedule_f_furniture_ratio = 35 }
 			subtract_from_variable = { BERN_anti_magic_toxin = 15 }
 			add_to_variable = { BERN_void_ab_initio_charges = 2 }
@@ -412,6 +417,7 @@ focus_tree = {
 				limit = { NOT = { has_idea = BERN_dlanor_a_knox_sec } }
 				add_ideas = BERN_dlanor_a_knox_sec
 			}
+			add_ideas = BERN_law_knox_military_inquisition
 			add_to_variable = { BERN_red_truth_dossiers = 3 }
 			add_to_variable = { BERN_logic_error_progress = 5 }
 			add_to_variable = { BERN_subversion_cost = -0.05 }
@@ -558,6 +564,7 @@ focus_tree = {
 				remove_ideas = BERN_willard_h_wright_theorist
 			}
 			add_ideas = BERN_knox_inquisition_idea
+			add_ideas = BERN_law_knox_military_inquisition
 			set_variable = { BERN_willard_heart_resistance = 0 }
 			add_to_variable = { BERN_purple_contradictions = 4 }
 			add_to_variable = { BERN_logic_error_progress = 15 }
@@ -594,6 +601,16 @@ focus_tree = {
 			if = {
 				limit = { NOT = { has_idea = BERN_willard_golden_rule_idea } }
 				add_ideas = BERN_willard_golden_rule_idea
+			}
+			if = {
+				limit = { has_idea = BERN_law_schedule_f_furniture_state }
+				swap_ideas = {
+					remove_idea = BERN_law_schedule_f_furniture_state
+					add_idea = BERN_law_van_dine_fair_play
+				}
+			}
+			else = {
+				add_ideas = BERN_law_van_dine_fair_play
 			}
 			add_to_variable = { BERN_stability_factor = 0.10 }
 			add_to_variable = { BERN_compliance_growth = 0.10 }
@@ -645,6 +662,7 @@ focus_tree = {
 		completion_reward = {
 			# Выпуск первой платиновой монеты в $1 трлн через United States Mint (PEF) + экономика TFR
 			add_ideas = USA_platinum_seigniorage
+			add_ideas = BERN_law_platinum_seigniorage
 			BERN_mint_trillion_coin_effect = yes
 			add_to_variable = { BERN_anti_magic_toxin = 10 }
 			subtract_from_variable = { BERN_existential_boredom = 12 }
@@ -838,6 +856,7 @@ focus_tree = {
 		completion_reward = {
 			# Слом модели RAND 1959 года: подъем автономного риска войны с 5% до 50%
 			add_ideas = USA_the_threat_that_leaves_chance
+			add_ideas = BERN_dev_shard_probability_science
 			set_variable = { BERN_schelling_brinkmanship_risk = 50 }
 			subtract_from_variable = { BERN_existential_boredom = 20 }
 			add_to_variable = { BERN_logic_error_progress = 10 }
