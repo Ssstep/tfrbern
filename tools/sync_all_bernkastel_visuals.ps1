@@ -227,34 +227,8 @@ $evInaug.Dispose()
 Write-Host "[OK] Saved report_event_bernkastel_inauguration.png"
 
 Write-Host "=== 5. Superevent DDS Artwork (556x320) ==="
-$seBmp = New-Object System.Drawing.Bitmap(556, 320, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
-$g = [System.Drawing.Graphics]::FromImage($seBmp)
-$g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
-$g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
-
-# Dark atmospheric Capitol night sky with purple aurora
-$skyGrad = New-Object System.Drawing.Drawing2D.LinearGradientBrush([System.Drawing.PointF]::new(0.0, 0.0), [System.Drawing.PointF]::new(0.0, 320.0), [System.Drawing.Color]::FromArgb(255, 16, 12, 28), [System.Drawing.Color]::FromArgb(255, 42, 22, 68))
-$g.FillRectangle($skyGrad, 0, 0, 556, 320)
-$skyGrad.Dispose()
-
-# Capitol Balcony silhouette
-$capitolBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(255, 24, 18, 36))
-$g.FillRectangle($capitolBrush, 0, 215, 556, 105)
-$capitolBrush.Dispose()
-$balconyPen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(200, 180, 140, 220), 2)
-$g.DrawLine($balconyPen, 0, 215, 556, 215)
-for ($x = 20; $x -lt 556; $x += 30) {
-    $g.DrawLine($balconyPen, $x, 215, $x, 320)
-}
-$balconyPen.Dispose()
-
-# Bernkastel centered on the grand balcony
-$g.DrawImage($sprite, (New-Object System.Drawing.Rectangle(140, 35, 320, 280)), 0, 0, $sprite.Width, $sprite.Height, [System.Drawing.GraphicsUnit]::Pixel)
-$g.Dispose()
-
-Apply-TfrTone $seBmp $true 1.25
-Save-Dds-Uncompressed $seBmp "$root\gfx\superevents\bern_presidency_superevent.dds"
-$seBmp.Dispose()
+# PROTECTED: Do not overwrite bern_presidency_superevent.dds (Original TV artwork preserved)
+Write-Host "[PROTECTED] bern_presidency_superevent.dds preserved without overwrite."
 
 Write-Host "=== 6. Focus Icons with Canonical Bernkastel (160x140) ==="
 $focusNames = @(

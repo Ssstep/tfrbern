@@ -7,6 +7,27 @@ scripted_gui = {
 			has_country_flag = BERN_bernkastel_ruling_flag
 		}
 
+		properties = {
+			tumbler_furniture_btn = {
+				frame = BERN_tumbler_furniture_frame
+			}
+			tumbler_core_btn = {
+				frame = BERN_tumbler_core_frame
+			}
+			tumbler_pead_btn = {
+				frame = BERN_tumbler_pead_frame
+			}
+			tumbler_mint_btn = {
+				frame = BERN_tumbler_mint_frame
+			}
+			tumbler_impound_btn = {
+				frame = BERN_tumbler_impound_frame
+			}
+			tumbler_schelling_btn = {
+				frame = BERN_tumbler_schelling_frame
+			}
+		}
+
 		triggers = {
 			# Отображение печатей «СТЁРТО В МОРЕ ЗАБВЕНИЯ (5 U.S.C. 3348)» поверх портретов
 			erika_voided_overlay_visible = {
@@ -137,65 +158,83 @@ scripted_gui = {
 				BERN_recalculate_catbox_modifiers = yes
 			}
 
-			# Переключение активных тумблеров (Interactive Umineko Levers)
+			# Переключение активных тумблеров (Interactive Umineko Levers: 1=OFF, 2=ON)
 			tumbler_furniture_btn_click = {
 				if = {
-					limit = { has_country_flag = BERN_tumbler_furniture_flag }
+					limit = { check_variable = { BERN_tumbler_furniture_frame = 2 } }
+					set_variable = { BERN_tumbler_furniture_frame = 1 }
 					clr_country_flag = BERN_tumbler_furniture_flag
 				}
 				else = {
+					set_variable = { BERN_tumbler_furniture_frame = 2 }
 					set_country_flag = BERN_tumbler_furniture_flag
 				}
+				BERN_recalculate_catbox_modifiers = yes
 			}
 
 			tumbler_core_btn_click = {
 				if = {
-					limit = { has_country_flag = BERN_tumbler_core_flag }
+					limit = { check_variable = { BERN_tumbler_core_frame = 2 } }
+					set_variable = { BERN_tumbler_core_frame = 1 }
 					clr_country_flag = BERN_tumbler_core_flag
 				}
 				else = {
+					set_variable = { BERN_tumbler_core_frame = 2 }
 					set_country_flag = BERN_tumbler_core_flag
 				}
+				BERN_recalculate_catbox_modifiers = yes
 			}
 
 			tumbler_pead_btn_click = {
 				if = {
-					limit = { has_country_flag = BERN_tumbler_pead_flag }
+					limit = { check_variable = { BERN_tumbler_pead_frame = 2 } }
+					set_variable = { BERN_tumbler_pead_frame = 1 }
 					clr_country_flag = BERN_tumbler_pead_flag
 				}
 				else = {
+					set_variable = { BERN_tumbler_pead_frame = 2 }
 					set_country_flag = BERN_tumbler_pead_flag
 				}
+				BERN_recalculate_catbox_modifiers = yes
 			}
 
 			tumbler_mint_btn_click = {
 				if = {
-					limit = { has_country_flag = BERN_tumbler_mint_flag }
+					limit = { check_variable = { BERN_tumbler_mint_frame = 2 } }
+					set_variable = { BERN_tumbler_mint_frame = 1 }
 					clr_country_flag = BERN_tumbler_mint_flag
 				}
 				else = {
+					set_variable = { BERN_tumbler_mint_frame = 2 }
 					set_country_flag = BERN_tumbler_mint_flag
 				}
+				BERN_recalculate_catbox_modifiers = yes
 			}
 
 			tumbler_impound_btn_click = {
 				if = {
-					limit = { has_country_flag = BERN_tumbler_impound_flag }
+					limit = { check_variable = { BERN_tumbler_impound_frame = 2 } }
+					set_variable = { BERN_tumbler_impound_frame = 1 }
 					clr_country_flag = BERN_tumbler_impound_flag
 				}
 				else = {
+					set_variable = { BERN_tumbler_impound_frame = 2 }
 					set_country_flag = BERN_tumbler_impound_flag
 				}
+				BERN_recalculate_catbox_modifiers = yes
 			}
 
 			tumbler_schelling_btn_click = {
 				if = {
-					limit = { has_country_flag = BERN_tumbler_schelling_flag }
+					limit = { check_variable = { BERN_tumbler_schelling_frame = 2 } }
+					set_variable = { BERN_tumbler_schelling_frame = 1 }
 					clr_country_flag = BERN_tumbler_schelling_flag
 				}
 				else = {
+					set_variable = { BERN_tumbler_schelling_frame = 2 }
 					set_country_flag = BERN_tumbler_schelling_flag
 				}
+				BERN_recalculate_catbox_modifiers = yes
 			}
 		}
 	}

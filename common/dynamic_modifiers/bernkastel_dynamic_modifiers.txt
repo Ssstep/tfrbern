@@ -27,6 +27,7 @@ BERN_witch_economics_dm = {
 	stability_factor = BERN_econ_stability_penalty
 	political_power_factor = BERN_econ_pp_factor
 }
+
 BERN_gameboard_telemetry_dm = {
 	enable = {
 		has_country_flag = BERN_bernkastel_ruling_flag
@@ -37,4 +38,8 @@ BERN_gameboard_telemetry_dm = {
 	stability_factor = BERN_dm_stability
 	resistance_target = BERN_dm_resistance_target
 	production_speed_buildings_factor = BERN_dm_construction_speed
+	industrial_capacity_factory = BERN_dm_factory_output
+	decryption_factor = BERN_dm_decryption
+	mobilization_speed = BERN_dm_mobilization
+	war_support_factor = BERN_dm_war_support
 }

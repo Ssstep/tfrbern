@@ -64,30 +64,38 @@ BERN_initialize_catbox_matrix = {
 		limit = { NOT = { has_country_flag = BERN_matrix_initialized_flag } }
 		set_country_flag = BERN_matrix_initialized_flag
 		# 1. Мета-индикаторы Гейммастера
-		set_variable = { BERN_existential_boredom = 25 }        # 0-100%: при 100% Бернкастель бросает доску и уходит
-		set_variable = { BERN_logic_error_progress = 10 }       # 0-100%: герметичность ловушки (при 100% — Триумф)
-		set_variable = { BERN_anti_magic_toxin = 45 }           # 0-100%: скептицизм судов, GAO и бюрократии
+		set_variable = { BERN_existential_boredom = 35 }        # 0-100%: при 100% Бернкастель бросает доску и уходит
+		set_variable = { BERN_logic_error_progress = 25 }       # 0-100%: герметичность ловушки (при 100% — Триумф)
+		set_variable = { BERN_anti_magic_toxin = 65 }           # 0-100%: скептицизм судов, GAO и бюрократии
 
 		# 2. Кадровый аппарат (FVRA 5 U.S.C. 3345 & Schedule Policy/Career)
-		set_variable = { BERN_acting_cabinet_slots = 15 }       # Из 15 постов Кабинета (паралич 25-й поправки)
-		set_variable = { BERN_non_exclusive_delegation = 30 }   # % функций, переданных клеркам GS-15 в обход Сената
-		set_variable = { BERN_schedule_f_furniture_ratio = 15 } # % госслужащих в статусе безмолвной «Мебели»
-		set_variable = { BERN_void_ab_initio_charges = 2 }      # Готовые ордера компромата для стирания фигур
+		set_variable = { BERN_acting_cabinet_slots = 9 }        # Из 15 постов Кабинета (паралич 25-й поправки)
+		set_variable = { BERN_non_exclusive_delegation = 45 }   # % функций, переданных клеркам GS-15 в обход Сената
+		set_variable = { BERN_schedule_f_furniture_ratio = 30 } # % госслужащих в статусе безмолвной «Мебели»
+		set_variable = { BERN_void_ab_initio_charges = 4 }      # Готовые ордера компромата для стирания фигур
 
 		# 3. Контур Истин и ЧП (PEADs, 47 U.S.C. 606, Декалог Нокса)
-		set_variable = { BERN_red_truth_dossiers = 5 }          # Засекреченные архивы Navy v. Egan
-		set_variable = { BERN_purple_contradictions = 0 }       # Пойманные на лжи конгрессмены (18 U.S.C. 1001)
-		set_variable = { BERN_duct_tape_seal_integrity = 20 }   # Информационная блокада штатов (0-100%)
-		set_variable = { BERN_active_peads_count = 0 }          # Из 56 секретных директив FEMA/OLC
-		set_variable = { BERN_main_core_indexed_millions = 0.5 }# Из 8.0 млн граждан в индексе Main Core
-		set_variable = { BERN_willard_heart_resistance = 15 }   # Саботаж Уилларда Х. Райта внутри SSVD (0-100%)
+		set_variable = { BERN_red_truth_dossiers = 7 }          # Засекреченные архивы Navy v. Egan
+		set_variable = { BERN_purple_contradictions = 3 }       # Пойманные на лжи конгрессмены (18 U.S.C. 1001)
+		set_variable = { BERN_duct_tape_seal_integrity = 55 }   # Информационная блокада штатов (0-100%)
+		set_variable = { BERN_active_peads_count = 18 }         # Из 56 секретных директив FEMA/OLC
+		set_variable = { BERN_main_core_indexed_millions = 3.2 }# Из 8.0 млн граждан в индексе Main Core
+		set_variable = { BERN_willard_heart_resistance = 45 }   # Саботаж Уилларда Х. Райта внутри SSVD (0-100%)
 
 		# 4. Фискальный и ядерный контур (31 U.S.C. 5112(k), ICA, Шеллинг)
-		set_variable = { BERN_minted_platinum_trillions = 0 }   # Количество отчеканенных монет по $1 трлн
-		set_variable = { BERN_seigniorage_inflation = 0 }       # Инфляционный шок и обвал трежерис
-		set_variable = { BERN_impounded_appropriations_b = 0 }  # Замороженные миллиарды Конгресса (2 U.S.C. 683)
-		set_variable = { BERN_schelling_brinkmanship_risk = 5 } # Риск войны: от 5% (Шеллинг) до 99.99996% (Казус Клер)
-		set_variable = { BERN_schelling_bar_frame = 5 }
+		set_variable = { BERN_minted_platinum_trillions = 1 }   # Количество отчеканенных монет по $1 трлн
+		set_variable = { BERN_seigniorage_inflation = 18 }      # Инфляционный шок и обвал трежерис
+		set_variable = { BERN_impounded_appropriations_b = 140 }# Замороженные миллиарды Конгресса (2 U.S.C. 683)
+		set_variable = { BERN_schelling_brinkmanship_risk = 25 }# Риск войны: от 5% (Шеллинг) до 99.99996% (Казус Клер)
+		set_variable = { BERN_schelling_bar_frame = 25 }
+
+		# 5. Инициализация всех 6 интерактивных тумблеров (кадр 1 = выключен)
+		set_variable = { BERN_tumbler_furniture_frame = 1 }
+		set_variable = { BERN_tumbler_core_frame = 1 }
+		set_variable = { BERN_tumbler_pead_frame = 1 }
+		set_variable = { BERN_tumbler_mint_frame = 1 }
+		set_variable = { BERN_tumbler_impound_frame = 1 }
+		set_variable = { BERN_tumbler_schelling_frame = 1 }
 	}
 
 	if = {
@@ -127,6 +135,55 @@ BERN_recalculate_catbox_modifiers = {
 	set_temp_variable = { inflation_prod_hit = BERN_seigniorage_inflation }
 	multiply_temp_variable = { inflation_prod_hit = 0.01 }
 	subtract_from_variable = { BERN_dm_construction_speed = inflation_prod_hit }
+
+	# Баффы от активных тумблеров (Interactive Umineko Levers)
+	set_variable = { BERN_dm_factory_output = 0.00 }
+	set_variable = { BERN_dm_decryption = 0.00 }
+	set_variable = { BERN_dm_mobilization = 0.00 }
+	set_variable = { BERN_dm_war_support = 0.00 }
+
+	# Тумблер 1: Schedule F Мебель (+5% ПП, +5% стабильности)
+	if = {
+		limit = { check_variable = { BERN_tumbler_furniture_frame = 2 } }
+		add_to_variable = { BERN_dm_pp_factor = 0.05 }
+		add_to_variable = { BERN_dm_stability = 0.05 }
+	}
+
+	# Тумблер 2: Main Core (+10% производительности фабрик, +10% расшифровка)
+	if = {
+		limit = { check_variable = { BERN_tumbler_core_frame = 2 } }
+		add_to_variable = { BERN_dm_factory_output = 0.10 }
+		add_to_variable = { BERN_dm_decryption = 0.10 }
+	}
+
+	# Тумблер 3: PEADs (+15% расшифровка/шифрование, +10% поддержка войны)
+	if = {
+		limit = { check_variable = { BERN_tumbler_pead_frame = 2 } }
+		add_to_variable = { BERN_dm_decryption = 0.15 }
+		add_to_variable = { BERN_dm_war_support = 0.10 }
+	}
+
+	# Тумблер 4: Монетный двор ($1T монеты: +8% скорость стройки, -5% стабильность от инфляции)
+	if = {
+		limit = { check_variable = { BERN_tumbler_mint_frame = 2 } }
+		add_to_variable = { BERN_dm_construction_speed = 0.08 }
+		subtract_from_variable = { BERN_dm_stability = 0.05 }
+	}
+
+	# Тумблер 5: ICA Арест (+10% полит. власти, -3% сопротивление)
+	if = {
+		limit = { check_variable = { BERN_tumbler_impound_frame = 2 } }
+		add_to_variable = { BERN_dm_pp_factor = 0.10 }
+		subtract_from_variable = { BERN_dm_resistance_target = 0.03 }
+	}
+
+	# Тумблер 6: Шеллинг (+10% скорости мобилизации, +10% поддержки войны, -5% стабильности)
+	if = {
+		limit = { check_variable = { BERN_tumbler_schelling_frame = 2 } }
+		add_to_variable = { BERN_dm_mobilization = 0.10 }
+		add_to_variable = { BERN_dm_war_support = 0.10 }
+		subtract_from_variable = { BERN_dm_stability = 0.05 }
+	}
 
 	# Синхронизация кадра прогресс-бара терминала Шеллинга
 	set_variable = { BERN_schelling_bar_frame = BERN_schelling_brinkmanship_risk }
