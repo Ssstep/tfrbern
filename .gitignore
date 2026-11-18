@@ -50,6 +50,7 @@ env/
 *.swp
 *~
 *.log
+repomix-output.*
 
 # Scratch scripts and raw asset workdirs
 scratch/
