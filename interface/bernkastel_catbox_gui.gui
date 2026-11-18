@@ -1,0 +1,530 @@
+guiTypes = {
+	containerWindowType = {
+		name = "bernkastel_executive_architecture_gui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 510 height = 760 }
+
+		# Главная фоновая иллюстрация: Купол Капитолия, Столпы Власти, Лоток и Нижняя Матрица Доски
+		iconType = {
+			name = "catbox_grand_bg"
+			spriteType = "GFX_bern_gui_catbox_grand_bg"
+			position = { x = 5 y = 0 }
+			alwaystransparent = yes
+		}
+
+		# =====================================================================
+		# ЯРУС I: ВЕРШИНА ВЛАСТИ — ГЕЙММАСТЕР И МЕТА-ИНДИКАТОРЫ
+		# =====================================================================
+
+		# Портрет Гейммастера (Фредерика Бернкастель) на фоне Купола Капитолия
+		containerWindowType = {
+			name = "bernkastel_president_box"
+			position = { x = 210 y = 50 }
+			size = { width = 80 height = 96 }
+
+			iconType = {
+				name = "bernkastel_portrait"
+				spriteType = "GFX_portrait_frederica_bernkastel_small"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "BERN_GUI_GAMEMASTER_TT"
+			}
+		}
+
+		# Левый мета-индикатор: Экзистенциальная Скука Ведьмы
+		containerWindowType = {
+			name = "boredom_meta_box"
+			position = { x = 12 y = 75 }
+			size = { width = 185 height = 50 }
+
+			iconType = {
+				name = "boredom_icon"
+				spriteType = "GFX_decision_boredom"
+				position = { x = 4 y = 5 }
+			}
+
+			instantTextBoxType = {
+				name = "boredom_readout_box"
+				position = { x = 32 y = 2 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_BOREDOM_READOUT"
+				maxWidth = 150
+				maxHeight = 44
+				format = left
+				pdx_tooltip = "BERN_GUI_BOREDOM_TT"
+			}
+		}
+
+		# Правый мета-индикатор: Логическая Ошибка (Замыкание Кошачьего Ящика)
+		containerWindowType = {
+			name = "logic_error_meta_box"
+			position = { x = 312 y = 75 }
+			size = { width = 185 height = 50 }
+
+			iconType = {
+				name = "logic_error_icon"
+				spriteType = "GFX_decision_void_ab_initio"
+				position = { x = 4 y = 5 }
+			}
+
+			instantTextBoxType = {
+				name = "logic_error_readout_box"
+				position = { x = 32 y = 2 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_LOGIC_ERROR_READOUT"
+				maxWidth = 150
+				maxHeight = 44
+				format = left
+				pdx_tooltip = "BERN_GUI_LOGIC_ERROR_TT"
+			}
+		}
+
+		# Шапка-баннер под куполом Капитолия
+		instantTextBoxType = {
+			name = "president_banner_title"
+			position = { x = 50 y = 186 }
+			font = "hoi_16mbs"
+			text = "BERN_GUI_HEADER_TITLE"
+			maxWidth = 400
+			maxHeight = 20
+			format = center
+			alwaystransparent = yes
+		}
+
+		# Центральный индикатор под куполом: Антимагический Токсин
+		containerWindowType = {
+			name = "toxin_meta_box"
+			position = { x = 125 y = 212 }
+			size = { width = 260 height = 22 }
+
+			iconType = {
+				name = "toxin_led"
+				spriteType = "GFX_bern_led_purple"
+				position = { x = 2 y = 2 }
+			}
+
+			instantTextBoxType = {
+				name = "toxin_text"
+				position = { x = 22 y = 1 }
+				font = "hoi_16mbs"
+				text = "BERN_TEL_TOXIN_TEXT"
+				maxWidth = 236
+				maxHeight = 20
+				pdx_tooltip = "BERN_TEL_TOXIN_TT"
+			}
+		}
+
+		# =====================================================================
+		# ЯРУС II: ТРИ СТОЛПА ИНКВИЗИЦИИ (ЭРИКА / ДЛАНОР / УИЛЛАРД)
+		# =====================================================================
+
+		# --- 1. ЛЕВЫЙ СТОЛП: ЭРИКА ФУРУДО (Синий Дом / Юрисконсульт и Детектив) ---
+		containerWindowType = {
+			name = "erika_pillar_container"
+			position = { x = 55 y = 245 }
+			size = { width = 138 height = 175 }
+
+			iconType = {
+				name = "erika_portrait"
+				spriteType = "GFX_bern_gui_portrait_erika"
+				position = { x = 29 y = 4 }
+				pdx_tooltip = "BERN_GUI_ERIKA_TT"
+			}
+
+			iconType = {
+				name = "erika_voided_overlay"
+				spriteType = "GFX_bern_void_ab_initio_stamp"
+				position = { x = 9 y = 18 }
+				pdx_tooltip = "BERN_GUI_ERIKA_VOIDED_TT"
+			}
+
+			instantTextBoxType = {
+				name = "erika_pillar_label"
+				position = { x = 0 y = 94 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_ERIKA_LABEL"
+				maxWidth = 138
+				maxHeight = 16
+				format = center
+			}
+
+			instantTextBoxType = {
+				name = "erika_meter_readout"
+				position = { x = 0 y = 110 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_ERIKA_METER_TEXT"
+				maxWidth = 138
+				maxHeight = 16
+				format = center
+				pdx_tooltip = "BERN_GUI_ERIKA_TT"
+			}
+
+			instantTextBoxType = {
+				name = "erika_contra_txt"
+				position = { x = 0 y = 126 }
+				font = "hoi_16mbs"
+				text = "BERN_TEL_CONTRADICTIONS_TEXT"
+				maxWidth = 138
+				maxHeight = 16
+				format = center
+				pdx_tooltip = "BERN_TEL_CONTRADICTIONS_TT"
+			}
+
+			buttonType = {
+				name = "erika_action_btn"
+				position = { x = 4 y = 144 }
+				spriteType = "GFX_bern_gui_btn_blue"
+				buttonFont = "hoi_16mbs"
+				buttonText = "BERN_GUI_BTN_DUCT_TAPE"
+				pdx_tooltip = "BERN_GUI_BTN_DUCT_TAPE_TT"
+				clicksound = click_default
+			}
+		}
+
+		# --- 2. ЦЕНТРАЛЬНЫЙ СТОЛП: ДЛАНОР А. НОКС (Красный Дом / Генеральный прокурор) ---
+		containerWindowType = {
+			name = "dlanor_pillar_container"
+			position = { x = 195 y = 245 }
+			size = { width = 138 height = 175 }
+
+			iconType = {
+				name = "dlanor_portrait"
+				spriteType = "GFX_bern_gui_portrait_dlanor"
+				position = { x = 29 y = 4 }
+				pdx_tooltip = "BERN_GUI_DLANOR_TT"
+			}
+
+			instantTextBoxType = {
+				name = "dlanor_pillar_label"
+				position = { x = 0 y = 94 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_DLANOR_LABEL"
+				maxWidth = 138
+				maxHeight = 16
+				format = center
+			}
+
+			instantTextBoxType = {
+				name = "dlanor_meter_readout"
+				position = { x = 0 y = 110 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_DLANOR_METER_TEXT"
+				maxWidth = 138
+				maxHeight = 16
+				format = center
+				pdx_tooltip = "BERN_GUI_DLANOR_TT"
+			}
+
+			instantTextBoxType = {
+				name = "dlanor_egan_txt"
+				position = { x = 0 y = 126 }
+				font = "hoi_16mbs"
+				text = "BERN_TEL_RED_TRUTH_TEXT"
+				maxWidth = 138
+				maxHeight = 16
+				format = center
+				pdx_tooltip = "BERN_TEL_RED_TRUTH_TT"
+			}
+
+			buttonType = {
+				name = "dlanor_action_btn"
+				position = { x = 4 y = 144 }
+				spriteType = "GFX_bern_gui_btn_red"
+				buttonFont = "hoi_16mbs"
+				buttonText = "BERN_GUI_BTN_KNOX_VERDICT"
+				pdx_tooltip = "BERN_GUI_BTN_KNOX_VERDICT_TT"
+				clicksound = click_default
+			}
+		}
+
+		# --- 3. ПРАВЫЙ СТОЛП: УИЛЛАРД Х. РАЙТ (Серый Дом / Главный инспектор SSVD) ---
+		containerWindowType = {
+			name = "willard_pillar_container"
+			position = { x = 335 y = 245 }
+			size = { width = 138 height = 175 }
+
+			iconType = {
+				name = "willard_portrait"
+				spriteType = "GFX_bern_gui_portrait_willard"
+				position = { x = 29 y = 4 }
+				pdx_tooltip = "BERN_GUI_WILLARD_TT"
+			}
+
+			iconType = {
+				name = "willard_voided_overlay"
+				spriteType = "GFX_bern_void_ab_initio_stamp"
+				position = { x = 9 y = 18 }
+				pdx_tooltip = "BERN_GUI_WILLARD_VOIDED_TT"
+			}
+
+			instantTextBoxType = {
+				name = "willard_pillar_label"
+				position = { x = 0 y = 94 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_WILLARD_LABEL"
+				maxWidth = 138
+				maxHeight = 16
+				format = center
+			}
+
+			instantTextBoxType = {
+				name = "willard_meter_readout"
+				position = { x = 0 y = 110 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_WILLARD_METER_TEXT"
+				maxWidth = 138
+				maxHeight = 16
+				format = center
+				pdx_tooltip = "BERN_GUI_WILLARD_TT"
+			}
+
+			instantTextBoxType = {
+				name = "willard_fair_txt"
+				position = { x = 0 y = 126 }
+				font = "hoi_16mbs"
+				text = "BERN_TEL_WILLARD_TEXT"
+				maxWidth = 138
+				maxHeight = 16
+				format = center
+				pdx_tooltip = "BERN_TEL_WILLARD_TT"
+			}
+
+			buttonType = {
+				name = "willard_action_btn"
+				position = { x = 4 y = 144 }
+				spriteType = "GFX_bern_gui_btn_grey"
+				buttonFont = "hoi_16mbs"
+				buttonText = "BERN_GUI_BTN_VAN_DINE"
+				pdx_tooltip = "BERN_GUI_BTN_VAN_DINE_TT"
+				clicksound = click_default
+			}
+		}
+
+		# =====================================================================
+		# ЯРУС III: ШАХМАТНЫЙ ЛОТОК — SCHEDULE POLICY/CAREER И КЛЕР
+		# =====================================================================
+		containerWindowType = {
+			name = "chessboard_furniture_tray"
+			position = { x = 12 y = 422 }
+			size = { width = 485 height = 105 }
+
+			iconType = {
+				name = "clair_portrait"
+				spriteType = "GFX_bern_gui_portrait_clair"
+				position = { x = 6 y = 8 }
+				pdx_tooltip = "BERN_GUI_CLAIR_TT"
+			}
+
+			instantTextBoxType = {
+				name = "tray_header_title"
+				position = { x = 94 y = 4 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_TRAY_TITLE"
+				maxWidth = 380
+				maxHeight = 16
+				format = left
+			}
+
+			# Шкала 1: Статус «Мебели» Schedule F
+			instantTextBoxType = {
+				name = "meter_furniture_txt"
+				position = { x = 94 y = 22 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_METER_FURNITURE_TEXT"
+				maxWidth = 265
+				maxHeight = 20
+				format = left
+				pdx_tooltip = "BERN_GUI_FURNITURE_TT"
+			}
+
+			# Шкала 2: Вакансии FVRA / ИО Кабинета (5 U.S.C. § 3345)
+			instantTextBoxType = {
+				name = "meter_cabinet_txt"
+				position = { x = 94 y = 44 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_METER_CABINET_TEXT"
+				maxWidth = 265
+				maxHeight = 20
+				format = left
+				pdx_tooltip = "BERN_GUI_FVRA_ACTING_TT"
+			}
+
+			# Шкала 3: Ордера аннуляции Void Ab Initio (5 U.S.C. § 3348)
+			instantTextBoxType = {
+				name = "meter_void_txt"
+				position = { x = 94 y = 66 }
+				font = "hoi_16mbs"
+				text = "BERN_GUI_METER_VOID_TEXT"
+				maxWidth = 265
+				maxHeight = 20
+				format = left
+				pdx_tooltip = "BERN_GUI_FVRA_TRAY_TT"
+			}
+
+			# Активный тумблер селекции мебели
+			buttonType = {
+				name = "tumbler_furniture_btn"
+				position = { x = 385 y = 14 }
+				quadTextureSprite = "GFX_bern_tumbler_purple"
+				buttonFont = "hoi_16mbs"
+				buttonText = "BERN_TUMBLER_FURNITURE"
+				pdx_tooltip = "BERN_TUMBLER_FURNITURE_TT"
+				clicksound = click_default
+			}
+
+			# Кнопка сброса чиновников в Лоток Фигур (Void Ab Initio)
+			buttonType = {
+				name = "purge_tray_btn"
+				position = { x = 370 y = 48 }
+				spriteType = "GFX_bern_gui_btn_purple"
+				buttonFont = "hoi_16mbs"
+				buttonText = "BERN_GUI_BTN_VOID_PURGE"
+				pdx_tooltip = "BERN_GUI_BTN_VOID_PURGE_TT"
+				clicksound = click_default
+			}
+		}
+
+		# =====================================================================
+		# ЯРУС IV: ДОСКА СУДЕБ И АДМИНИСТРАТИВНАЯ МАТРИЦА ВЕДЬМЫ
+		# =====================================================================
+		containerWindowType = {
+			name = "grand_gameboard_matrix"
+			position = { x = 10 y = 530 }
+			size = { width = 490 height = 225 }
+
+			# --- 1. Панель MAIN CORE (АНБ) ---
+			iconType = {
+				name = "mat_core_led"
+				spriteType = "GFX_bern_led_cyan"
+				position = { x = 6 y = 14 }
+			}
+
+			instantTextBoxType = {
+				name = "mat_core_txt"
+				position = { x = 28 y = 12 }
+				font = "hoi_16mbs"
+				text = "BERN_TEL_MAIN_CORE_TEXT"
+				maxWidth = 350
+				maxHeight = 20
+				pdx_tooltip = "BERN_TEL_MAIN_CORE_TT"
+			}
+
+			buttonType = {
+				name = "tumbler_core_btn"
+				position = { x = 392 y = 9 }
+				quadTextureSprite = "GFX_bern_tumbler_blue"
+				buttonFont = "hoi_16mbs"
+				buttonText = "BERN_TUMBLER_CORE"
+				pdx_tooltip = "BERN_TUMBLER_CORE_TT"
+				clicksound = click_default
+			}
+
+			# --- 2. Панель Секретных Директив PEADs (FEMA) ---
+			iconType = {
+				name = "mat_pead_icon"
+				spriteType = "GFX_decision_pead"
+				position = { x = 4 y = 54 }
+			}
+
+			instantTextBoxType = {
+				name = "mat_pead_txt"
+				position = { x = 28 y = 54 }
+				font = "hoi_16mbs"
+				text = "BERN_TEL_PEADS_TEXT"
+				maxWidth = 350
+				maxHeight = 20
+				pdx_tooltip = "BERN_TEL_PEADS_TT"
+			}
+
+			buttonType = {
+				name = "tumbler_pead_btn"
+				position = { x = 392 y = 51 }
+				quadTextureSprite = "GFX_bern_tumbler_purple"
+				buttonFont = "hoi_16mbs"
+				buttonText = "BERN_TUMBLER_PEAD"
+				pdx_tooltip = "BERN_TUMBLER_PEAD_TT"
+				clicksound = click_default
+			}
+
+			# --- 3. Панель Платинового Сеньоража и Инфляции ---
+			iconType = {
+				name = "mat_mint_icon"
+				spriteType = "GFX_decision_trillion_coin"
+				position = { x = 4 y = 96 }
+			}
+
+			instantTextBoxType = {
+				name = "mat_mint_txt"
+				position = { x = 28 y = 96 }
+				font = "hoi_16mbs"
+				text = "BERN_TEL_PLATINUM_COMBINED_TEXT"
+				maxWidth = 350
+				maxHeight = 20
+				pdx_tooltip = "BERN_TEL_PLATINUM_TT"
+			}
+
+			buttonType = {
+				name = "tumbler_mint_btn"
+				position = { x = 392 y = 93 }
+				quadTextureSprite = "GFX_bern_tumbler_gold"
+				buttonFont = "hoi_16mbs"
+				buttonText = "BERN_TUMBLER_MINT"
+				pdx_tooltip = "BERN_TUMBLER_MINT_TT"
+				clicksound = click_default
+			}
+
+			# --- 4. Панель Заморозки ICA и Делегирования ---
+			iconType = {
+				name = "mat_impound_icon"
+				spriteType = "GFX_decision_void_ab_initio"
+				position = { x = 4 y = 138 }
+			}
+
+			instantTextBoxType = {
+				name = "mat_impound_txt"
+				position = { x = 28 y = 138 }
+				font = "hoi_16mbs"
+				text = "BERN_TEL_IMPOUND_COMBINED_TEXT"
+				maxWidth = 350
+				maxHeight = 20
+				pdx_tooltip = "BERN_TEL_IMPOUND_TT"
+			}
+
+			buttonType = {
+				name = "tumbler_impound_btn"
+				position = { x = 392 y = 135 }
+				quadTextureSprite = "GFX_bern_tumbler_purple"
+				buttonFont = "hoi_16mbs"
+				buttonText = "BERN_TUMBLER_IMPOUND"
+				pdx_tooltip = "BERN_TUMBLER_IMPOUND_TT"
+				clicksound = click_default
+			}
+
+			# --- 5. Панель Асимметричного Шантажа Шеллинга ---
+			iconType = {
+				name = "mat_schelling_icon"
+				spriteType = "GFX_decision_shard"
+				position = { x = 4 y = 180 }
+			}
+
+			instantTextBoxType = {
+				name = "mat_schelling_txt"
+				position = { x = 28 y = 180 }
+				font = "hoi_16mbs"
+				text = "BERN_TEL_SCHELLING_TEXT"
+				maxWidth = 350
+				maxHeight = 20
+				pdx_tooltip = "BERN_TEL_SCHELLING_TT"
+			}
+
+			buttonType = {
+				name = "tumbler_schelling_btn"
+				position = { x = 392 y = 177 }
+				quadTextureSprite = "GFX_bern_tumbler_red"
+				buttonFont = "hoi_16mbs"
+				buttonText = "BERN_TUMBLER_SCHELLING"
+				pdx_tooltip = "BERN_TUMBLER_SCHELLING_TT"
+				clicksound = click_default
+			}
+		}
+	}
+}

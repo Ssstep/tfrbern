@@ -1,0 +1,154 @@
+BERN_boredom_bop = {
+	initial_value = 0.05
+	left_side = BERN_planned_harmony_side
+	right_side = BERN_logic_error_side
+	decision_category = BERN_balance_of_power_category
+
+	### Средняя зона: Хрупкое равновесие на доске
+	range = {
+		id = BERN_equilibrium_range
+		min = -0.15
+		max = 0.15
+		modifier = {
+			political_power_gain = 0.05
+			stability_factor = 0.02
+		}
+		on_activate = {
+		}
+		on_deactivate = {
+		}
+	}
+
+	### ЛЕВЫЙ ПОЛЮС: Запланированная гармония (Экзистенциальная скука)
+	side = {
+		id = BERN_planned_harmony_side
+		icon = "GFX_bop_BERN_planned_harmony"
+
+		range = {
+			id = BERN_stagnation_range
+			min = -0.50
+			max = -0.15
+			modifier = {
+				political_power_gain = -0.10
+				war_support_factor = -0.05
+				stability_factor = 0.03
+			}
+			on_activate = {
+			}
+			on_deactivate = {
+			}
+		}
+
+		range = {
+			id = BERN_existential_apathy_range
+			min = -0.85
+			max = -0.50
+			modifier = {
+				political_power_gain = -0.25
+				war_support_factor = -0.15
+				stability_factor = -0.10
+				command_power_gain_mult = -0.15
+			}
+			on_activate = {
+			}
+			on_deactivate = {
+			}
+		}
+
+		range = {
+			id = BERN_witch_departure_range
+			min = -1.00
+			max = -0.85
+			modifier = {
+				political_power_gain = -0.50
+				war_support_factor = -0.25
+				stability_factor = -0.20
+				surrender_limit = -0.15
+			}
+			on_activate = {
+				if = {
+					limit = {
+						has_country_flag = BERN_bernkastel_ruling_flag
+						NOT = { has_country_flag = BERN_witch_departed_flag }
+					}
+					country_event = {
+						id = bernkastel_events.17
+						days = 2
+					}
+				}
+			}
+			on_deactivate = {
+			}
+		}
+	}
+
+	### ПРАВЫЙ ПОЛЮС: Абсолютная Логическая Ошибка (Кошачий Ящик)
+	side = {
+		id = BERN_logic_error_side
+		icon = "GFX_bop_BERN_logic_error"
+
+		range = {
+			id = BERN_procedural_trap_range
+			min = 0.15
+			max = 0.50
+			modifier = {
+				political_power_gain = 0.15
+				encryption_factor = 0.10
+				resistance_target = 0.05
+			}
+			on_activate = {
+			}
+			on_deactivate = {
+			}
+		}
+
+		range = {
+			id = BERN_hermetic_catbox_range
+			min = 0.50
+			max = 0.85
+			modifier = {
+				political_power_gain = 0.25
+				compliance_growth = 0.10
+				resistance_target = 0.12
+				stability_factor = -0.06
+				war_support_factor = 0.10
+			}
+			on_activate = {
+			}
+			on_deactivate = {
+			}
+		}
+
+		range = {
+			id = BERN_absolute_logic_error_range
+			min = 0.85
+			max = 1.00
+			modifier = {
+				political_power_gain = 0.40
+				war_support_factor = 0.18
+				resistance_target = 0.25
+				stability_factor = -0.14
+				justify_war_goal_time = -0.25
+			}
+			on_activate = {
+				if = {
+					limit = {
+						has_country_flag = BERN_bernkastel_ruling_flag
+						NOT = { has_country_flag = BERN_catbox_rebellion_checked_flag }
+					}
+					set_country_flag = {
+						flag = BERN_catbox_rebellion_checked_flag
+						days = 90
+						value = 1
+					}
+					country_event = {
+						id = bernkastel_events.18
+						days = 2
+					}
+				}
+			}
+			on_deactivate = {
+			}
+		}
+	}
+}

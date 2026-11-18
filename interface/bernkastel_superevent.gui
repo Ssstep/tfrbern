@@ -1,0 +1,71 @@
+guiTypes = {
+	containerWindowType = {
+		name = "bernkastel_superevent_window"
+		position = { x = 0 y = 0 }
+		size = { width = 580 height = 500 }
+		orientation = center
+		origo = center
+		moveable = yes
+		click_to_front = yes
+
+		# Built-in HOI4 window background
+		background = {
+			name = "Background"
+			quadTextureSprite = "GFX_tiled_bg"
+		}
+
+		# Inner container
+		containerWindowType = {
+			name = "inner_dark_box"
+			position = { x = 10 y = 10 }
+			size = { width = 560 height = 480 }
+			background = {
+				name = "inner_bg"
+				quadTextureSprite = "GFX_tiled_window_transparent"
+			}
+		}
+
+		# 1. Superevent Image (556x320)
+		iconType = {
+			name = "superevent_image"
+			spriteType = "GFX_sp_event_bernkastel_presidency"
+			position = { x = 12 y = 48 }
+			alwaystransparent = yes
+		}
+
+		# 2. Superevent Title
+		instantTextBoxType = {
+			name = "superevent_title"
+			position = { x = 20 y = 16 }
+			font = "hoi_24header"
+			text = "[BERN_GetSuperEventTitle]"
+			maxWidth = 540
+			maxHeight = 30
+			format = center
+			alwaystransparent = yes
+		}
+
+		# 3. Frederica Bernkastel Quote
+		instantTextBoxType = {
+			name = "superevent_quote"
+			position = { x = 30 y = 376 }
+			font = "hoi_18mbs"
+			text = "[BERN_GetSuperEventQuote]"
+			maxWidth = 520
+			maxHeight = 70
+			format = right
+			alwaystransparent = yes
+		}
+
+		# 4. Native Close Button (261x34)
+		buttonType = {
+			name = "superevent_close_btn"
+			position = { x = 160 y = 445 }
+			quadTextureSprite = "GFX_button_261x34"
+			buttonFont = "hoi_18mbs"
+			buttonText = "[BERN_GetSuperEventButton]"
+			shortcut = "RETURN"
+			clicksound = click_ok
+		}
+	}
+}

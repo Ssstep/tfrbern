@@ -1,0 +1,108 @@
+# Категория призыва Осколка Чудес (доступна ТОЛЬКО до восхождения Бернкастель)
+BERN_shard_summon_category = {
+	icon = shard
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		is_ai = no
+		NOT = { has_country_flag = BERN_bernkastel_ruling_flag }
+		NOT = { has_country_flag = BERN_witch_departed_flag }
+		NOT = { has_country_flag = BERN_golden_truth_achieved }
+	}
+	priority = 100
+}
+
+# Архитектура Исполнительной Власти (появляется ТОЛЬКО ПОСЛЕ воцарения Ведьмы Чудес)
+BERN_gameboard_category = {
+	icon = bernkastel
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		has_country_flag = BERN_bernkastel_ruling_flag
+		NOT = { has_country_flag = BERN_witch_departed_flag }
+		NOT = { has_country_flag = BERN_golden_truth_achieved }
+	}
+	priority = 100
+
+	# Встраивает кастомное окно телеметрии и инквизиции прямо внутрь вкладки решений
+	scripted_gui = bernkastel_executive_architecture_gui
+}
+
+BERN_balance_of_power_category = {
+	icon = bernkastel
+	priority = 99
+	visible_when_empty = yes
+
+	allowed = {
+		always = yes
+	}
+
+	visible = {
+		has_country_flag = BERN_bernkastel_ruling_flag
+		has_power_balance = {
+			id = BERN_boredom_bop
+		}
+	}
+}
+
+BERN_schelling_nuclear_category = {
+	icon = military_operation
+	allowed = { original_tag = USA }
+	visible = {
+		has_country_flag = BERN_bernkastel_ruling_flag
+		has_completed_focus = BERN_schelling_inversion
+	}
+	priority = 95
+
+	scripted_gui = bernkastel_schelling_inversion_gui
+}
+
+# =============================================================================
+# ПЕРЕОПРЕДЕЛЕНИЕ ВАНИЛЬНЫХ КАТЕГОРИЙ ВЫБОРОВ TFR (СКРЫВАЮТСЯ ПРИ ВЛАСТИ ВЕДЬМЫ)
+# =============================================================================
+
+USA_balance_of_power_category = {
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		NOT = { has_country_flag = BERN_bernkastel_ruling_flag }
+		has_power_balance = {
+			id = USA_trust_bop
+		}
+	}
+}
+
+USA_2020_election_category = {
+	icon = GFX_decision_category_USA_elections
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		NOT = { has_country_flag = BERN_bernkastel_ruling_flag }
+		NOT = {
+			OR = {
+				has_global_flag = USA_shattered_union_global
+				has_completed_focus = USA_build_back_better
+				has_completed_focus = USA_the_shadow_presidency
+				has_completed_focus = USA_keep_america_great
+				has_completed_focus = USA_oppose_the_tyrant
+			}
+		}
+	}
+	priority = 4
+}
+
+USA_counting_heads_category = {
+	icon = USA_counting_heads
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		NOT = { has_country_flag = BERN_bernkastel_ruling_flag }
+		has_country_flag = USA_counting_heads_flag
+	}
+	priority = 3
+}

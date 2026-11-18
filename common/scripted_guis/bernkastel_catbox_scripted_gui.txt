@@ -1,0 +1,202 @@
+scripted_gui = {
+	bernkastel_executive_architecture_gui = {
+		context_type = decision_category
+		window_name = "bernkastel_executive_architecture_gui_window"
+
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+
+		triggers = {
+			# Отображение печатей «СТЁРТО В МОРЕ ЗАБВЕНИЯ (5 U.S.C. 3348)» поверх портретов
+			erika_voided_overlay_visible = {
+				OR = {
+					has_country_flag = BERN_erika_exiled_flag
+					NOT = { has_idea = BERN_erika_furudo_hog }
+				}
+			}
+			erika_action_btn_click_enabled = {
+				NOT = { has_country_flag = BERN_erika_exiled_flag }
+				has_idea = BERN_erika_furudo_hog
+				has_political_power > 24
+				check_variable = { BERN_duct_tape_seal_integrity < 100 }
+			}
+
+			dlanor_action_btn_click_enabled = {
+				has_idea = BERN_dlanor_a_knox_sec
+				check_variable = { BERN_red_truth_dossiers > 0 }
+			}
+
+			willard_voided_overlay_visible = {
+				OR = {
+					has_completed_focus = BERN_knox_death_sentences
+					has_country_flag = BERN_willard_purged_flag
+				}
+			}
+			willard_action_btn_click_enabled = {
+				NOT = { has_completed_focus = BERN_knox_death_sentences }
+				NOT = { has_country_flag = BERN_willard_purged_flag }
+				has_political_power > 29
+			}
+
+			purge_tray_btn_click_enabled = {
+				check_variable = { BERN_void_ab_initio_charges > 0 }
+			}
+
+			# Активные тумблеры Игровой Доски Уминеко (всегда кликабельны)
+			tumbler_furniture_btn_click_enabled = { always = yes }
+			tumbler_core_btn_click_enabled = { always = yes }
+			tumbler_pead_btn_click_enabled = { always = yes }
+			tumbler_mint_btn_click_enabled = { always = yes }
+			tumbler_impound_btn_click_enabled = { always = yes }
+			tumbler_schelling_btn_click_enabled = { always = yes }
+		}
+
+		effects = {
+			# Кнопка Эрики: Опечатать ведомства скотчем (47 U.S.C. § 606)
+			erika_action_btn_click = {
+				add_political_power = -25
+				add_to_variable = { BERN_duct_tape_seal_integrity = 10 }
+				add_to_variable = { BERN_logic_error_progress = 3 }
+				subtract_from_variable = { BERN_existential_boredom = 4 }
+				add_to_variable = { BERN_resistance_target = -0.02 }
+				clamp_variable = { var = BERN_duct_tape_seal_integrity min = 0 max = 100 }
+				clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+				if = {
+					limit = { has_power_balance = { id = BERN_boredom_bop } }
+					add_power_balance_value = {
+						id = BERN_boredom_bop
+						value = 0.03
+					}
+				}
+				BERN_recalculate_catbox_modifiers = yes
+			}
+
+			# Кнопка Дланор: Вынести Смертный Приговор Нокса за 1 досье Красной Истины
+			dlanor_action_btn_click = {
+				subtract_from_variable = { BERN_red_truth_dossiers = 1 }
+				add_to_variable = { BERN_purple_contradictions = 1 }
+				subtract_from_variable = { BERN_anti_magic_toxin = 8 }
+				add_to_variable = { BERN_logic_error_progress = 4 }
+				add_to_variable = { BERN_subversion_cost = -0.02 }
+				clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+				clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+				if = {
+					limit = { has_power_balance = { id = BERN_boredom_bop } }
+					add_power_balance_value = {
+						id = BERN_boredom_bop
+						value = 0.04
+					}
+				}
+				BERN_recalculate_catbox_modifiers = yes
+			}
+
+			# Кнопка Уилларда: Провести ревизию по 20 правилам Ван Дайна
+			willard_action_btn_click = {
+				add_political_power = -30
+				subtract_from_variable = { BERN_anti_magic_toxin = 10 }
+				subtract_from_variable = { BERN_seigniorage_inflation = 2 }
+				add_to_variable = { BERN_existential_boredom = 6 }
+				add_to_variable = { BERN_stability_factor = 0.02 }
+				clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+				clamp_variable = { var = BERN_seigniorage_inflation min = 0 max = 100 }
+				clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+				if = {
+					limit = { has_power_balance = { id = BERN_boredom_bop } }
+					add_power_balance_value = {
+						id = BERN_boredom_bop
+						value = -0.04
+					}
+				}
+				BERN_recalculate_catbox_modifiers = yes
+			}
+
+			# Кнопка Клер / Лотка для фигур: Сбросить чиновника в Море Забвения по 5 U.S.C. § 3348
+			purge_tray_btn_click = {
+				subtract_from_variable = { BERN_void_ab_initio_charges = 1 }
+				add_to_variable = { BERN_non_exclusive_delegation = 10 }
+				add_to_variable = { BERN_schedule_f_furniture_ratio = 10 }
+				subtract_from_variable = { BERN_existential_boredom = 8 }
+				if = {
+					limit = { has_active_mission = BERN_fvra_210_day_statutory_clock }
+					add_days_mission_timeout = {
+						mission = BERN_fvra_210_day_statutory_clock
+						days = 90
+					}
+				}
+				clamp_variable = { var = BERN_non_exclusive_delegation min = 0 max = 100 }
+				clamp_variable = { var = BERN_schedule_f_furniture_ratio min = 0 max = 100 }
+				clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+				if = {
+					limit = { has_power_balance = { id = BERN_boredom_bop } }
+					add_power_balance_value = {
+						id = BERN_boredom_bop
+						value = 0.04
+					}
+				}
+				BERN_recalculate_catbox_modifiers = yes
+			}
+
+			# Переключение активных тумблеров (Interactive Umineko Levers)
+			tumbler_furniture_btn_click = {
+				if = {
+					limit = { has_country_flag = BERN_tumbler_furniture_flag }
+					clr_country_flag = BERN_tumbler_furniture_flag
+				}
+				else = {
+					set_country_flag = BERN_tumbler_furniture_flag
+				}
+			}
+
+			tumbler_core_btn_click = {
+				if = {
+					limit = { has_country_flag = BERN_tumbler_core_flag }
+					clr_country_flag = BERN_tumbler_core_flag
+				}
+				else = {
+					set_country_flag = BERN_tumbler_core_flag
+				}
+			}
+
+			tumbler_pead_btn_click = {
+				if = {
+					limit = { has_country_flag = BERN_tumbler_pead_flag }
+					clr_country_flag = BERN_tumbler_pead_flag
+				}
+				else = {
+					set_country_flag = BERN_tumbler_pead_flag
+				}
+			}
+
+			tumbler_mint_btn_click = {
+				if = {
+					limit = { has_country_flag = BERN_tumbler_mint_flag }
+					clr_country_flag = BERN_tumbler_mint_flag
+				}
+				else = {
+					set_country_flag = BERN_tumbler_mint_flag
+				}
+			}
+
+			tumbler_impound_btn_click = {
+				if = {
+					limit = { has_country_flag = BERN_tumbler_impound_flag }
+					clr_country_flag = BERN_tumbler_impound_flag
+				}
+				else = {
+					set_country_flag = BERN_tumbler_impound_flag
+				}
+			}
+
+			tumbler_schelling_btn_click = {
+				if = {
+					limit = { has_country_flag = BERN_tumbler_schelling_flag }
+					clr_country_flag = BERN_tumbler_schelling_flag
+				}
+				else = {
+					set_country_flag = BERN_tumbler_schelling_flag
+				}
+			}
+		}
+	}
+}

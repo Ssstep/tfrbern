@@ -1,0 +1,7 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_sp_event_bernkastel_presidency"
+		texturefile = "gfx/superevents/bern_presidency_superevent.dds"
+		legacy_lazy_load = no
+	}
+}

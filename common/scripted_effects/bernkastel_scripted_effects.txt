@@ -1,0 +1,268 @@
+# Удаление прежних американских BoP из TFR перед запуском BoP Бернкастель
+BERN_remove_prior_usa_bops_effect = {
+	hidden_effect = {
+		if = { limit = { has_power_balance = { id = USA_trust_bop } } remove_power_balance = { id = USA_trust_bop } }
+		if = { limit = { has_power_balance = { id = USB_trust_bop } } remove_power_balance = { id = USB_trust_bop } }
+		if = { limit = { has_power_balance = { id = USC_civil_war_balance } } remove_power_balance = { id = USC_civil_war_balance } }
+		if = { limit = { has_power_balance = { id = APA_power_balance } } remove_power_balance = { id = APA_power_balance } }
+		if = { limit = { has_power_balance = { id = PTF_power_balance } } remove_power_balance = { id = PTF_power_balance } }
+		if = { limit = { has_power_balance = { id = NSM_faction_balance } } remove_power_balance = { id = NSM_faction_balance } }
+		if = { limit = { has_power_balance = { id = ATW_religion_bop } } remove_power_balance = { id = ATW_religion_bop } }
+		if = { limit = { has_power_balance = { id = CAC_ipc_balance } } remove_power_balance = { id = CAC_ipc_balance } }
+		if = { limit = { has_power_balance = { id = AOF_BOP } } remove_power_balance = { id = AOF_BOP } }
+	}
+}
+
+# Инициализация конституционных/монетарных динамических модификаторов и BoP
+BERN_init_catbox_variables_effect = {
+	if = {
+		limit = { NOT = { has_country_flag = BERN_variables_initialized_flag } }
+		set_country_flag = BERN_variables_initialized_flag
+		# Переменные BERN_catbox_constitution_dm
+		set_variable = { BERN_pp_gain = 0.25 }
+		set_variable = { BERN_stability_factor = -0.02 }
+		set_variable = { BERN_subversion_cost = -0.10 }
+		set_variable = { BERN_resistance_target = 0.00 }
+		set_variable = { BERN_compliance_growth = 0.05 }
+		set_variable = { BERN_encryption_factor = 0.05 }
+		set_variable = { BERN_war_support_factor = 0.05 }
+		set_variable = { BERN_efficiency_gain_factor = 0.00 }
+		set_variable = { BERN_factory_output = 0.00 }
+		set_variable = { BERN_conscription = 0.00 }
+
+		# Переменные BERN_witch_economics_dm
+		set_variable = { BERN_minted_trillions = 0 }
+		set_variable = { BERN_inflation_shock = 0.00 }
+		set_variable = { BERN_coin_build_speed = 0.00 }
+		set_variable = { BERN_coin_factory_output = 0.00 }
+		set_variable = { BERN_econ_stability_penalty = 0.00 }
+		set_variable = { BERN_econ_pp_factor = 0.00 }
+	}
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = BERN_catbox_constitution_dm } } }
+		add_dynamic_modifier = { modifier = BERN_catbox_constitution_dm }
+	}
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = BERN_witch_economics_dm } } }
+		add_dynamic_modifier = { modifier = BERN_witch_economics_dm }
+	}
+	BERN_remove_prior_usa_bops_effect = yes
+	if = {
+		limit = { NOT = { has_power_balance = { id = BERN_boredom_bop } } }
+		set_power_balance = {
+			id = BERN_boredom_bop
+			left_side = BERN_planned_harmony_side
+			right_side = BERN_logic_error_side
+			set_value = 0.05
+		}
+	}
+}
+
+# Инициализация всех систем управления и панели телеметрии при приходе Бернкастель к власти
+BERN_initialize_catbox_matrix = {
+	if = {
+		limit = { NOT = { has_country_flag = BERN_matrix_initialized_flag } }
+		set_country_flag = BERN_matrix_initialized_flag
+		# 1. Мета-индикаторы Гейммастера
+		set_variable = { BERN_existential_boredom = 25 }        # 0-100%: при 100% Бернкастель бросает доску и уходит
+		set_variable = { BERN_logic_error_progress = 10 }       # 0-100%: герметичность ловушки (при 100% — Триумф)
+		set_variable = { BERN_anti_magic_toxin = 45 }           # 0-100%: скептицизм судов, GAO и бюрократии
+
+		# 2. Кадровый аппарат (FVRA 5 U.S.C. 3345 & Schedule Policy/Career)
+		set_variable = { BERN_acting_cabinet_slots = 15 }       # Из 15 постов Кабинета (паралич 25-й поправки)
+		set_variable = { BERN_non_exclusive_delegation = 30 }   # % функций, переданных клеркам GS-15 в обход Сената
+		set_variable = { BERN_schedule_f_furniture_ratio = 15 } # % госслужащих в статусе безмолвной «Мебели»
+		set_variable = { BERN_void_ab_initio_charges = 2 }      # Готовые ордера компромата для стирания фигур
+
+		# 3. Контур Истин и ЧП (PEADs, 47 U.S.C. 606, Декалог Нокса)
+		set_variable = { BERN_red_truth_dossiers = 5 }          # Засекреченные архивы Navy v. Egan
+		set_variable = { BERN_purple_contradictions = 0 }       # Пойманные на лжи конгрессмены (18 U.S.C. 1001)
+		set_variable = { BERN_duct_tape_seal_integrity = 20 }   # Информационная блокада штатов (0-100%)
+		set_variable = { BERN_active_peads_count = 0 }          # Из 56 секретных директив FEMA/OLC
+		set_variable = { BERN_main_core_indexed_millions = 0.5 }# Из 8.0 млн граждан в индексе Main Core
+		set_variable = { BERN_willard_heart_resistance = 15 }   # Саботаж Уилларда Х. Райта внутри SSVD (0-100%)
+
+		# 4. Фискальный и ядерный контур (31 U.S.C. 5112(k), ICA, Шеллинг)
+		set_variable = { BERN_minted_platinum_trillions = 0 }   # Количество отчеканенных монет по $1 трлн
+		set_variable = { BERN_seigniorage_inflation = 0 }       # Инфляционный шок и обвал трежерис
+		set_variable = { BERN_impounded_appropriations_b = 0 }  # Замороженные миллиарды Конгресса (2 U.S.C. 683)
+		set_variable = { BERN_schelling_brinkmanship_risk = 5 } # Риск войны: от 5% (Шеллинг) до 99.99996% (Казус Клер)
+		set_variable = { BERN_schelling_bar_frame = 5 }
+	}
+
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = BERN_gameboard_telemetry_dm } } }
+		add_dynamic_modifier = { modifier = BERN_gameboard_telemetry_dm }
+	}
+	BERN_init_catbox_variables_effect = yes
+	BERN_recalculate_catbox_modifiers = yes
+}
+
+# Пересчет влияния переменных на реальные статы страны
+BERN_recalculate_catbox_modifiers = {
+	# Прирост ПП зависит от делегирования FVRA и страдает от Антимагического токсина
+	set_variable = { BERN_dm_pp_factor = BERN_non_exclusive_delegation }
+	multiply_variable = { BERN_dm_pp_factor = 0.004 }
+	set_temp_variable = { toxin_penalty = BERN_anti_magic_toxin }
+	multiply_temp_variable = { toxin_penalty = 0.005 }
+	subtract_from_variable = { BERN_dm_pp_factor = toxin_penalty }
+
+	# Стабильность растет от «Мебели» Schedule F и падает от инфляции платиновых монет и саботажа Уилларда
+	set_variable = { BERN_dm_stability = BERN_schedule_f_furniture_ratio }
+	multiply_variable = { BERN_dm_stability = 0.003 }
+	set_temp_variable = { inflation_stab_hit = BERN_seigniorage_inflation }
+	multiply_temp_variable = { inflation_stab_hit = 0.008 }
+	subtract_from_variable = { BERN_dm_stability = inflation_stab_hit }
+	set_temp_variable = { willard_stab_hit = BERN_willard_heart_resistance }
+	multiply_temp_variable = { willard_stab_hit = 0.0015 }
+	subtract_from_variable = { BERN_dm_stability = willard_stab_hit }
+
+	# Подавление сопротивления от армированного скотча Эрики (47 U.S.C. 606) и Main Core
+	set_variable = { BERN_dm_resistance_target = BERN_duct_tape_seal_integrity }
+	multiply_variable = { BERN_dm_resistance_target = -0.005 }
+
+	# Бонус к стройке от сеньоража и сожженных ассигнований Конгресса
+	set_variable = { BERN_dm_construction_speed = BERN_minted_platinum_trillions }
+	multiply_variable = { BERN_dm_construction_speed = 0.06 }
+	set_temp_variable = { inflation_prod_hit = BERN_seigniorage_inflation }
+	multiply_temp_variable = { inflation_prod_hit = 0.01 }
+	subtract_from_variable = { BERN_dm_construction_speed = inflation_prod_hit }
+
+	# Синхронизация кадра прогресс-бара терминала Шеллинга
+	set_variable = { BERN_schelling_bar_frame = BERN_schelling_brinkmanship_risk }
+	round_variable = BERN_schelling_bar_frame
+}
+
+# Сброс и перезапуск 210-дневного счетчика FVRA (5 U.S.C. § 3345)
+BERN_reset_fvra_mission_effect = {
+	hidden_effect = {
+		if = {
+			limit = { has_active_mission = BERN_fvra_210_day_statutory_clock }
+			remove_mission = BERN_fvra_210_day_statutory_clock
+		}
+		activate_mission = BERN_fvra_210_day_statutory_clock
+	}
+	custom_effect_tooltip = BERN_fvra_timer_reset_tt
+}
+
+# Чеканка платиновой монеты в $1 триллион (31 U.S.C. § 5112(k) + интеграция с экономикой TFR)
+BERN_mint_trillion_coin_effect = {
+	add_to_variable = { BERN_minted_platinum_trillions = 1 }
+	add_to_variable = { BERN_minted_trillions = 1 }
+	set_temp_variable = { new_inflation = BERN_minted_platinum_trillions }
+	multiply_temp_variable = { new_inflation = 3.5 }
+	add_to_variable = { BERN_seigniorage_inflation = new_inflation }
+	clamp_variable = { var = BERN_seigniorage_inflation min = 0 max = 100 }
+
+	add_to_variable = { BERN_coin_build_speed = 0.08 }
+	clamp_variable = { var = BERN_coin_build_speed min = 0 max = 0.40 }
+	add_to_variable = { BERN_coin_factory_output = 0.05 }
+	clamp_variable = { var = BERN_coin_factory_output min = 0 max = 0.25 }
+	add_to_variable = { BERN_inflation_shock = 0.04 }
+	add_to_variable = { BERN_econ_stability_penalty = -0.025 }
+	custom_effect_tooltip = BERN_mint_trillion_vars_tt
+
+	# Интеграция с экономикой TFR (ликвидность + госдолг + инфляция)
+	if = {
+		limit = {
+			check_variable = { gdp_total_var > 0 }
+		}
+		set_temp_variable = { income_var_temp = 500 }
+		add_income = yes
+		set_temp_variable = { debt_var_temp = -500 }
+		add_debt = yes
+		set_temp_variable = { inflation_var_temp = 0.015 }
+		add_inflation = yes
+	}
+
+	if = {
+		limit = {
+			check_variable = { BERN_minted_platinum_trillions > 2 }
+			NOT = { has_country_flag = BERN_fed_coin_revolt_fired }
+		}
+		set_country_flag = BERN_fed_coin_revolt_fired
+		country_event = { id = bernkastel_events.16 days = 2 }
+	}
+	BERN_recalculate_catbox_modifiers = yes
+}
+
+# Сгорание неутвержденных фондов Конгресса 1 октября (2 U.S.C. § 683 Pocket Rescission)
+BERN_burn_congressional_appropriations_effect = {
+	if = {
+		limit = { NOT = { has_country_flag = BERN_rescission_burned_this_fy } }
+		set_country_flag = {
+			flag = BERN_rescission_burned_this_fy
+			days = 60
+			value = 1
+		}
+		add_political_power = 125
+		add_to_variable = { BERN_impounded_appropriations_b = 45 }
+		subtract_from_variable = { BERN_seigniorage_inflation = 6 }
+		add_to_variable = { BERN_logic_error_progress = 10 }
+		subtract_from_variable = { BERN_existential_boredom = 10 }
+		clamp_variable = { var = BERN_seigniorage_inflation min = 0 max = 100 }
+		clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+		clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+
+		add_offsite_building = { type = industrial_complex level = 1 }
+		add_offsite_building = { type = arms_factory level = 1 }
+
+		add_to_variable = { BERN_inflation_shock = -0.025 }
+		clamp_variable = { var = BERN_inflation_shock min = -0.08 max = 0.60 }
+		add_to_variable = { BERN_econ_pp_factor = 0.05 }
+
+		add_popularity = { ideology = social_liberal popularity = -0.06 }
+		add_popularity = { ideology = conservative popularity = -0.06 }
+		add_popularity = { ideology = authoritarian_democrat popularity = -0.04 }
+		add_popularity = { ideology = nationalist popularity = 0.08 }
+		if = {
+			limit = { has_power_balance = { id = BERN_boredom_bop } }
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.10
+			}
+		}
+		BERN_recalculate_catbox_modifiers = yes
+		custom_effect_tooltip = BERN_pocket_rescission_burned_tt
+		hidden_effect = {
+			country_event = { id = bernkastel_events.9 days = 1 }
+		}
+	}
+}
+
+# Изгнание Эрики Фурудо в «Море Забвения» по 5 U.S.C. § 3348
+BERN_exile_erika_sea_of_oblivion_effect = {
+	if = {
+		limit = { NOT = { has_country_flag = BERN_erika_exiled_flag } }
+		set_country_flag = BERN_erika_exiled_flag
+		if = {
+			limit = { has_idea = BERN_erika_furudo_hog }
+			remove_ideas = BERN_erika_furudo_hog
+		}
+		if = {
+			limit = { has_idea = BERN_erika_furudo_int }
+			remove_ideas = BERN_erika_furudo_int
+		}
+		if = {
+			limit = { NOT = { has_idea = BERN_acting_substitute_hog } }
+			add_ideas = BERN_acting_substitute_hog
+		}
+		add_political_power = -50
+		add_stability = 0.08
+		add_to_variable = { BERN_willard_heart_resistance = 25 }
+		add_to_variable = { BERN_existential_boredom = 15 }
+		subtract_from_variable = { BERN_anti_magic_toxin = 18 }
+		clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+		clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+		clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+		if = {
+			limit = { has_power_balance = { id = BERN_boredom_bop } }
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = -0.18
+			}
+		}
+		BERN_recalculate_catbox_modifiers = yes
+		custom_effect_tooltip = BERN_erika_exiled_tt
+	}
+}

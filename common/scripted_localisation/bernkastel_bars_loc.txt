@@ -1,0 +1,390 @@
+defined_text = {
+	name = BERN_GetBoredomBar
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 20 } }
+		localization_key = BERN_BAR_CYAN_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 40 } }
+		localization_key = BERN_BAR_CYAN_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 60 } }
+		localization_key = BERN_BAR_CYAN_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 80 } }
+		localization_key = BERN_BAR_RED_80
+	}
+	text = {
+		localization_key = BERN_BAR_RED_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetLogicErrorBar
+	text = {
+		trigger = { check_variable = { BERN_logic_error_progress < 20 } }
+		localization_key = BERN_BAR_PURP_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_logic_error_progress < 40 } }
+		localization_key = BERN_BAR_PURP_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_logic_error_progress < 60 } }
+		localization_key = BERN_BAR_PURP_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_logic_error_progress < 80 } }
+		localization_key = BERN_BAR_PURP_80
+	}
+	text = {
+		localization_key = BERN_BAR_PURP_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetToxinBar
+	text = {
+		trigger = { check_variable = { BERN_anti_magic_toxin < 20 } }
+		localization_key = BERN_BAR_ORG_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_anti_magic_toxin < 40 } }
+		localization_key = BERN_BAR_ORG_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_anti_magic_toxin < 60 } }
+		localization_key = BERN_BAR_ORG_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_anti_magic_toxin < 80 } }
+		localization_key = BERN_BAR_ORG_80
+	}
+	text = {
+		localization_key = BERN_BAR_ORG_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetTapeBar
+	text = {
+		trigger = { check_variable = { BERN_duct_tape_seal_integrity < 20 } }
+		localization_key = BERN_BAR_CYAN_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_duct_tape_seal_integrity < 40 } }
+		localization_key = BERN_BAR_CYAN_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_duct_tape_seal_integrity < 60 } }
+		localization_key = BERN_BAR_CYAN_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_duct_tape_seal_integrity < 80 } }
+		localization_key = BERN_BAR_CYAN_80
+	}
+	text = {
+		localization_key = BERN_BAR_CYAN_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetRedTruthBar
+	text = {
+		trigger = { check_variable = { BERN_red_truth_dossiers < 3 } }
+		localization_key = BERN_BAR_RED_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_red_truth_dossiers < 6 } }
+		localization_key = BERN_BAR_RED_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_red_truth_dossiers < 9 } }
+		localization_key = BERN_BAR_RED_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_red_truth_dossiers < 12 } }
+		localization_key = BERN_BAR_RED_80
+	}
+	text = {
+		localization_key = BERN_BAR_RED_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetWillardBar
+	text = {
+		trigger = { check_variable = { BERN_willard_heart_resistance < 20 } }
+		localization_key = BERN_BAR_YEL_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_willard_heart_resistance < 40 } }
+		localization_key = BERN_BAR_YEL_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_willard_heart_resistance < 60 } }
+		localization_key = BERN_BAR_YEL_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_willard_heart_resistance < 80 } }
+		localization_key = BERN_BAR_RED_80
+	}
+	text = {
+		localization_key = BERN_BAR_RED_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetFurnitureBar
+	text = {
+		trigger = { check_variable = { BERN_schedule_f_furniture_ratio < 20 } }
+		localization_key = BERN_BAR_YEL_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_schedule_f_furniture_ratio < 40 } }
+		localization_key = BERN_BAR_YEL_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_schedule_f_furniture_ratio < 60 } }
+		localization_key = BERN_BAR_YEL_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_schedule_f_furniture_ratio < 80 } }
+		localization_key = BERN_BAR_YEL_80
+	}
+	text = {
+		localization_key = BERN_BAR_YEL_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetCabinetBar
+	text = {
+		trigger = { check_variable = { BERN_acting_cabinet_slots < 4 } }
+		localization_key = BERN_BAR_CYAN_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_acting_cabinet_slots < 8 } }
+		localization_key = BERN_BAR_CYAN_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_acting_cabinet_slots < 12 } }
+		localization_key = BERN_BAR_CYAN_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_acting_cabinet_slots < 15 } }
+		localization_key = BERN_BAR_CYAN_80
+	}
+	text = {
+		localization_key = BERN_BAR_CYAN_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetVoidBar
+	text = {
+		trigger = { check_variable = { BERN_void_ab_initio_charges < 2 } }
+		localization_key = BERN_BAR_PURP_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_void_ab_initio_charges < 4 } }
+		localization_key = BERN_BAR_PURP_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_void_ab_initio_charges < 6 } }
+		localization_key = BERN_BAR_PURP_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_void_ab_initio_charges < 8 } }
+		localization_key = BERN_BAR_PURP_80
+	}
+	text = {
+		localization_key = BERN_BAR_PURP_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetDelegationBar
+	text = {
+		trigger = { check_variable = { BERN_non_exclusive_delegation < 20 } }
+		localization_key = BERN_BAR_CYAN_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_non_exclusive_delegation < 40 } }
+		localization_key = BERN_BAR_CYAN_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_non_exclusive_delegation < 60 } }
+		localization_key = BERN_BAR_CYAN_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_non_exclusive_delegation < 80 } }
+		localization_key = BERN_BAR_CYAN_80
+	}
+	text = {
+		localization_key = BERN_BAR_CYAN_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetMainCoreBar
+	text = {
+		trigger = { check_variable = { BERN_main_core_indexed_millions < 1.5 } }
+		localization_key = BERN_BAR_RED_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_main_core_indexed_millions < 3.0 } }
+		localization_key = BERN_BAR_RED_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_main_core_indexed_millions < 4.5 } }
+		localization_key = BERN_BAR_RED_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_main_core_indexed_millions < 6.0 } }
+		localization_key = BERN_BAR_RED_80
+	}
+	text = {
+		localization_key = BERN_BAR_RED_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetPeadsBar
+	text = {
+		trigger = { check_variable = { BERN_active_peads_count < 10 } }
+		localization_key = BERN_BAR_YEL_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_active_peads_count < 20 } }
+		localization_key = BERN_BAR_YEL_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_active_peads_count < 35 } }
+		localization_key = BERN_BAR_YEL_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_active_peads_count < 50 } }
+		localization_key = BERN_BAR_YEL_80
+	}
+	text = {
+		localization_key = BERN_BAR_YEL_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetPlatinumBar
+	text = {
+		trigger = { check_variable = { BERN_minted_platinum_trillions < 2 } }
+		localization_key = BERN_BAR_CYAN_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_minted_platinum_trillions < 4 } }
+		localization_key = BERN_BAR_CYAN_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_minted_platinum_trillions < 6 } }
+		localization_key = BERN_BAR_CYAN_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_minted_platinum_trillions < 8 } }
+		localization_key = BERN_BAR_CYAN_80
+	}
+	text = {
+		localization_key = BERN_BAR_CYAN_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetInflationBar
+	text = {
+		trigger = { check_variable = { BERN_seigniorage_inflation < 20 } }
+		localization_key = BERN_BAR_ORG_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_seigniorage_inflation < 40 } }
+		localization_key = BERN_BAR_ORG_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_seigniorage_inflation < 60 } }
+		localization_key = BERN_BAR_ORG_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_seigniorage_inflation < 80 } }
+		localization_key = BERN_BAR_ORG_80
+	}
+	text = {
+		localization_key = BERN_BAR_ORG_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetImpoundBar
+	text = {
+		trigger = { check_variable = { BERN_impounded_appropriations_b < 100 } }
+		localization_key = BERN_BAR_YEL_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_impounded_appropriations_b < 200 } }
+		localization_key = BERN_BAR_YEL_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_impounded_appropriations_b < 300 } }
+		localization_key = BERN_BAR_YEL_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_impounded_appropriations_b < 400 } }
+		localization_key = BERN_BAR_YEL_80
+	}
+	text = {
+		localization_key = BERN_BAR_YEL_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetContradictionBar
+	text = {
+		trigger = { check_variable = { BERN_purple_contradictions < 20 } }
+		localization_key = BERN_BAR_PURP_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_purple_contradictions < 40 } }
+		localization_key = BERN_BAR_PURP_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_purple_contradictions < 60 } }
+		localization_key = BERN_BAR_PURP_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_purple_contradictions < 80 } }
+		localization_key = BERN_BAR_PURP_80
+	}
+	text = {
+		localization_key = BERN_BAR_PURP_100
+	}
+}
+
+defined_text = {
+	name = BERN_GetSchellingBar
+	text = {
+		trigger = { check_variable = { BERN_schelling_brinkmanship_risk < 20 } }
+		localization_key = BERN_BAR_RED_20
+	}
+	text = {
+		trigger = { check_variable = { BERN_schelling_brinkmanship_risk < 40 } }
+		localization_key = BERN_BAR_RED_40
+	}
+	text = {
+		trigger = { check_variable = { BERN_schelling_brinkmanship_risk < 60 } }
+		localization_key = BERN_BAR_RED_60
+	}
+	text = {
+		trigger = { check_variable = { BERN_schelling_brinkmanship_risk < 80 } }
+		localization_key = BERN_BAR_RED_80
+	}
+	text = {
+		localization_key = BERN_BAR_RED_100
+	}
+}

@@ -1,0 +1,345 @@
+ideas = {
+	country = {
+		USA_catbox_republic = {
+			name = USA_catbox_republic
+			picture = catbox_republic
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				foreign_subversive_activites = -0.50
+				encryption_factor = 0.25
+				intelligence_agency_defense = 0.50
+				mobilization_speed = 0.20
+				conscription = 0.02
+				drift_defence_factor = 0.50
+			}
+		}
+
+		USA_gameboard_administration = {
+			name = USA_gameboard_administration
+			picture = gameboard_administration
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.35
+				justify_war_goal_time = -0.25
+				generate_wargoal_tension = -0.50
+				command_power_gain_mult = 0.15
+			}
+		}
+
+		USA_schedule_policy_furniture = {
+			name = USA_schedule_policy_furniture
+			picture = schedule_policy_furniture
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.15
+				industrial_capacity_factory = 0.10
+				industrial_capacity_dockyard = 0.10
+				stability_factor = -0.05
+			}
+		}
+
+		USA_red_truth_monopoly = {
+			name = USA_red_truth_monopoly
+			picture = red_truth_monopoly
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				resistance_target = -0.20
+				compliance_growth = 0.20
+				enemy_operative_detection_chance_factor = 0.35
+				enemy_operative_intel_extraction_rate = 0.25
+			}
+		}
+
+		USA_platinum_seigniorage = {
+			name = USA_platinum_seigniorage
+			picture = platinum_seigniorage
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.15
+				line_change_production_efficiency_factor = 0.10
+			}
+		}
+
+		USA_pocket_rescissions_spirit = {
+			name = USA_pocket_rescissions_spirit
+			picture = pocket_rescissions
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.04
+				conversion_cost_civ_to_mil_factor = -0.25
+				political_power_factor = 0.15
+			}
+		}
+
+		USA_the_threat_that_leaves_chance = {
+			name = USA_the_threat_that_leaves_chance
+			picture = the_threat_that_leaves_chance
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.20
+				nuclear_production_factor = 0.25
+				generate_wargoal_tension = -0.30
+				surrender_limit = 0.20
+			}
+		}
+
+		USA_existential_boredom_threat = {
+			name = USA_existential_boredom_threat
+			picture = existential_boredom
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.15
+				stability_factor = -0.10
+			}
+		}
+
+		# Новые идеи рефакторинга (Ветка III, НАТО Статья 5, Шеллинг)
+		BERN_knox_inquisition_idea = {
+			name = BERN_knox_inquisition_idea
+			picture = knox_inquisition
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				intelligence_agency_defense = 0.50
+				enemy_operative_detection_chance_factor = 0.40
+				enemy_operative_intel_extraction_rate = 0.35
+				decryption_power_factor = 0.25
+				resistance_decay = 0.25
+				required_garrison_factor = -0.15
+			}
+		}
+
+		BERN_willard_golden_rule_idea = {
+			name = BERN_willard_golden_rule_idea
+			picture = willard_golden_rule
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.12
+				compliance_growth = 0.20
+				resistance_target = -0.15
+				research_speed_factor = 0.08
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		BERN_glorious_ambiguity_nato = {
+			name = BERN_glorious_ambiguity_nato
+			picture = glorious_ambiguity_nato
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			rule = {
+				can_send_volunteers = no
+				can_guarantee_other_ideologies = no
+			}
+			modifier = {
+				send_volunteer_factor = -1.0
+				send_volunteer_size = -100
+				guarantee_cost = 5.0
+				guarantee_tension = 1.0
+				ai_call_ally_desire_factor = -500
+				ai_join_ally_desire_factor = -500
+				lend_lease_tension = 1.0
+				join_faction_tension = 1.0
+			}
+		}
+
+		BERN_schelling_coerced_idea = {
+			name = BERN_schelling_coerced_idea
+			picture = the_threat_that_leaves_chance
+			allowed = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = -0.25
+				political_power_gain = -0.25
+				consumer_goods_factor = 0.10
+				surrender_limit = -0.10
+			}
+		}
+	}
+
+	# Кабинет Гейммастера (Слоты министров TFR)
+	head_minister = {
+		BERN_erika_furudo_hog = {
+			picture = erika_furudo
+			name = USA_erika_furudo
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+				NOT = { has_country_flag = BERN_erika_exiled_flag }
+			}
+			allowed_to_remove = {
+				always = yes
+			}
+			traits = {
+				trait_erika_white_house_counsel
+			}
+			modifier = {
+				political_power_gain = 0.20
+				foreign_subversive_activites = -0.35
+				enemy_operative_detection_chance_factor = 0.30
+				decryption_power_factor = 0.25
+				compliance_gain = 0.05
+			}
+		}
+
+		BERN_acting_substitute_hog = {
+			picture = acting_substitute
+			name = BERN_acting_substitute_hog
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+			}
+			allowed_to_remove = {
+				always = yes
+			}
+			traits = {
+				trait_cold_textualist
+			}
+			modifier = {
+				political_power_gain = 0.10
+				compliance_growth = 0.05
+				stability_factor = -0.05
+			}
+		}
+	}
+
+	interior_minister = {
+		BERN_dlanor_a_knox_sec = {
+			picture = dlanor_a_knox
+			name = USA_dlanor_a_knox
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+			}
+			allowed_to_remove = {
+				always = yes
+			}
+			traits = {
+				trait_dlanor_attorney_general
+			}
+			modifier = {
+				stability_factor = 0.10
+				resistance_target = -0.15
+				drift_defence_factor = 0.40
+				enemy_operative_intel_extraction_rate = 0.25
+			}
+		}
+	}
+
+	foreign_minister = {
+		BERN_clair_vaux_bernardus_for = {
+			picture = clair_vaux_bernardus
+			name = USA_clair_vaux_bernardus
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+			}
+			allowed_to_remove = {
+				always = yes
+			}
+			traits = {
+				trait_clair_press_secretary
+			}
+			modifier = {
+				war_support_factor = 0.10
+				political_power_factor = 0.10
+				drift_defence_factor = 0.25
+				justify_war_goal_time = -0.15
+				generate_wargoal_tension = -0.20
+			}
+		}
+	}
+
+	intelligence_minister = {
+		BERN_erika_furudo_int = {
+			picture = erika_furudo
+			name = USA_erika_furudo
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+				NOT = { has_country_flag = BERN_erika_exiled_flag }
+			}
+			allowed_to_remove = {
+				always = yes
+			}
+			traits = {
+				trait_erika_white_house_counsel
+			}
+			modifier = {
+				agency_upgrade_time = -0.25
+				enemy_operative_detection_chance_factor = 0.35
+				decryption_factor = 0.25
+			}
+		}
+	}
+
+	theorist_minister = {
+		BERN_willard_h_wright_theorist = {
+			picture = willard_h_wright
+			name = USA_willard_h_wright
+			allowed = {
+				always = yes
+			}
+			visible = {
+				has_country_flag = BERN_bernkastel_ruling_flag
+				NOT = { has_country_flag = BERN_willard_purged_flag }
+			}
+			allowed_to_remove = {
+				always = yes
+			}
+			traits = {
+				trait_willard_inspector_general
+			}
+			modifier = {
+				consumer_goods_factor = -0.03
+				production_factory_max_efficiency_factor = 0.05
+				industrial_capacity_factory = 0.05
+				research_speed_factor = 0.07
+			}
+		}
+	}
+}

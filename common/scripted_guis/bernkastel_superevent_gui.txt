@@ -1,0 +1,20 @@
+scripted_gui = {
+	bernkastel_superevent_gui = {
+		context_type = player_context
+		window_name = "bernkastel_superevent_window"
+
+		visible = {
+			OR = {
+				has_country_flag = BERN_se_inauguration_active
+				has_country_flag = BERN_se_logic_error_active
+			}
+		}
+
+		effects = {
+			superevent_close_btn_click = {
+				clr_country_flag = BERN_se_inauguration_active
+				clr_country_flag = BERN_se_logic_error_active
+			}
+		}
+	}
+}

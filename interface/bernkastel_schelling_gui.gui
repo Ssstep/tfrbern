@@ -1,0 +1,157 @@
+guiTypes = {
+	containerWindowType = {
+		name = "bernkastel_schelling_inversion_gui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 510 height = 420 }
+
+		# Фоновая подложка терминала USSTRATCOM / RAND
+		iconType = {
+			name = "schelling_terminal_bg"
+			spriteType = "GFX_bern_schelling_bg"
+			position = { x = 5 y = 5 }
+			alwaystransparent = yes
+		}
+
+		# Заголовок окна
+		instantTextBoxType = {
+			name = "schelling_header_title"
+			position = { x = 15 y = 12 }
+			font = "hoi_18mbs"
+			text = "BERN_SCHELLING_GUI_TITLE"
+			maxWidth = 480
+			maxHeight = 24
+			format = center
+		}
+
+		# =====================================================================
+		# БЛОК I: СРАВНЕНИЕ ШКАЛ (МОДЕЛЬ ШЕЛЛИНГА vs КАЗУС КЛЕР)
+		# =====================================================================
+
+		# 1. Классическая шкала RAND (1959): 5% Риск / 95% Мир
+		instantTextBoxType = {
+			name = "rand_1959_label"
+			position = { x = 20 y = 45 }
+			font = "hoi_16mbs"
+			text = "BERN_RAND_1959_LABEL"
+			maxWidth = 470
+			maxHeight = 20
+			format = left
+		}
+
+		iconType = {
+			name = "rand_1959_static_bar"
+			spriteType = "GFX_bern_rand_5_percent_bar"
+			position = { x = 20 y = 68 }
+			pdx_tooltip = "BERN_RAND_1959_BAR_TT"
+		}
+
+		# 2. Шкала Ядерного Пазла Бернкастель (Динамический прогресс-бар 0-100%)
+		instantTextBoxType = {
+			name = "bernkastel_puzzle_label"
+			position = { x = 20 y = 105 }
+			font = "hoi_16mbs"
+			text = "BERN_PUZZLE_BAR_LABEL"
+			maxWidth = 470
+			maxHeight = 20
+			format = left
+		}
+
+		# Сам заполняющийся пурпурный бар (frame = переменная от 0 до 100)
+		iconType = {
+			name = "bernkastel_escalation_progressbar"
+			spriteType = "GFX_bern_purple_escalation_progressbar"
+			position = { x = 20 y = 128 }
+			pdx_tooltip = "BERN_PUZZLE_BAR_TT"
+		}
+
+		# Микроскопическая «Золотая засечка» на правом краю (1 / 2 578 917 = 0.0000388%)
+		iconType = {
+			name = "golden_sliver_miracle_marker"
+			spriteType = "GFX_bern_golden_sliver_icon"
+			position = { x = 482 y = 125 }
+			pdx_tooltip = "BERN_GOLDEN_SLIVER_TT"
+		}
+
+		# Математическая сводка под шкалами
+		instantTextBoxType = {
+			name = "probability_math_readout"
+			position = { x = 20 y = 162 }
+			font = "hoi_16mbs"
+			text = "BERN_PROBABILITY_MATH_READOUT"
+			maxWidth = 470
+			maxHeight = 45
+			format = center
+		}
+
+		# =====================================================================
+		# БЛОК II: ДУЭЛЬ СВЕРХДЕРЖАВ (БЕРНКАСТЕЛЬ vs ЛЯМБДАДЕЛЬТА)
+		# =====================================================================
+		iconType = {
+			name = "bernkastel_duel_icon"
+			spriteType = "GFX_bern_duel_bernkastel"
+			position = { x = 25 y = 215 }
+			pdx_tooltip = "BERN_DUEL_MIRACLES_TT"
+		}
+
+		instantTextBoxType = {
+			name = "duel_center_telemetry"
+			position = { x = 115 y = 215 }
+			font = "hoi_16mbs"
+			text = "BERN_DUEL_CENTER_TELEMETRY"
+			maxWidth = 280
+			maxHeight = 85
+			format = center
+		}
+
+		iconType = {
+			name = "lambdadelta_duel_icon"
+			spriteType = "GFX_bern_duel_lambdadelta"
+			position = { x = 405 y = 215 }
+			pdx_tooltip = "BERN_DUEL_CERTAINTY_TT"
+		}
+
+		# =====================================================================
+		# БЛОК III: ПУЛЬТ УПРАВЛЕНИЯ ПРОТОКОЛАМИ СПРН (КНОПКИ)
+		# =====================================================================
+
+		# Кнопка 1: Связать радары NORAD генератором случайных чисел (+Риск, -Скука)
+		buttonType = {
+			name = "btn_couple_norad_rng"
+			position = { x = 20 y = 315 }
+			spriteType = "GFX_bern_gui_btn_blue"
+			buttonFont = "hoi_16mbs"
+			buttonText = "BERN_BTN_COUPLE_NORAD"
+			pdx_tooltip = "BERN_BTN_COUPLE_NORAD_TT"
+		}
+
+		# Кнопка 2: Отключить предохранители ПАЛ на шахтах Minuteman III (+Риск, +Покорность ИИ)
+		buttonType = {
+			name = "btn_bypass_pal_locks"
+			position = { x = 185 y = 315 }
+			spriteType = "GFX_bern_gui_btn_red"
+			buttonFont = "hoi_16mbs"
+			buttonText = "BERN_BTN_BYPASS_PAL"
+			pdx_tooltip = "BERN_BTN_BYPASS_PAL_TT"
+		}
+
+		# Кнопка 3: Ручной сброс пара (Деэскалация за счет роста Скуки)
+		buttonType = {
+			name = "btn_vent_nuclear_tension"
+			position = { x = 350 y = 315 }
+			spriteType = "GFX_bern_gui_btn_grey"
+			buttonFont = "hoi_16mbs"
+			buttonText = "BERN_BTN_VENT_TENSION"
+			pdx_tooltip = "BERN_BTN_VENT_TENSION_TT"
+		}
+
+		# ГЛАВНАЯ КНОПКА ВНИЗУ: «ПРОВЕРИТЬ ШАНС 1 ИЗ 2 578 917 (КАЗУС КЛЕР)»
+		buttonType = {
+			name = "btn_invoke_clair_gambit"
+			position = { x = 105 y = 365 }
+			spriteType = "GFX_bern_gui_btn_wide_purple"
+			buttonFont = "hoi_18mbs"
+			buttonText = "BERN_BTN_CLAIR_GAMBIT"
+			pdx_tooltip = "BERN_BTN_CLAIR_GAMBIT_TT"
+		}
+	}
+}

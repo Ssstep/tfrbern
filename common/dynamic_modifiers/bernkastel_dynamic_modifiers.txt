@@ -1,0 +1,40 @@
+BERN_catbox_constitution_dm = {
+	icon = GFX_idea_catbox_republic
+	enable = {
+		has_country_flag = BERN_bernkastel_ruling_flag
+	}
+	political_power_gain = BERN_pp_gain
+	stability_factor = BERN_stability_factor
+	foreign_subversive_activites = BERN_subversion_cost
+	resistance_target = BERN_resistance_target
+	compliance_growth = BERN_compliance_growth
+	encryption_factor = BERN_encryption_factor
+	war_support_factor = BERN_war_support_factor
+	production_factory_efficiency_gain_factor = BERN_efficiency_gain_factor
+	industrial_capacity_factory = BERN_factory_output
+	conscription = BERN_conscription
+}
+
+BERN_witch_economics_dm = {
+	icon = GFX_idea_platinum_seigniorage
+	enable = {
+		has_country_flag = BERN_bernkastel_ruling_flag
+	}
+	production_speed_buildings_factor = BERN_coin_build_speed
+	industrial_capacity_factory = BERN_coin_factory_output
+	industrial_capacity_dockyard = BERN_coin_factory_output
+	consumer_goods_factor = BERN_inflation_shock
+	stability_factor = BERN_econ_stability_penalty
+	political_power_factor = BERN_econ_pp_factor
+}
+BERN_gameboard_telemetry_dm = {
+	enable = {
+		has_country_flag = BERN_bernkastel_ruling_flag
+	}
+	icon = GFX_idea_gameboard_administration
+
+	political_power_factor = BERN_dm_pp_factor
+	stability_factor = BERN_dm_stability
+	resistance_target = BERN_dm_resistance_target
+	production_speed_buildings_factor = BERN_dm_construction_speed
+}

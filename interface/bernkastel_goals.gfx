@@ -1,0 +1,245 @@
+spriteTypes = {
+	# Static Focus Icons (160x140 PNG)
+	spriteType = {
+		name = "GFX_focus_bern_amendment_25"
+		texturefile = "gfx/interface/goals/focus_bern_amendment_25.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_article_5"
+		texturefile = "gfx/interface/goals/focus_bern_article_5.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_ashcroft_memo"
+		texturefile = "gfx/interface/goals/focus_bern_ashcroft_memo.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_burn_appropriations"
+		texturefile = "gfx/interface/goals/focus_bern_burn_appropriations.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_clair_vessel"
+		texturefile = "gfx/interface/goals/focus_bern_clair_vessel.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_comm_killswitch"
+		texturefile = "gfx/interface/goals/focus_bern_comm_killswitch.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_dlanor_ag"
+		texturefile = "gfx/interface/goals/focus_bern_dlanor_ag.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_fvra_loophole"
+		texturefile = "gfx/interface/goals/focus_bern_fvra_loophole.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_gameboard"
+		texturefile = "gfx/interface/goals/focus_bern_gameboard.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_golden_truth"
+		texturefile = "gfx/interface/goals/focus_bern_golden_truth.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_knox_verdicts"
+		texturefile = "gfx/interface/goals/focus_bern_knox_verdicts.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_logic_error"
+		texturefile = "gfx/interface/goals/focus_bern_logic_error.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_main_core"
+		texturefile = "gfx/interface/goals/focus_bern_main_core.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_navy_v_egan"
+		texturefile = "gfx/interface/goals/focus_bern_navy_v_egan.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_nea_136"
+		texturefile = "gfx/interface/goals/focus_bern_nea_136.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_no_planned_harmony"
+		texturefile = "gfx/interface/goals/focus_bern_no_planned_harmony.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_one_in_two_million"
+		texturefile = "gfx/interface/goals/focus_bern_one_in_two_million.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_peads_blackbox"
+		texturefile = "gfx/interface/goals/focus_bern_peads_blackbox.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_pocket_rescission"
+		texturefile = "gfx/interface/goals/focus_bern_pocket_rescission.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_purple_truth"
+		texturefile = "gfx/interface/goals/focus_bern_purple_truth.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_purse_shatter"
+		texturefile = "gfx/interface/goals/focus_bern_purse_shatter.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_schedule_policy"
+		texturefile = "gfx/interface/goals/focus_bern_schedule_policy.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_schelling_inversion"
+		texturefile = "gfx/interface/goals/focus_bern_schelling_inversion.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_sealed_room"
+		texturefile = "gfx/interface/goals/focus_bern_sealed_room.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_senate_bypass"
+		texturefile = "gfx/interface/goals/focus_bern_senate_bypass.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_tea_and_plums"
+		texturefile = "gfx/interface/goals/focus_bern_tea_and_plums.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_trillion_coin"
+		texturefile = "gfx/interface/goals/focus_bern_trillion_coin.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_void_ab_initio"
+		texturefile = "gfx/interface/goals/focus_bern_void_ab_initio.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_willard_audit"
+		texturefile = "gfx/interface/goals/focus_bern_willard_audit.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_willard_rebellion"
+		texturefile = "gfx/interface/goals/focus_bern_willard_rebellion.png"
+	}
+
+	# Focus Shine Sprites (for learning / active animation in GUI)
+	spriteType = {
+		name = "GFX_focus_bern_amendment_25_shine"
+		texturefile = "gfx/interface/goals/focus_bern_amendment_25.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_article_5_shine"
+		texturefile = "gfx/interface/goals/focus_bern_article_5.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_ashcroft_memo_shine"
+		texturefile = "gfx/interface/goals/focus_bern_ashcroft_memo.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_burn_appropriations_shine"
+		texturefile = "gfx/interface/goals/focus_bern_burn_appropriations.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_clair_vessel_shine"
+		texturefile = "gfx/interface/goals/focus_bern_clair_vessel.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_comm_killswitch_shine"
+		texturefile = "gfx/interface/goals/focus_bern_comm_killswitch.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_dlanor_ag_shine"
+		texturefile = "gfx/interface/goals/focus_bern_dlanor_ag.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_fvra_loophole_shine"
+		texturefile = "gfx/interface/goals/focus_bern_fvra_loophole.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_gameboard_shine"
+		texturefile = "gfx/interface/goals/focus_bern_gameboard.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_golden_truth_shine"
+		texturefile = "gfx/interface/goals/focus_bern_golden_truth.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_knox_verdicts_shine"
+		texturefile = "gfx/interface/goals/focus_bern_knox_verdicts.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_logic_error_shine"
+		texturefile = "gfx/interface/goals/focus_bern_logic_error.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_main_core_shine"
+		texturefile = "gfx/interface/goals/focus_bern_main_core.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_navy_v_egan_shine"
+		texturefile = "gfx/interface/goals/focus_bern_navy_v_egan.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_nea_136_shine"
+		texturefile = "gfx/interface/goals/focus_bern_nea_136.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_no_planned_harmony_shine"
+		texturefile = "gfx/interface/goals/focus_bern_no_planned_harmony.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_one_in_two_million_shine"
+		texturefile = "gfx/interface/goals/focus_bern_one_in_two_million.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_peads_blackbox_shine"
+		texturefile = "gfx/interface/goals/focus_bern_peads_blackbox.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_pocket_rescission_shine"
+		texturefile = "gfx/interface/goals/focus_bern_pocket_rescission.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_purple_truth_shine"
+		texturefile = "gfx/interface/goals/focus_bern_purple_truth.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_purse_shatter_shine"
+		texturefile = "gfx/interface/goals/focus_bern_purse_shatter.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_schedule_policy_shine"
+		texturefile = "gfx/interface/goals/focus_bern_schedule_policy.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_schelling_inversion_shine"
+		texturefile = "gfx/interface/goals/focus_bern_schelling_inversion.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_sealed_room_shine"
+		texturefile = "gfx/interface/goals/focus_bern_sealed_room.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_senate_bypass_shine"
+		texturefile = "gfx/interface/goals/focus_bern_senate_bypass.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_tea_and_plums_shine"
+		texturefile = "gfx/interface/goals/focus_bern_tea_and_plums.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_trillion_coin_shine"
+		texturefile = "gfx/interface/goals/focus_bern_trillion_coin.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_void_ab_initio_shine"
+		texturefile = "gfx/interface/goals/focus_bern_void_ab_initio.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_willard_audit_shine"
+		texturefile = "gfx/interface/goals/focus_bern_willard_audit.png"
+	}
+	spriteType = {
+		name = "GFX_focus_bern_willard_rebellion_shine"
+		texturefile = "gfx/interface/goals/focus_bern_willard_rebellion.png"
+	}
+}

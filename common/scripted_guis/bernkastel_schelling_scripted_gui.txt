@@ -1,0 +1,104 @@
+scripted_gui = {
+	bernkastel_schelling_inversion_gui = {
+		context_type = decision_category
+		window_name = "bernkastel_schelling_inversion_gui_window"
+
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			has_completed_focus = BERN_schelling_inversion
+		}
+
+		# Динамическая отрисовка заполнения пурпурной шкалы (0-100)
+		properties = {
+			bernkastel_escalation_progressbar = {
+				frame = BERN_schelling_bar_frame
+			}
+		}
+
+		triggers = {
+			btn_couple_norad_rng_click_enabled = {
+				has_command_power > 24
+				check_variable = { BERN_schelling_brinkmanship_risk < 99.9 }
+			}
+			btn_bypass_pal_locks_click_enabled = {
+				has_political_power > 39
+				check_variable = { BERN_schelling_brinkmanship_risk < 99.9 }
+			}
+			btn_vent_nuclear_tension_click_enabled = {
+				check_variable = { BERN_schelling_brinkmanship_risk > 10 }
+			}
+			btn_invoke_clair_gambit_click_enabled = {
+				has_completed_focus = BERN_one_in_two_million
+				check_variable = { BERN_schelling_brinkmanship_risk > 90 }
+			}
+		}
+
+		effects = {
+			# 1. Связать NORAD генератором случайных чисел
+			btn_couple_norad_rng_click = {
+				add_command_power = -25
+				add_to_variable = { BERN_schelling_brinkmanship_risk = 15 }
+				clamp_variable = { var = BERN_schelling_brinkmanship_risk min = 5 max = 99.99996 }
+				set_variable = { BERN_schelling_bar_frame = BERN_schelling_brinkmanship_risk }
+				round_variable = BERN_schelling_bar_frame
+
+				subtract_from_variable = { BERN_existential_boredom = 12 }
+				add_to_variable = { BERN_logic_error_progress = 6 }
+				clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+				clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+				BERN_recalculate_catbox_modifiers = yes
+			}
+
+			# 2. Отключить коды блокировки PAL (Угроза, оставляющая место случаю)
+			btn_bypass_pal_locks_click = {
+				add_political_power = -40
+				add_to_variable = { BERN_schelling_brinkmanship_risk = 24.99996 }
+				clamp_variable = { var = BERN_schelling_brinkmanship_risk min = 5 max = 99.99996 }
+				set_variable = { BERN_schelling_bar_frame = BERN_schelling_brinkmanship_risk }
+				round_variable = BERN_schelling_bar_frame
+
+				subtract_from_variable = { BERN_existential_boredom = 20 }
+				subtract_from_variable = { BERN_anti_magic_toxin = 10 }
+				clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+				clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+				add_war_support = 0.05
+				BERN_recalculate_catbox_modifiers = yes
+			}
+
+			# 3. Разрядка контура (понижает риск срыва, но вызывает острую скуку у Бернкастель)
+			btn_vent_nuclear_tension_click = {
+				subtract_from_variable = { BERN_schelling_brinkmanship_risk = 20 }
+				clamp_variable = { var = BERN_schelling_brinkmanship_risk min = 5 max = 99.99996 }
+				set_variable = { BERN_schelling_bar_frame = BERN_schelling_brinkmanship_risk }
+				round_variable = BERN_schelling_bar_frame
+
+				add_to_variable = { BERN_existential_boredom = 18 }
+				clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+				BERN_recalculate_catbox_modifiers = yes
+			}
+
+			# 4. КАЗУС КЛЕР: Рулетка на 1 шанс из 2 578 917 (Ультиматум ядерным державам)
+			btn_invoke_clair_gambit_click = {
+				set_variable = { BERN_schelling_brinkmanship_risk = 99.99996 }
+				set_variable = { BERN_schelling_bar_frame = 100 }
+				subtract_from_variable = { BERN_existential_boredom = 40 }
+				add_to_variable = { BERN_logic_error_progress = 20 }
+				clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+				clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+
+				random_list = {
+					90 = {
+						# Сверхдержавы капитулируют перед безумным Гейммастером (Выпала золотая засечка)
+						add_political_power = 200
+						add_stability = 0.10
+					}
+					10 = {
+						# Автоматический срыв алгоритма СПРН — запуск кризисного ивента
+						country_event = { id = bernkastel_events.20 }
+					}
+				}
+				BERN_recalculate_catbox_modifiers = yes
+			}
+		}
+	}
+}

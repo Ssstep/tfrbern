@@ -1,0 +1,5 @@
+music = {
+	name = "bern_superevent_theme"
+	file = "bern_superevent_theme.ogg"
+	volume = 0.90
+}

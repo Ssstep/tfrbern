@@ -1,0 +1,35 @@
+defined_text = {
+	name = BERN_GetSuperEventTitle
+	text = {
+		trigger = { has_country_flag = BERN_se_inauguration_active }
+		localization_key = BERN_SE_INAUGURATION_TITLE
+	}
+	text = {
+		trigger = { has_country_flag = BERN_se_logic_error_active }
+		localization_key = BERN_SE_LOGIC_ERROR_TITLE
+	}
+}
+
+defined_text = {
+	name = BERN_GetSuperEventQuote
+	text = {
+		trigger = { has_country_flag = BERN_se_inauguration_active }
+		localization_key = BERN_SE_INAUGURATION_QUOTE
+	}
+	text = {
+		trigger = { has_country_flag = BERN_se_logic_error_active }
+		localization_key = BERN_SE_LOGIC_ERROR_QUOTE
+	}
+}
+
+defined_text = {
+	name = BERN_GetSuperEventButton
+	text = {
+		trigger = { has_country_flag = BERN_se_inauguration_active }
+		localization_key = BERN_SE_INAUGURATION_BTN
+	}
+	text = {
+		trigger = { has_country_flag = BERN_se_logic_error_active }
+		localization_key = BERN_SE_LOGIC_ERROR_BTN
+	}
+}

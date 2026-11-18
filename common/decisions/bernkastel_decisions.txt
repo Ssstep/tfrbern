@@ -1,0 +1,692 @@
+###############################################################
+# Решения и таймеры: Президентство Фредерики Бернкастель (TFR)
+# Объединяет матрицу телеметрии Игровой Доски, BoP, FVRA 210d,
+# Карманную аннуляцию (авг–сен -> 1 окт) и Ядерный шантаж Шеллинга
+###############################################################
+
+BERN_shard_summon_category = {
+
+	# Точка входа (доступна игроку до восхождения Ведьмы)
+	BERN_invoke_miracle_shard = {
+		icon = shard
+		allowed = {
+			tag = USA
+		}
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+			NOT = { has_country_flag = BERN_bernkastel_ruling_flag }
+			NOT = { has_country_flag = BERN_witch_departed_flag }
+			NOT = { has_country_flag = BERN_golden_truth_achieved }
+		}
+		cost = 0
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+		}
+		complete_effect = {
+			country_event = { id = bernkastel_events.1 }
+		}
+	}
+}
+
+BERN_gameboard_category = {
+
+	# Таймер 1: 30-дневный тик Экзистенциальной Скуки
+	BERN_existential_boredom_tick = {
+		icon = boredom
+		allowed = {
+			always = no
+		}
+		available = {
+			always = no
+		}
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 30
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = BERN_bernkastel_ruling_flag }
+				has_country_flag = BERN_catbox_sealed_eternally
+				has_country_flag = BERN_witch_departed_flag
+				has_country_flag = BERN_golden_truth_achieved
+			}
+		}
+		timeout_effect = {
+			add_to_variable = { var = BERN_existential_boredom value = 4 }
+			if = {
+				limit = {
+					check_variable = { BERN_logic_error_progress < 25 }
+				}
+				add_to_variable = { var = BERN_existential_boredom value = 2 }
+			}
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = -0.03
+			}
+			if = {
+				limit = {
+					check_variable = { BERN_existential_boredom > 99 }
+					NOT = { has_country_flag = BERN_catbox_sealed_eternally }
+				}
+				country_event = { id = bernkastel_events.17 }
+			}
+			else = {
+				activate_mission = BERN_existential_boredom_tick
+			}
+		}
+	}
+
+	# Таймер 2: Федеральный закон о вакансиях (FVRA, 5 U.S.C. § 3345) — 210 дней
+	BERN_fvra_210_day_statutory_clock = {
+		icon = void_ab_initio
+		allowed = {
+			always = no
+		}
+		available = {
+			always = no
+		}
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 210
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = BERN_bernkastel_ruling_flag }
+				has_country_flag = BERN_fvra_permanent_bypass_flag
+				has_country_flag = BERN_witch_departed_flag
+				has_country_flag = BERN_golden_truth_achieved
+			}
+		}
+		timeout_effect = {
+			add_to_variable = { var = BERN_anti_magic_toxin value = 15 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			add_to_variable = { var = BERN_void_ab_initio_charges value = 1 }
+			add_stability = -0.06
+			add_political_power = -50
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = -0.10
+			}
+			country_event = { id = bernkastel_events.23 }
+			activate_mission = BERN_fvra_210_day_statutory_clock
+		}
+	}
+
+	# Таймер 3: 45-дневный отсчёт Карманной Аннуляции до сжигания бюджета 1 октября (2 U.S.C. § 683)
+	BERN_execute_pocket_rescission = {
+		icon = trillion_coin
+		allowed = {
+			always = no
+		}
+		available = {
+			always = no
+		}
+		selectable_mission = no
+		is_good = yes
+		days_mission_timeout = 45
+		cancel_trigger = {
+			OR = {
+				NOT = { has_country_flag = BERN_bernkastel_ruling_flag }
+				has_country_flag = BERN_witch_departed_flag
+				has_country_flag = BERN_golden_truth_achieved
+			}
+		}
+		timeout_effect = {
+			BERN_burn_congressional_appropriations_effect = yes
+			clr_country_flag = BERN_pocket_rescission_active_flag
+		}
+	}
+
+	# Делегирование «неэксклюзивных обязанностей» и сброс 210-дневных часов FVRA
+	BERN_subdelegate_non_exclusive_duties = {
+		icon = void_ab_initio
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 35
+		days_re_enable = 90
+		ai_will_do = {
+			base = 5
+		}
+		complete_effect = {
+			BERN_reset_fvra_mission_effect = yes
+			add_to_variable = { var = BERN_non_exclusive_delegation value = 15 }
+			clamp_variable = { var = BERN_non_exclusive_delegation min = 0 max = 100 }
+			add_to_variable = { var = BERN_acting_cabinet_slots value = 1 }
+			add_to_variable = { var = BERN_logic_error_progress value = 5 }
+			add_to_variable = { var = BERN_existential_boredom value = -6 }
+			clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			add_to_variable = { var = BERN_pp_gain value = 0.04 }
+			BERN_recalculate_catbox_modifiers = yes
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.06
+			}
+		}
+	}
+
+	# Перевод новых ведомств на Schedule Policy/Career (превращение госслужащих в мебель)
+	BERN_expand_schedule_policy_furniture = {
+		icon = pead
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 40
+		days_re_enable = 100
+		ai_will_do = {
+			base = 5
+		}
+		complete_effect = {
+			add_to_variable = { var = BERN_schedule_f_furniture_ratio value = 10 }
+			clamp_variable = { var = BERN_schedule_f_furniture_ratio min = 0 max = 100 }
+			add_to_variable = { var = BERN_efficiency_gain_factor value = 0.03 }
+			add_to_variable = { var = BERN_factory_output value = 0.02 }
+			add_to_variable = { var = BERN_stability_factor value = -0.02 }
+			add_to_variable = { var = BERN_willard_heart_resistance value = 4 }
+			clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+			BERN_recalculate_catbox_modifiers = yes
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.05
+			}
+		}
+	}
+
+	# Чистка «Void Ab Initio» (5 U.S.C. § 3348): отправка дефектной фигуры в Лоток Фигур
+	BERN_execute_void_ab_initio_purge = {
+		icon = void_ab_initio
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 50
+		days_re_enable = 150
+		ai_will_do = {
+			base = 3
+		}
+		complete_effect = {
+			BERN_reset_fvra_mission_effect = yes
+			add_to_variable = { var = BERN_void_ab_initio_charges value = 1 }
+			add_to_variable = { var = BERN_anti_magic_toxin value = -15 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			add_to_variable = { var = BERN_subversion_cost value = -0.05 }
+			BERN_recalculate_catbox_modifiers = yes
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.08
+			}
+			country_event = { id = bernkastel_events.6 }
+		}
+	}
+
+	# Сборники Красной Истины (ведомственные директивы ФОИА/DOJ)
+	BERN_forge_red_truth_compilation = {
+		icon = purple_truth
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 35
+		days_re_enable = 90
+		ai_will_do = {
+			base = 6
+		}
+		complete_effect = {
+			add_to_variable = { var = BERN_red_truth_dossiers value = 2 }
+			add_to_variable = { var = BERN_compliance_growth value = 0.03 }
+			add_to_variable = { var = BERN_resistance_target value = -0.03 }
+			add_to_variable = { var = BERN_logic_error_progress value = 6 }
+			add_to_variable = { var = BERN_existential_boredom value = -8 }
+			clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			BERN_recalculate_catbox_modifiers = yes
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.05
+			}
+		}
+	}
+
+	# Судилище Пурпурной Истины (18 U.S.C. § 1001 — 3-актный допрос сенатора)
+	BERN_conduct_purple_truth_interrogation = {
+		icon = purple_truth
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			NOT = { has_country_flag = BERN_willard_purged_flag }
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			NOT = { has_country_flag = BERN_willard_purged_flag }
+		}
+		cost = 45
+		days_re_enable = 180
+		ai_will_do = {
+			base = 4
+		}
+		complete_effect = {
+			add_to_variable = { var = BERN_purple_contradictions value = 1 }
+			add_to_variable = { var = BERN_encryption_factor value = 0.04 }
+			BERN_recalculate_catbox_modifiers = yes
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.05
+			}
+			country_event = { id = bernkastel_events.10 }
+		}
+	}
+
+	# Герметизация скотчем Эрики и рубильник связи по 47 U.S.C. § 606
+	BERN_apply_erika_duct_tape_606 = {
+		icon = erika_tape
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			NOT = { has_country_flag = BERN_erika_exiled_flag }
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			NOT = { has_country_flag = BERN_erika_exiled_flag }
+		}
+		cost = 35
+		days_re_enable = 120
+		ai_will_do = {
+			base = 5
+		}
+		complete_effect = {
+			add_to_variable = { var = BERN_duct_tape_seal_integrity value = 15 }
+			clamp_variable = { var = BERN_duct_tape_seal_integrity min = 0 max = 100 }
+			add_to_variable = { var = BERN_anti_magic_toxin value = -10 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			add_to_variable = { var = BERN_encryption_factor value = 0.05 }
+			add_to_variable = { var = BERN_resistance_target value = -0.02 }
+			BERN_recalculate_catbox_modifiers = yes
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.05
+			}
+		}
+	}
+
+	# Рассекречивание пакета PEADs и индексация населения через MAIN CORE
+	BERN_unseal_pead_and_main_core_batch = {
+		icon = pead
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 40
+		days_re_enable = 110
+		ai_will_do = {
+			base = 4
+		}
+		complete_effect = {
+			add_to_variable = { var = BERN_active_peads_count value = 4 }
+			add_to_variable = { var = BERN_main_core_indexed_millions value = 12 }
+			add_to_variable = { var = BERN_subversion_cost value = -0.05 }
+			add_to_variable = { var = BERN_willard_heart_resistance value = 6 }
+			clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+			BERN_recalculate_catbox_modifiers = yes
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.07
+			}
+		}
+	}
+
+	# Подавление ереси «Сердца» и 20 правил Ван Дайна Уилларда Райта
+	BERN_suppress_willard_van_dine_heresy = {
+		icon = purple_truth
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			NOT = { has_completed_focus = BERN_willard_rebellion_for_heart }
+			NOT = { has_country_flag = BERN_willard_purged_flag }
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			NOT = { has_completed_focus = BERN_willard_rebellion_for_heart }
+			NOT = { has_country_flag = BERN_willard_purged_flag }
+		}
+		cost = 40
+		days_re_enable = 90
+		ai_will_do = {
+			base = 5
+		}
+		complete_effect = {
+			add_to_variable = { var = BERN_willard_heart_resistance value = -18 }
+			clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+			add_to_variable = { var = BERN_existential_boredom value = -8 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			BERN_recalculate_catbox_modifiers = yes
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.06
+			}
+		}
+	}
+
+	# Дополнительная чеканка платиновой монеты в $1 триллион (31 U.S.C. § 5112(k))
+	BERN_mint_additional_trillion = {
+		icon = trillion_coin
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			has_dynamic_modifier = { modifier = BERN_witch_economics_dm }
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 50
+		days_re_enable = 180
+		ai_will_do = {
+			base = 3
+		}
+		complete_effect = {
+			BERN_mint_trillion_coin_effect = yes
+			add_to_variable = { var = BERN_existential_boredom value = -10 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.08
+			}
+		}
+	}
+
+	# Карманная аннуляция (Pocket Rescission, 2 U.S.C. § 683): только с 15 авг по 30 сен -> миссия на 45 дней
+	BERN_initiate_august_pocket_rescission = {
+		icon = trillion_coin
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			BERN_is_pocket_rescission_window = yes
+			NOT = { has_country_flag = BERN_pocket_rescission_active_flag }
+		}
+		cost = 45
+		days_re_enable = 300
+		ai_will_do = {
+			base = 8
+		}
+		complete_effect = {
+			set_country_flag = BERN_pocket_rescission_active_flag
+			activate_mission = BERN_execute_pocket_rescission
+			country_event = { id = bernkastel_events.15 days = 1 }
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.05
+			}
+		}
+	}
+
+	# Стратегическая эскалация Угрозы Шеллинга (учения «Сломанная Стрела»)
+	BERN_escalate_schelling_brinkmanship = {
+		icon = boredom
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			has_idea = USA_the_threat_that_leaves_chance
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 50
+		days_re_enable = 150
+		ai_will_do = {
+			base = 2
+		}
+		complete_effect = {
+			add_to_variable = { var = BERN_schelling_brinkmanship_risk value = 12 }
+			clamp_variable = { var = BERN_schelling_brinkmanship_risk min = 0 max = 100 }
+			add_to_variable = { var = BERN_existential_boredom value = -18 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			add_war_support = 0.05
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.09
+			}
+			random_list = {
+				85 = {
+					country_event = { id = bernkastel_events.20 }
+				}
+				15 = {
+					country_event = { id = bernkastel_events.22 }
+				}
+			}
+		}
+	}
+}
+
+###############################################################
+# КАТЕГОРИЯ BALANCE OF POWER: РАЗРУШЕНИЕ ЗАПЛАНИРОВАННОЙ ГАРМОНИИ
+###############################################################
+BERN_balance_of_power_category = {
+
+	# Раздувание скандала вокруг папок Конгресса (сдвиг BoP вправо, сброс Скуки)
+	BERN_bop_expose_scandals = {
+		icon = shard
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			has_power_balance = { id = BERN_boredom_bop }
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 30
+		days_re_enable = 75
+		ai_will_do = {
+			base = 5
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.10
+			}
+			add_to_variable = { var = BERN_existential_boredom value = -14 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			add_to_variable = { var = BERN_logic_error_progress value = 6 }
+			clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+			add_stability = -0.02
+			BERN_recalculate_catbox_modifiers = yes
+		}
+	}
+
+	# Расширение Кошачьего Ящика чрезвычайными рескриптами (сильный сдвиг вправо)
+	BERN_bop_escalate_catbox = {
+		icon = pead
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			has_power_balance = { id = BERN_boredom_bop }
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 45
+		days_re_enable = 90
+		ai_will_do = {
+			base = 4
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.14
+			}
+			add_to_variable = { var = BERN_logic_error_progress value = 10 }
+			clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+			add_to_variable = { var = BERN_willard_heart_resistance value = 5 }
+			clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+			add_to_variable = { var = BERN_existential_boredom value = -10 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			BERN_recalculate_catbox_modifiers = yes
+		}
+	}
+
+	# Имитация конституционной нормальности (сдвиг влево, успокоение судов)
+	BERN_bop_feigned_normality = {
+		icon = boredom
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			has_power_balance = { id = BERN_boredom_bop }
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 25
+		days_re_enable = 75
+		ai_will_do = {
+			base = 2
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = -0.10
+			}
+			add_to_variable = { var = BERN_willard_heart_resistance value = -8 }
+			clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+			add_to_variable = { var = BERN_existential_boredom value = 6 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			add_stability = 0.04
+			BERN_recalculate_catbox_modifiers = yes
+		}
+	}
+
+	# Амнистия «Честной Игры» Ван Дайна (доступна при живом Уилларде)
+	BERN_bop_van_dine_amnesty = {
+		icon = purple_truth
+		allowed = {
+			always = yes
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			has_power_balance = { id = BERN_boredom_bop }
+			NOT = { has_country_flag = BERN_willard_purged_flag }
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+		cost = 35
+		days_re_enable = 100
+		ai_will_do = {
+			base = 3
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = -0.12
+			}
+			add_to_variable = { var = BERN_anti_magic_toxin value = -12 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			add_to_variable = { var = BERN_willard_heart_resistance value = -12 }
+			clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+			add_stability = 0.05
+			BERN_recalculate_catbox_modifiers = yes
+		}
+	}
+}
+
+###############################################################
+# КАТЕГОРИЯ ШЕЛЛИНГА: ТЕРМИНАЛ ЯДЕРНОЙ ИНВЕРСИИ ШЕЛЛИНГА
+###############################################################
+BERN_schelling_nuclear_category = {
+
+	# Целевой ядерный ультиматум великим державам (Дилемма Лямбдадельты: 2 578 916 против 1)
+	BERN_targeted_schelling_ultimatum = {
+		icon = shard
+		allowed = {
+			always = yes
+		}
+		target_root_trigger = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			has_completed_focus = BERN_schelling_inversion
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes
+				is_major = yes
+				NOT = { tag = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+				NOT = { is_subject_of = ROOT }
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			has_completed_focus = BERN_schelling_inversion
+		}
+		available = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			NOT = { has_war_with = FROM }
+			check_variable = { BERN_schelling_brinkmanship_risk > 80 }
+		}
+		cost = 50
+		days_re_enable = 90
+		ai_will_do = {
+			base = 0
+		}
+		complete_effect = {
+			ROOT = { save_global_event_target_as = bern_initiator_usa }
+			FROM = {
+				save_global_event_target_as = bern_blackmail_target
+				country_event = { id = bernkastel_events.21 days = 1 }
+			}
+			add_political_power = 25
+			subtract_from_variable = { BERN_existential_boredom = 15 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			BERN_recalculate_catbox_modifiers = yes
+		}
+	}
+}

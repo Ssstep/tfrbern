@@ -1,0 +1,961 @@
+focus_tree = {
+	id = USA_bernkastel_focus_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			has_country_flag = BERN_bernkastel_ruling_flag
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 50 y = 1300 }
+
+	# =========================================================================
+	# НАЧАЛО: ИНАУГУРАЦИЯ ГЕЙММАСТЕРА (ОСКОЛОК 1 ИЗ 2 578 917)
+	# =========================================================================
+	focus = {
+		id = BERN_proclaim_the_gameboard
+		icon = GFX_focus_bern_gameboard
+		x = 15
+		y = 0
+		cost = 5
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			add_political_power = 100
+			BERN_initialize_catbox_matrix = yes
+			add_to_variable = { BERN_logic_error_progress = 5 }
+			subtract_from_variable = { BERN_existential_boredom = 10 }
+			add_to_variable = { BERN_pp_gain = 0.05 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.05
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_gameboard_inaugurated_tt
+		}
+	}
+
+	# =========================================================================
+	# ВЕТКА I: ЗАКРЫТАЯ КОМНАТА И ЧРЕЗВЫЧАЙНЫЙ РЕЖИМ (PEADs, NEA, 47 U.S.C. 606)
+	# =========================================================================
+	focus = {
+		id = BERN_seal_the_doors
+		icon = GFX_focus_bern_sealed_room
+		prerequisite = { focus = BERN_proclaim_the_gameboard }
+		x = 5
+		y = 1
+		cost = 6
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			add_ideas = USA_catbox_republic
+			add_to_variable = { BERN_duct_tape_seal_integrity = 15 }
+			add_to_variable = { BERN_logic_error_progress = 5 }
+			subtract_from_variable = { BERN_existential_boredom = 5 }
+			add_to_variable = { BERN_subversion_cost = -0.10 }
+			add_to_variable = { BERN_encryption_factor = 0.05 }
+			clamp_variable = { var = BERN_duct_tape_seal_integrity min = 0 max = 100 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.06
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_erika_duct_tape_tt
+		}
+	}
+
+	focus = {
+		id = BERN_communications_act_706
+		icon = GFX_focus_bern_comm_killswitch
+		prerequisite = { focus = BERN_seal_the_doors }
+		x = 4
+		y = 2
+		cost = 7
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Активация 47 U.S.C. § 606 (Internet Kill Switch и опечатывание станций связи)
+			add_to_variable = { BERN_duct_tape_seal_integrity = 25 }
+			subtract_from_variable = { BERN_anti_magic_toxin = 10 }
+			add_to_variable = { BERN_willard_heart_resistance = 5 }
+			add_to_variable = { BERN_subversion_cost = -0.15 }
+			add_to_variable = { BERN_resistance_target = -0.05 }
+			clamp_variable = { var = BERN_duct_tape_seal_integrity min = 0 max = 100 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.06
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_comm_act_706_tt
+		}
+	}
+
+	focus = {
+		id = BERN_national_emergencies_act
+		icon = GFX_focus_bern_nea_136
+		prerequisite = { focus = BERN_seal_the_doors }
+		x = 6
+		y = 2
+		cost = 7
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# 50 U.S.C. § 1621 + ловушка вето по INS v. Chadha (§ 1622(a)) — активация 136 статутов
+			add_command_power = 40
+			add_to_variable = { BERN_logic_error_progress = 8 }
+			add_to_variable = { BERN_anti_magic_toxin = 8 }
+			subtract_from_variable = { BERN_existential_boredom = 8 }
+			add_to_variable = { BERN_pp_gain = 0.08 }
+			add_to_variable = { BERN_war_support_factor = 0.05 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.05
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.5 days = 2 } # Кризис преодоления вето в Конгрессе
+			custom_effect_tooltip = BERN_nea_veto_lock_tt
+		}
+	}
+
+	focus = {
+		id = BERN_unseal_peads
+		icon = GFX_focus_bern_peads_blackbox
+		prerequisite = { focus = BERN_communications_act_706 }
+		prerequisite = { focus = BERN_national_emergencies_act }
+		x = 5
+		y = 3
+		cost = 8
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Вскрытие первых 14 из 56 секретных документов FEMA/OLC (приостановка Habeas Corpus)
+			add_to_variable = { BERN_active_peads_count = 14 }
+			add_to_variable = { BERN_logic_error_progress = 10 }
+			subtract_from_variable = { BERN_anti_magic_toxin = 15 }
+			add_to_variable = { BERN_willard_heart_resistance = 10 }
+			add_to_variable = { BERN_conscription = 0.015 }
+			add_to_variable = { BERN_war_support_factor = 0.08 }
+			add_manpower = 250000
+			clamp_variable = { var = BERN_active_peads_count min = 0 max = 56 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.08
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_peads_unsealed_tt
+		}
+	}
+
+	focus = {
+		id = BERN_main_core_index
+		icon = GFX_focus_bern_main_core
+		prerequisite = { focus = BERN_unseal_peads }
+		x = 5
+		y = 4
+		cost = 8
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Развертывание программы DETPRO и базы индекса безопасности Main Core (8 000 000 граждан)
+			add_to_variable = { BERN_main_core_indexed_millions = 3.5 }
+			add_to_variable = { BERN_duct_tape_seal_integrity = 20 }
+			subtract_from_variable = { BERN_anti_magic_toxin = 12 }
+			add_to_variable = { BERN_logic_error_progress = 8 }
+			add_to_variable = { BERN_stability_factor = 0.05 }
+			add_to_variable = { BERN_compliance_growth = 0.08 }
+			add_to_variable = { BERN_resistance_target = -0.06 }
+			clamp_variable = { var = BERN_main_core_indexed_millions min = 0 max = 8 }
+			clamp_variable = { var = BERN_duct_tape_seal_integrity min = 0 max = 100 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			every_owned_state = {
+				limit = {
+					NOT = { is_core_of = ROOT }
+					has_resistance = yes
+				}
+				add_compliance = 15
+				add_resistance = -20
+			}
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.06
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_main_core_index_tt
+		}
+	}
+
+	# =========================================================================
+	# ВЕТКА II: ЛОТОК ДЛЯ ФИГУР И СТАТУС МЕБЕЛИ (5 U.S.C. 3345, 3348, 7511)
+	# =========================================================================
+	focus = {
+		id = BERN_fvra_loophole
+		icon = GFX_focus_bern_fvra_loophole
+		prerequisite = { focus = BERN_proclaim_the_gameboard }
+		x = 11
+		y = 1
+		cost = 6
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			# Эксплуатация лазейки неэксклюзивных обязанностей в Законе о вакансиях 1998 года
+			add_to_variable = { BERN_non_exclusive_delegation = 20 }
+			add_to_variable = { BERN_logic_error_progress = 5 }
+			add_to_variable = { BERN_pp_gain = 0.08 }
+			if = {
+				limit = { has_active_mission = BERN_fvra_210_day_statutory_clock }
+				add_days_mission_timeout = {
+					mission = BERN_fvra_210_day_statutory_clock
+					days = 90
+				}
+			}
+			else = {
+				activate_mission = BERN_fvra_210_day_statutory_clock
+			}
+			clamp_variable = { var = BERN_non_exclusive_delegation min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.05
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_fvra_loophole_tt
+		}
+	}
+
+	focus = {
+		id = BERN_neutralize_senate_confirmation
+		icon = GFX_focus_bern_senate_bypass
+		prerequisite = { focus = BERN_fvra_loophole }
+		x = 10
+		y = 2
+		cost = 7
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Полный обход процедуры Advice and Consent через субделегирование на уровень GS-15
+			add_to_variable = { BERN_non_exclusive_delegation = 25 }
+			subtract_from_variable = { BERN_anti_magic_toxin = 8 }
+			add_to_variable = { BERN_pp_gain = 0.10 }
+			add_to_variable = { BERN_stability_factor = -0.02 }
+			add_popularity = { ideology = nationalist popularity = 0.08 }
+			clamp_variable = { var = BERN_non_exclusive_delegation min = 0 max = 100 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.06
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_senate_bypassed_tt
+		}
+	}
+
+	focus = {
+		id = BERN_nullify_25th_amendment
+		icon = GFX_focus_bern_amendment_25
+		prerequisite = { focus = BERN_fvra_loophole }
+		x = 12
+		y = 2
+		cost = 7
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Паралич Раздела 4 Двадцать пятой поправки: все 15 членов Кабинета (5 U.S.C. 101) — временные фигуры
+			set_variable = { BERN_acting_cabinet_slots = 15 }
+			add_to_variable = { BERN_logic_error_progress = 8 }
+			subtract_from_variable = { BERN_anti_magic_toxin = 10 }
+			add_to_variable = { BERN_stability_factor = 0.06 }
+			add_to_variable = { BERN_pp_gain = 0.06 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.06
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_amendment_25_paralyzed_tt
+		}
+	}
+
+	focus = {
+		id = BERN_schedule_policy_career
+		icon = GFX_focus_bern_schedule_policy
+		prerequisite = { focus = BERN_neutralize_senate_confirmation }
+		prerequisite = { focus = BERN_nullify_25th_amendment }
+		x = 11
+		y = 3
+		cost = 8
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# 5 U.S.C. § 7511 и Указ № 13957: перевод карьерных служащих в статус «Мебели»
+			add_ideas = USA_schedule_policy_furniture
+			add_to_variable = { BERN_schedule_f_furniture_ratio = 35 }
+			subtract_from_variable = { BERN_anti_magic_toxin = 15 }
+			add_to_variable = { BERN_void_ab_initio_charges = 2 }
+			add_to_variable = { BERN_efficiency_gain_factor = 0.12 }
+			add_to_variable = { BERN_factory_output = 0.10 }
+			clamp_variable = { var = BERN_schedule_f_furniture_ratio min = 0 max = 100 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.08
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.8 days = 2 } # Забастовка профсоюзов MSPB
+			custom_effect_tooltip = BERN_schedule_policy_furniture_tt
+		}
+	}
+
+	focus = {
+		id = BERN_cler_vessel_spokesperson
+		icon = GFX_focus_bern_clair_vessel
+		prerequisite = { focus = BERN_schedule_policy_career }
+		x = 10
+		y = 4
+		cost = 6
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Клер Во Бернардус как безмолвный сосуд для зачитывания «исповедей» ведомств
+			if = {
+				limit = { NOT = { has_idea = BERN_clair_vaux_bernardus_for } }
+				add_ideas = BERN_clair_vaux_bernardus_for
+			}
+			add_to_variable = { BERN_schedule_f_furniture_ratio = 20 }
+			add_to_variable = { BERN_void_ab_initio_charges = 2 }
+			subtract_from_variable = { BERN_existential_boredom = 8 }
+			add_to_variable = { BERN_stability_factor = 0.04 }
+			clamp_variable = { var = BERN_schedule_f_furniture_ratio min = 0 max = 100 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.04
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_clair_appointed_tt
+		}
+	}
+
+	focus = {
+		id = BERN_void_ab_initio_purges
+		icon = GFX_focus_bern_void_ab_initio
+		prerequisite = { focus = BERN_schedule_policy_career }
+		x = 12
+		y = 4
+		cost = 8
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# 5 U.S.C. § 3348(d)(1)-(2): Юридическое стирание актов проигравших фигур без права ратификации
+			add_to_variable = { BERN_void_ab_initio_charges = 3 }
+			add_to_variable = { BERN_logic_error_progress = 8 }
+			subtract_from_variable = { BERN_anti_magic_toxin = 12 }
+			subtract_from_variable = { BERN_existential_boredom = 10 }
+			add_to_variable = { BERN_pp_gain = 0.06 }
+			add_to_variable = { BERN_resistance_target = -0.04 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			BERN_reset_fvra_mission_effect = yes
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.08
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.6 days = 1 } # Первое показательное стирание в «Море Забвения»
+			custom_effect_tooltip = BERN_void_ab_initio_tt
+		}
+	}
+
+	# =========================================================================
+	# ВЕТКА III: СУДЕБНЫЙ ФУНДАМЕНТАЛИЗМ И ЦВЕТНЫЕ ИСТИНЫ (EGAN, KNOX, VAN DINE)
+	# =========================================================================
+	focus = {
+		id = BERN_dlanor_attorney_general
+		icon = GFX_focus_bern_dlanor_ag
+		prerequisite = { focus = BERN_proclaim_the_gameboard }
+		x = 19
+		y = 1
+		cost = 6
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			if = {
+				limit = { NOT = { has_idea = BERN_dlanor_a_knox_sec } }
+				add_ideas = BERN_dlanor_a_knox_sec
+			}
+			add_to_variable = { BERN_red_truth_dossiers = 3 }
+			add_to_variable = { BERN_logic_error_progress = 5 }
+			add_to_variable = { BERN_subversion_cost = -0.05 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.05
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_dlanor_inauguration_tt
+		}
+	}
+
+	focus = {
+		id = BERN_ashcroft_mandate
+		icon = GFX_focus_bern_ashcroft_memo
+		prerequisite = { focus = BERN_dlanor_attorney_general }
+		x = 18
+		y = 2
+		cost = 7
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# DOJ Manual § 9-27.430 + 1-я, 2-я и 6-я заповеди Нокса (запрет сделок со следствием)
+			subtract_from_variable = { BERN_anti_magic_toxin = 12 }
+			add_to_variable = { BERN_logic_error_progress = 6 }
+			add_to_variable = { BERN_willard_heart_resistance = 8 }
+			add_to_variable = { BERN_subversion_cost = -0.10 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.06
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_ashcroft_mandate_tt
+		}
+	}
+
+	focus = {
+		id = BERN_navy_v_egan_monopoly
+		icon = GFX_focus_bern_navy_v_egan
+		prerequisite = { focus = BERN_dlanor_attorney_general }
+		x = 20
+		y = 2
+		cost = 7
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Прецедент 484 U.S. 518 (1988) и Указ № 13526: монополия на Красную Истину
+			add_ideas = USA_red_truth_monopoly
+			add_to_variable = { BERN_red_truth_dossiers = 6 }
+			subtract_from_variable = { BERN_anti_magic_toxin = 10 }
+			add_to_variable = { BERN_encryption_factor = 0.10 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.07
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_red_truth_monopoly_tt
+		}
+	}
+
+	focus = {
+		id = BERN_purple_truth_trials
+		icon = GFX_focus_bern_purple_truth
+		prerequisite = { focus = BERN_ashcroft_mandate }
+		prerequisite = { focus = BERN_navy_v_egan_monopoly }
+		x = 19
+		y = 3
+		cost = 8
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Запуск трёхступенчатого трибунала Пурпурных утверждений (18 U.S.C. § 1001)
+			add_to_variable = { BERN_purple_contradictions = 2 }
+			add_to_variable = { BERN_logic_error_progress = 10 }
+			subtract_from_variable = { BERN_existential_boredom = 15 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.08
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.10 days = 1 } # Старт 3-этапного процесса в Сенате (.10 -> .11 -> .12)
+			custom_effect_tooltip = BERN_purple_paradox_tt
+		}
+	}
+
+	# РАЗВИЛКА ИНКВИЗИЦИИ: ПУТЬ УИЛЛАРДА (20 ПРАВИЛ ВАН ДАЙНА) vs ПУТЬ ДЛАНОР И ЭРИКИ (ДЕКАЛОГ НОКСА)
+	focus = {
+		id = BERN_willard_audit
+		icon = GFX_focus_bern_willard_audit
+		prerequisite = { focus = BERN_purple_truth_trials }
+		mutually_exclusive = { focus = BERN_knox_death_sentences }
+		x = 18
+		y = 4
+		cost = 7
+		ai_will_do = { factor = 25 }
+		completion_reward = {
+			# Полномочия Театрала, Правило 11 и Правило 18 Ван Дайна: защита клерков и поиск «Сердца»
+			add_ideas = BERN_willard_h_wright_theorist
+			add_research_slot = 1
+			add_to_variable = { BERN_willard_heart_resistance = 30 }
+			subtract_from_variable = { BERN_anti_magic_toxin = 20 }
+			add_to_variable = { BERN_existential_boredom = 15 }
+			add_to_variable = { BERN_stability_factor = 0.06 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = -0.10
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_willard_appointed_tt
+		}
+	}
+
+	focus = {
+		id = BERN_knox_death_sentences
+		icon = GFX_focus_bern_knox_verdicts
+		prerequisite = { focus = BERN_purple_truth_trials }
+		mutually_exclusive = { focus = BERN_willard_audit }
+		x = 20
+		y = 4
+		cost = 8
+		ai_will_do = { factor = 75 }
+		completion_reward = {
+			# 8-я заповедь Нокса + засекречивание оправдательных улик по Egan = триумф инквизиции Эрики и Дланор
+			set_country_flag = BERN_willard_purged_flag
+			if = {
+				limit = { has_idea = BERN_willard_h_wright_theorist }
+				remove_ideas = BERN_willard_h_wright_theorist
+			}
+			add_ideas = BERN_knox_inquisition_idea
+			set_variable = { BERN_willard_heart_resistance = 0 }
+			add_to_variable = { BERN_purple_contradictions = 4 }
+			add_to_variable = { BERN_logic_error_progress = 15 }
+			subtract_from_variable = { BERN_existential_boredom = 20 }
+			add_to_variable = { BERN_duct_tape_seal_integrity = 15 }
+			add_to_variable = { BERN_subversion_cost = -0.15 }
+			add_to_variable = { BERN_encryption_factor = 0.08 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			clamp_variable = { var = BERN_duct_tape_seal_integrity min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.18
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.4 days = 1 }
+			custom_effect_tooltip = BERN_knox_death_sentence_tt
+		}
+	}
+
+	focus = {
+		id = BERN_willard_rebellion_for_heart
+		icon = GFX_focus_bern_willard_rebellion
+		prerequisite = { focus = BERN_willard_audit }
+		x = 18
+		y = 5
+		cost = 7
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Бунт Уилларда: 20 правил Ван Дайна, изгнание Эрики в «Море Забвения» по 5 U.S.C. § 3348
+			BERN_exile_erika_sea_of_oblivion_effect = yes
+			if = {
+				limit = { NOT = { has_idea = BERN_willard_golden_rule_idea } }
+				add_ideas = BERN_willard_golden_rule_idea
+			}
+			add_to_variable = { BERN_stability_factor = 0.10 }
+			add_to_variable = { BERN_compliance_growth = 0.10 }
+			add_to_variable = { BERN_resistance_target = -0.08 }
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.24 days = 2 }
+			custom_effect_tooltip = BERN_willard_rebellion_tt
+		}
+	}
+
+	# =========================================================================
+	# ВЕТКА IV: МОНЕТАРНАЯ МАГИЯ И БЮДЖЕТНАЯ ПЕТЛЯ (31 U.S.C. 5112(k) & ICA)
+	# =========================================================================
+	focus = {
+		id = BERN_power_of_the_purse_shatter
+		icon = GFX_focus_bern_purse_shatter
+		prerequisite = { focus = BERN_proclaim_the_gameboard }
+		x = 25
+		y = 1
+		cost = 6
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			# Подготовка к взлому Статьи I, Раздела 9, Пункта 7 Конституции США
+			add_political_power = 100
+			add_to_variable = { BERN_logic_error_progress = 5 }
+			subtract_from_variable = { BERN_existential_boredom = 5 }
+			add_to_variable = { BERN_econ_pp_factor = 0.05 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.04
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_power_of_purse_tt
+		}
+	}
+
+	focus = {
+		id = BERN_mint_the_trillion_coin
+		icon = GFX_focus_bern_trillion_coin
+		prerequisite = { focus = BERN_power_of_the_purse_shatter }
+		x = 24
+		y = 2
+		cost = 8
+		ai_will_do = { factor = 50 }
+		completion_reward = {
+			# Выпуск первой платиновой монеты в $1 трлн через United States Mint (PEF) + экономика TFR
+			add_ideas = USA_platinum_seigniorage
+			BERN_mint_trillion_coin_effect = yes
+			add_to_variable = { BERN_anti_magic_toxin = 10 }
+			subtract_from_variable = { BERN_existential_boredom = 12 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.06
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.2 days = 1 }
+			custom_effect_tooltip = BERN_trillion_coin_minted_tt
+		}
+	}
+
+	focus = {
+		id = BERN_pocket_rescissions
+		icon = GFX_focus_bern_pocket_rescission
+		prerequisite = { focus = BERN_power_of_the_purse_shatter }
+		x = 26
+		y = 2
+		cost = 8
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Раздел 1012 ICA (2 U.S.C. § 683): 45-дневный замораживающий капкан перед 30 сентября
+			add_ideas = USA_pocket_rescissions_spirit
+			add_to_variable = { BERN_impounded_appropriations_b = 30 }
+			subtract_from_variable = { BERN_seigniorage_inflation = 3.5 }
+			add_to_variable = { BERN_logic_error_progress = 8 }
+			add_to_variable = { BERN_econ_pp_factor = 0.05 }
+			clamp_variable = { var = BERN_seigniorage_inflation min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.06
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.7 days = 2 } # Предупреждение Счётной палаты (GAO)
+			custom_effect_tooltip = BERN_pocket_rescission_tt
+		}
+	}
+
+	focus = {
+		id = BERN_burn_the_appropriations
+		icon = GFX_focus_bern_burn_appropriations
+		prerequisite = { focus = BERN_mint_the_trillion_coin }
+		prerequisite = { focus = BERN_pocket_rescissions }
+		x = 25
+		y = 3
+		cost = 8
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			add_to_variable = { BERN_impounded_appropriations_b = 65 }
+			subtract_from_variable = { BERN_anti_magic_toxin = 10 }
+			add_to_variable = { BERN_logic_error_progress = 8 }
+			add_to_variable = { BERN_inflation_shock = -0.02 }
+			clamp_variable = { var = BERN_inflation_shock min = -0.08 max = 0.60 }
+			random_owned_controlled_state = {
+				limit = { free_building_slots = { building = industrial_complex size > 1 include_locked = yes } }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = industrial_complex level = 3 instant_build = yes }
+			}
+			random_owned_controlled_state = {
+				limit = { free_building_slots = { building = arms_factory size > 1 include_locked = yes } }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = { type = arms_factory level = 3 instant_build = yes }
+			}
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.08
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.9 days = 1 } # Полночь 1 октября: бюджет Конгресса сгорает дотла
+			custom_effect_tooltip = BERN_burn_appropriations_tt
+		}
+	}
+
+	# =========================================================================
+	# ВЕТКА V: ВНЕШНЯЯ ПОЛИТИКА И ПРЕДЕЛ ШЕЛЛИНГА (СТАТЬЯ 5 & 1 ИЗ 2 578 917)
+	# =========================================================================
+	focus = {
+		id = BERN_article_five_deconstruction
+		icon = GFX_focus_bern_article_5
+		prerequisite = { focus = BERN_main_core_index }
+		prerequisite = { focus = BERN_void_ab_initio_purges }
+		x = 8
+		y = 5
+		cost = 8
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# США сохраняют формальное лидерство в НАТО, но вешают на всех союзников дебафф «Блистательной двусмысленности»
+			if = {
+				limit = { is_in_faction = yes }
+				set_faction_leader = yes
+			}
+			else_if = {
+				limit = {
+					any_country = {
+						is_faction_leader = yes
+						OR = {
+							original_tag = ENG
+							original_tag = FRA
+							original_tag = GER
+						}
+						NOT = { has_war_with = ROOT }
+					}
+				}
+				random_country = {
+					limit = {
+						is_faction_leader = yes
+						OR = {
+							original_tag = ENG
+							original_tag = FRA
+							original_tag = GER
+						}
+						NOT = { has_war_with = ROOT }
+					}
+					add_to_faction = ROOT
+				}
+				set_faction_leader = yes
+			}
+			every_other_country = {
+				limit = { is_in_faction_with = ROOT }
+				if = {
+					limit = { NOT = { has_idea = BERN_glorious_ambiguity_nato } }
+					add_ideas = BERN_glorious_ambiguity_nato
+				}
+				country_event = { id = bernkastel_events.3 days = 1 } # Посылка союзникам по НАТО: «Чая и сушёных слив!»
+			}
+			add_to_variable = { BERN_logic_error_progress = 8 }
+			subtract_from_variable = { BERN_existential_boredom = 12 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.08
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.13 days = 1 } # Дебаты в Североатлантическом совете
+			custom_effect_tooltip = BERN_article_five_deconstruction_tt
+		}
+	}
+
+	focus = {
+		id = BERN_tea_and_plums_diplomacy
+		icon = GFX_focus_bern_tea_and_plums
+		prerequisite = { focus = BERN_article_five_deconstruction }
+		x = 8
+		y = 6
+		cost = 7
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Отправка черного чая с сушеной сливой и бутилированной воды союзникам по НАТО
+			subtract_from_variable = { BERN_existential_boredom = 15 }
+			add_to_variable = { BERN_logic_error_progress = 7 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.06
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_tea_and_plums_tt
+		}
+	}
+
+	focus = {
+		id = BERN_schelling_inversion
+		icon = GFX_focus_bern_schelling_inversion
+		prerequisite = {
+			focus = BERN_willard_audit
+			focus = BERN_knox_death_sentences
+		}
+		prerequisite = { focus = BERN_burn_the_appropriations }
+		x = 22
+		y = 5
+		cost = 8
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Слом модели RAND 1959 года: подъем автономного риска войны с 5% до 50%
+			add_ideas = USA_the_threat_that_leaves_chance
+			set_variable = { BERN_schelling_brinkmanship_risk = 50 }
+			subtract_from_variable = { BERN_existential_boredom = 20 }
+			add_to_variable = { BERN_logic_error_progress = 10 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			add_tech_bonus = {
+				name = BERN_schelling_inversion
+				bonus = 1.0
+				uses = 2
+				category = nuclear
+			}
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.10
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_schelling_inversion_tt
+		}
+	}
+
+	focus = {
+		id = BERN_one_in_two_million
+		icon = GFX_focus_bern_one_in_two_million
+		prerequisite = { focus = BERN_schelling_inversion }
+		x = 22
+		y = 6
+		cost = 8
+		ai_will_do = { factor = 40 }
+		completion_reward = {
+			# Казус Клер в СПРН: открывает целевой ядерный шантаж сверхдержав
+			set_variable = { BERN_schelling_brinkmanship_risk = 99.99996 }
+			subtract_from_variable = { BERN_existential_boredom = 30 }
+			add_to_variable = { BERN_logic_error_progress = 15 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+			add_nuclear_bombs = 6
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.12
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.20 days = 1 }
+			custom_effect_tooltip = BERN_one_in_two_million_tt
+		}
+	}
+
+	# =========================================================================
+	# КУЛЬМИНАЦИЯ / ДВЕ РАЗВЯЗКИ ИГРОВОЙ ДОСКИ
+	# =========================================================================
+	focus = {
+		id = BERN_eradicate_planned_harmony
+		icon = GFX_focus_bern_no_planned_harmony
+		prerequisite = { focus = BERN_tea_and_plums_diplomacy }
+		prerequisite = { focus = BERN_one_in_two_million }
+		mutually_exclusive = { focus = BERN_golden_truth_consensus }
+		available = {
+			NOT = { has_completed_focus = BERN_willard_rebellion_for_heart }
+		}
+		x = 14
+		y = 7
+		cost = 10
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			add_political_power = 200
+			add_to_variable = { BERN_logic_error_progress = 15 }
+			subtract_from_variable = { BERN_existential_boredom = 25 }
+			clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			if = {
+				limit = { has_power_balance = { id = BERN_boredom_bop } }
+				add_power_balance_value = {
+					id = BERN_boredom_bop
+					value = 0.15
+				}
+			}
+			BERN_recalculate_catbox_modifiers = yes
+			custom_effect_tooltip = BERN_no_planned_harmony_tt
+		}
+	}
+
+	focus = {
+		id = BERN_golden_truth_consensus
+		icon = GFX_focus_bern_golden_truth
+		prerequisite = { focus = BERN_willard_rebellion_for_heart }
+		prerequisite = { focus = BERN_tea_and_plums_diplomacy }
+		prerequisite = { focus = BERN_one_in_two_million }
+		mutually_exclusive = { focus = BERN_eradicate_planned_harmony }
+		x = 18
+		y = 7
+		cost = 10
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			# Мирный уход Бернкастель через «Золотую Истину» человеческого консенсуса и 20 правил Ван Дайна
+			add_stability = 0.15
+			add_to_variable = { BERN_existential_boredom = 40 }
+			clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+			BERN_recalculate_catbox_modifiers = yes
+			country_event = { id = bernkastel_events.19 days = 1 }
+			custom_effect_tooltip = BERN_golden_truth_consensus_tt
+		}
+	}
+
+	focus = {
+		id = BERN_logic_error_republic
+		icon = GFX_focus_bern_logic_error
+		prerequisite = { focus = BERN_eradicate_planned_harmony }
+		x = 14
+		y = 8
+		cost = 10
+		ai_will_do = { factor = 100 }
+		completion_reward = {
+			country_event = { id = bernkastel_events.100 days = 1 }
+			custom_effect_tooltip = BERN_logic_error_climax_tt
+		}
+	}
+}

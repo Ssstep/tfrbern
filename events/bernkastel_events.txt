@@ -1,0 +1,970 @@
+###############################################################
+# События: Президентство Фредерики Бернкастель (TFR)
+# Единая нумерация: .1 – .24 + .100
+###############################################################
+
+add_namespace = bernkastel_events
+
+# .1 — Восхождение Ведьмы Чудес и открытие Игровой Доски
+country_event = {
+	id = bernkastel_events.1
+	title = bernkastel_events.1.t
+	desc = bernkastel_events.1.desc
+	picture = GFX_report_event_bernkastel_inauguration
+	is_triggered_only = yes
+     
+	immediate = {
+		hidden_effect = {
+			set_country_flag = BERN_bernkastel_ruling_flag
+			clr_country_flag = BERN_witch_departed_flag
+			clr_country_flag = BERN_golden_truth_achieved
+
+			# Снятие ванильных флагов выборов и Трампа
+			set_country_flag = USA_elections_cancelled
+			clr_country_flag = USA_counting_heads_flag
+			clr_country_flag = USA_sided_with_trump_flag
+			clr_country_flag = USA_political_campaign_flag
+
+			# Отмена ванильных миссий предвыборной кампании TFR
+			if = { limit = { has_active_mission = USA_countdown_day_mission } cancel_mission = USA_countdown_day_mission }
+			if = { limit = { has_active_mission = USA_opposistion_action_mission } cancel_mission = USA_opposistion_action_mission }
+
+			# Удаление ванильных нацдухов и кабинета Трампа из TFR
+			if = { limit = { has_idea = USA_the_trump_economy_idea } remove_ideas = USA_the_trump_economy_idea }
+			if = { limit = { has_idea = USA_america_first_idea } remove_ideas = USA_america_first_idea }
+			if = { limit = { has_idea = siding_with_trump } remove_ideas = siding_with_trump }
+			if = { limit = { has_idea = USC_trumps_party_idea } remove_ideas = USC_trumps_party_idea }
+			if = { limit = { has_idea = USA_mike_pence_hog } remove_ideas = USA_mike_pence_hog }
+			if = { limit = { has_idea = USA_mike_pompeo_for } remove_ideas = USA_mike_pompeo_for }
+			if = { limit = { has_idea = USA_steven_mnuchin_eco } remove_ideas = USA_steven_mnuchin_eco }
+			if = { limit = { has_idea = USA_david_bernhardt_sec } remove_ideas = USA_david_bernhardt_sec }
+			if = { limit = { has_idea = USA_john_ratcliffe_int } remove_ideas = USA_john_ratcliffe_int }
+
+			BERN_remove_prior_usa_bops_effect = yes
+			BERN_initialize_catbox_matrix = yes
+
+			set_politics = {
+				ruling_party = nationalist
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = nationalist
+				popularity = 0.65
+			}
+			create_country_leader = {
+				name = USA_frederica_bernkastel
+				desc = "POLITICS_FREDERICA_BERNKASTEL_DESC"
+				picture = "gfx/leaders/USA/portrait_frederica_bernkastel.png"
+				expire = "2999.1.1.1"
+				ideology = autocrat
+				traits = {
+					trait_witch_of_miracles
+					trait_gamemaster_of_shards
+					trait_cold_textualist
+				}
+			}
+
+			load_focus_tree = {
+				tree = USA_bernkastel_focus_tree
+				keep_completed = no
+			}
+
+			set_power_balance = {
+				id = BERN_boredom_bop
+				left_side = BERN_planned_harmony_side
+				right_side = BERN_logic_error_side
+			}
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.15
+			}
+
+			if = {
+				limit = { NOT = { has_idea = BERN_erika_furudo_hog } }
+				add_ideas = BERN_erika_furudo_hog
+			}
+			if = {
+				limit = { NOT = { has_idea = BERN_erika_furudo_int } }
+				add_ideas = BERN_erika_furudo_int
+			}
+
+			if = {
+				limit = { NOT = { has_active_mission = BERN_existential_boredom_tick } }
+				activate_mission = BERN_existential_boredom_tick
+			}
+			if = {
+				limit = { NOT = { has_active_mission = BERN_fvra_210_day_statutory_clock } }
+				activate_mission = BERN_fvra_210_day_statutory_clock
+			}
+		}
+	}
+
+	option = {
+		name = bernkastel_events.1.a
+		set_country_flag = BERN_se_inauguration_active
+		play_song = "bern_superevent_theme"
+		custom_effect_tooltip = BERN_inauguration_tt
+		add_political_power = 100
+		add_war_support = 0.08
+		add_stability = 0.05
+		add_to_variable = { var = BERN_logic_error_progress value = 10 }
+		clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.08
+		}
+		BERN_recalculate_catbox_modifiers = yes
+	}
+}
+
+# .2 — Платиновая монета в $1 триллион (31 U.S.C. § 5112(k))
+country_event = {
+	id = bernkastel_events.2
+	title = bernkastel_events.2.t
+	desc = bernkastel_events.2.desc
+	picture = GFX_report_event_trillion_coin
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.2.a
+		BERN_mint_trillion_coin_effect = yes
+		add_political_power = 50
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.08
+		}
+	}
+
+	option = {
+		name = bernkastel_events.2.b
+		BERN_mint_trillion_coin_effect = yes
+		add_stability = -0.03
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.10
+		}
+	}
+}
+
+# .3 — Посылка союзникам по НАТО: «Чая и сушёных слив!»
+country_event = {
+	id = bernkastel_events.3
+	title = bernkastel_events.3.t
+	desc = bernkastel_events.3.desc
+	picture = GFX_report_event_tea_and_plums
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.3.a
+		add_war_support = -0.05
+		if = {
+			limit = { country_exists = USA }
+			add_opinion_modifier = {
+				target = USA
+				modifier = small_decrease
+			}
+		}
+	}
+}
+
+# .4 — Смертные приговоры Нокс: Текстуализм и изгнание Уилларда
+country_event = {
+	id = bernkastel_events.4
+	title = bernkastel_events.4.t
+	desc = bernkastel_events.4.desc
+	picture = GFX_report_event_willard_confrontation
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.4.a
+		set_country_flag = BERN_willard_purged_flag
+		if = {
+			limit = { has_idea = BERN_willard_h_wright_theorist }
+			remove_ideas = BERN_willard_h_wright_theorist
+		}
+		if = {
+			limit = { NOT = { has_idea = BERN_knox_inquisition_idea } }
+			add_ideas = BERN_knox_inquisition_idea
+		}
+		add_to_variable = { var = BERN_willard_heart_resistance value = -25 }
+		clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+		add_to_variable = { var = BERN_logic_error_progress value = 12 }
+		clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.12
+		}
+		BERN_recalculate_catbox_modifiers = yes
+	}
+}
+
+# .5 — Ловушка вето по делу INS v. Chadha (50 U.S.C. § 1622)
+country_event = {
+	id = bernkastel_events.5
+	title = bernkastel_events.5.t
+	desc = bernkastel_events.5.desc
+	picture = GFX_report_event_logic_error
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.5.a
+		add_political_power = 50
+		add_to_variable = { var = BERN_logic_error_progress value = 8 }
+		clamp_variable = { var = BERN_logic_error_progress min = 0 max = 100 }
+		add_to_variable = { var = BERN_existential_boredom value = -6 }
+		clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.08
+		}
+		BERN_recalculate_catbox_modifiers = yes
+	}
+
+	option = {
+		name = bernkastel_events.5.b
+		add_war_support = 0.04
+		add_to_variable = { var = BERN_active_peads_count value = 2 }
+		add_to_variable = { var = BERN_willard_heart_resistance value = 5 }
+		clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.05
+		}
+		BERN_recalculate_catbox_modifiers = yes
+	}
+}
+
+# .6 — Показательное стирание в «Море Забвения» (Void Ab Initio, 5 U.S.C. § 3348)
+country_event = {
+	id = bernkastel_events.6
+	title = bernkastel_events.6.t
+	desc = bernkastel_events.6.desc
+	picture = GFX_report_event_logic_error
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.6.a
+		add_to_variable = { var = BERN_void_ab_initio_charges value = 1 }
+		add_to_variable = { var = BERN_existential_boredom value = -10 }
+		clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+		add_to_variable = { var = BERN_pp_gain value = 0.04 }
+		BERN_recalculate_catbox_modifiers = yes
+	}
+
+	option = {
+		name = bernkastel_events.6.b
+		trigger = {
+			NOT = { has_country_flag = BERN_erika_exiled_flag }
+		}
+		if = {
+			limit = { has_idea = BERN_acting_substitute_hog }
+			swap_ideas = {
+				remove_idea = BERN_acting_substitute_hog
+				add_idea = BERN_erika_furudo_hog
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_idea = BERN_erika_furudo_hog } }
+			add_ideas = BERN_erika_furudo_hog
+		}
+		add_to_variable = { var = BERN_anti_magic_toxin value = -10 }
+		clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+		add_to_variable = { var = BERN_subversion_cost value = -0.05 }
+		BERN_recalculate_catbox_modifiers = yes
+	}
+}
+
+# .7 — Бунт Счётной палаты (GAO) против OMB (2 U.S.C. § 687)
+country_event = {
+	id = bernkastel_events.7
+	title = bernkastel_events.7.t
+	desc = bernkastel_events.7.desc
+	picture = GFX_report_event_willard_confrontation
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.7.a
+		add_political_power = 60
+		add_stability = -0.04
+		add_to_variable = { var = BERN_impounded_appropriations_b value = 5 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.06
+		}
+	}
+
+	option = {
+		name = bernkastel_events.7.b
+		add_stability = 0.03
+		add_to_variable = { var = BERN_existential_boredom value = 5 }
+		clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = -0.04
+		}
+	}
+}
+
+# .8 — Забастовка профсоюзов MSPB против переклассификации «в мебель»
+country_event = {
+	id = bernkastel_events.8
+	title = bernkastel_events.8.t
+	desc = bernkastel_events.8.desc
+	picture = GFX_report_event_logic_error
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.8.a
+		add_to_variable = { var = BERN_schedule_f_furniture_ratio value = 10 }
+		clamp_variable = { var = BERN_schedule_f_furniture_ratio min = 0 max = 100 }
+		add_to_variable = { var = BERN_factory_output value = 0.04 }
+		add_to_variable = { var = BERN_stability_factor value = -0.03 }
+		BERN_recalculate_catbox_modifiers = yes
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.06
+		}
+	}
+
+	option = {
+		name = bernkastel_events.8.b
+		add_political_power = -35
+		add_to_variable = { var = BERN_duct_tape_seal_integrity value = 8 }
+		clamp_variable = { var = BERN_duct_tape_seal_integrity min = 0 max = 100 }
+		add_to_variable = { var = BERN_compliance_growth value = 0.03 }
+		BERN_recalculate_catbox_modifiers = yes
+	}
+}
+
+# .9 — Полночь 1 октября: неиспользованные ассигнования Конгресса сгорают (2 U.S.C. § 683)
+country_event = {
+	id = bernkastel_events.9
+	title = bernkastel_events.9.t
+	desc = bernkastel_events.9.desc
+	picture = GFX_report_event_trillion_coin
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.9.a
+		add_political_power = 50
+		add_war_support = 0.05
+		add_popularity = {
+			ideology = conservative
+			popularity = -0.05
+		}
+		add_to_variable = { var = BERN_existential_boredom value = -10 }
+		clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+	}
+}
+
+# .10 — Пурпурные утверждения, Акт I: Допрос сенатора под присягой (18 U.S.C. § 1001)
+country_event = {
+	id = bernkastel_events.10
+	title = bernkastel_events.10.t
+	desc = bernkastel_events.10.desc
+	picture = GFX_report_event_willard_confrontation
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.10.a
+		add_to_variable = { var = BERN_purple_contradictions value = 1 }
+		hidden_effect = {
+			country_event = { id = bernkastel_events.11 days = 2 }
+		}
+	}
+
+	option = {
+		name = bernkastel_events.10.b
+		add_to_variable = { var = BERN_encryption_factor value = 0.04 }
+		BERN_recalculate_catbox_modifiers = yes
+		hidden_effect = {
+			country_event = { id = bernkastel_events.11 days = 2 }
+		}
+	}
+}
+
+# .11 — Пурпурные утверждения, Акт II: Удар Клинком Нокс против 11-го правила Ван Дайна
+country_event = {
+	id = bernkastel_events.11
+	title = bernkastel_events.11.t
+	desc = bernkastel_events.11.desc
+	picture = GFX_report_event_logic_error
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.11.a
+		add_to_variable = { var = BERN_red_truth_dossiers value = 1 }
+		add_to_variable = { var = BERN_purple_contradictions value = 1 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.07
+		}
+		hidden_effect = {
+			country_event = { id = bernkastel_events.12 days = 2 }
+		}
+	}
+
+	option = {
+		name = bernkastel_events.11.b
+		trigger = {
+			NOT = { has_country_flag = BERN_willard_purged_flag }
+		}
+		add_stability = 0.04
+		add_to_variable = { var = BERN_willard_heart_resistance value = -10 }
+		clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+		BERN_recalculate_catbox_modifiers = yes
+		hidden_effect = {
+			country_event = { id = bernkastel_events.12 days = 2 }
+		}
+	}
+}
+
+# .12 — Пурпурные утверждения, Акт III: Саморазоблачение и приговор по 18 U.S.C. § 1001
+country_event = {
+	id = bernkastel_events.12
+	title = bernkastel_events.12.t
+	desc = bernkastel_events.12.desc
+	picture = GFX_report_event_willard_confrontation
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.12.a
+		add_political_power = 75
+		add_popularity = {
+			ideology = nationalist
+			popularity = 0.08
+		}
+		add_to_variable = { var = BERN_purple_contradictions value = 1 }
+		add_to_variable = { var = BERN_resistance_target value = -0.03 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.06
+		}
+		BERN_recalculate_catbox_modifiers = yes
+	}
+
+	option = {
+		name = bernkastel_events.12.b
+		add_to_variable = { var = BERN_active_peads_count value = 3 }
+		add_to_variable = { var = BERN_stability_factor value = 0.04 }
+		BERN_recalculate_catbox_modifiers = yes
+	}
+}
+
+# .13 — Дебаты в Североатлантическом совете по Статье 5
+country_event = {
+	id = bernkastel_events.13
+	title = bernkastel_events.13.t
+	desc = bernkastel_events.13.desc
+	picture = GFX_report_event_tea_and_plums
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.13.a
+		add_political_power = 75
+		add_named_threat = {
+			threat = 5
+			name = BERN_nato_deconstruction_threat
+		}
+		add_to_variable = { var = BERN_existential_boredom value = -10 }
+		clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.08
+		}
+	}
+
+	option = {
+		name = bernkastel_events.13.b
+		add_stability = 0.05
+		add_political_power = 35
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.04
+		}
+	}
+}
+
+# .15 — Полночь 30 сентября: Иск GAO в Окружном суде округа Колумбия
+country_event = {
+	id = bernkastel_events.15
+	title = bernkastel_events.15.t
+	desc = bernkastel_events.15.desc
+	picture = GFX_report_event_willard_confrontation
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.15.a
+		add_political_power = 35
+		add_to_variable = { var = BERN_impounded_appropriations_b value = 20 }
+		add_to_variable = { var = BERN_existential_boredom value = -6 }
+		clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.05
+		}
+	}
+
+	option = {
+		name = bernkastel_events.15.b
+		add_to_variable = { var = BERN_pp_gain value = 0.03 }
+		add_to_variable = { var = BERN_existential_boredom value = -10 }
+		clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+		BERN_recalculate_catbox_modifiers = yes
+	}
+}
+
+# .16 — Бунт Совета управляющих ФРС против платинового сеньоража
+country_event = {
+	id = bernkastel_events.16
+	title = bernkastel_events.16.t
+	desc = bernkastel_events.16.desc
+	picture = GFX_report_event_trillion_coin
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.16.a
+		add_stability = -0.05
+		add_political_power = 50
+		add_to_variable = { var = BERN_seigniorage_inflation value = 8 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.08
+		}
+	}
+
+	option = {
+		name = bernkastel_events.16.b
+		add_stability = 0.04
+		add_to_variable = { var = BERN_inflation_shock value = -0.03 }
+		BERN_recalculate_catbox_modifiers = yes
+	}
+}
+
+# .17 — КОЛЛАПС РЕЖИМА: Экзистенциальная Скука достигла 100% — Ведьма покидает осколок
+country_event = {
+	id = bernkastel_events.17
+	title = bernkastel_events.17.t
+	desc = bernkastel_events.17.desc
+	picture = GFX_report_event_logic_error
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.17.a
+		clr_country_flag = BERN_bernkastel_ruling_flag
+		set_country_flag = BERN_witch_departed_flag
+		if = {
+			limit = { has_power_balance = { id = BERN_boredom_bop } }
+			remove_power_balance = { id = BERN_boredom_bop }
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_dynamic_modifier = { modifier = BERN_catbox_constitution_dm } }
+				remove_dynamic_modifier = { modifier = BERN_catbox_constitution_dm }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = BERN_witch_economics_dm } }
+				remove_dynamic_modifier = { modifier = BERN_witch_economics_dm }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = BERN_gameboard_telemetry_dm } }
+				remove_dynamic_modifier = { modifier = BERN_gameboard_telemetry_dm }
+			}
+			if = {
+				limit = { has_active_mission = BERN_existential_boredom_tick }
+				remove_mission = BERN_existential_boredom_tick
+			}
+			if = {
+				limit = { has_active_mission = BERN_fvra_210_day_statutory_clock }
+				remove_mission = BERN_fvra_210_day_statutory_clock
+			}
+			if = {
+				limit = { has_active_mission = BERN_execute_pocket_rescission }
+				remove_mission = BERN_execute_pocket_rescission
+			}
+			remove_ideas = {
+				USA_catbox_republic
+				USA_gameboard_administration
+				USA_schedule_policy_furniture
+				USA_red_truth_monopoly
+				USA_platinum_seigniorage
+				USA_pocket_rescissions_spirit
+				USA_the_threat_that_leaves_chance
+				USA_existential_boredom_threat
+				BERN_knox_inquisition_idea
+				BERN_erika_furudo_hog
+				BERN_erika_furudo_int
+				BERN_dlanor_a_knox_sec
+				BERN_clair_vaux_bernardus_for
+				BERN_acting_substitute_hog
+				BERN_willard_h_wright_theorist
+			}
+		}
+		add_stability = -0.25
+		add_political_power = -200
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.45
+		}
+		if = {
+			limit = { NOT = { has_country_flag = BERN_willard_purged_flag } }
+			create_country_leader = {
+				name = USA_willard_h_wright
+				desc = "POLITICS_WILLARD_H_WRIGHT_DESC"
+				picture = "gfx/leaders/USA/portrait_willard_h_wright.png"
+				expire = "2999.1.1.1"
+				ideology = ultra_conservatism
+				traits = {
+					trait_reluctant_caretaker
+					trait_willard_inspector_general
+				}
+			}
+		}
+		else = {
+			create_country_leader = {
+				name = USA_clair_vaux_bernardus
+				desc = "POLITICS_CLAIR_VAUX_BERNARDUS_DESC"
+				picture = "gfx/leaders/USA/portrait_clair_vaux_bernardus.png"
+				expire = "2999.1.1.1"
+				ideology = ultra_conservatism
+				traits = {
+					trait_reluctant_caretaker
+				}
+			}
+		}
+	}
+}
+
+# .18 — Правый полюс BoP: Предельная Логическая Ошибка Кошачьего Ящика
+country_event = {
+	id = bernkastel_events.18
+	title = bernkastel_events.18.t
+	desc = bernkastel_events.18.desc
+	picture = GFX_report_event_logic_error
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.18.a
+		add_war_support = 0.08
+		add_to_variable = { var = BERN_pp_gain value = 0.05 }
+		add_to_variable = { var = BERN_stability_factor value = -0.04 }
+		add_to_variable = { var = BERN_willard_heart_resistance value = 10 }
+		clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+		BERN_recalculate_catbox_modifiers = yes
+	}
+
+	option = {
+		name = bernkastel_events.18.b
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = -0.18
+		}
+		add_to_variable = { var = BERN_willard_heart_resistance value = -12 }
+		clamp_variable = { var = BERN_willard_heart_resistance min = 0 max = 100 }
+		add_stability = 0.04
+		add_political_power = -40
+		BERN_recalculate_catbox_modifiers = yes
+	}
+}
+
+# .19 — Золотая Истина консенсуса: Мирный уход Ведьмы и переход к Уилларду Райту
+country_event = {
+	id = bernkastel_events.19
+	title = bernkastel_events.19.t
+	desc = bernkastel_events.19.desc
+	picture = GFX_report_event_willard_confrontation
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.19.a
+		clr_country_flag = BERN_bernkastel_ruling_flag
+		set_country_flag = BERN_golden_truth_achieved
+		if = {
+			limit = { has_power_balance = { id = BERN_boredom_bop } }
+			remove_power_balance = { id = BERN_boredom_bop }
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_dynamic_modifier = { modifier = BERN_catbox_constitution_dm } }
+				remove_dynamic_modifier = { modifier = BERN_catbox_constitution_dm }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = BERN_gameboard_telemetry_dm } }
+				remove_dynamic_modifier = { modifier = BERN_gameboard_telemetry_dm }
+			}
+			if = {
+				limit = { has_active_mission = BERN_existential_boredom_tick }
+				remove_mission = BERN_existential_boredom_tick
+			}
+			if = {
+				limit = { has_active_mission = BERN_fvra_210_day_statutory_clock }
+				remove_mission = BERN_fvra_210_day_statutory_clock
+			}
+			if = {
+				limit = { has_active_mission = BERN_execute_pocket_rescission }
+				remove_mission = BERN_execute_pocket_rescission
+			}
+			remove_ideas = {
+				USA_catbox_republic
+				USA_gameboard_administration
+				USA_schedule_policy_furniture
+				USA_red_truth_monopoly
+				USA_existential_boredom_threat
+				BERN_knox_inquisition_idea
+				BERN_erika_furudo_hog
+				BERN_erika_furudo_int
+				BERN_dlanor_a_knox_sec
+				BERN_acting_substitute_hog
+			}
+		}
+		set_politics = {
+			ruling_party = conservative
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = conservative
+			popularity = 0.55
+		}
+		create_country_leader = {
+			name = USA_willard_h_wright
+			desc = "POLITICS_WILLARD_H_WRIGHT_DESC"
+			picture = "gfx/leaders/USA/portrait_willard_h_wright.png"
+			expire = "2999.1.1.1"
+			ideology = constitutionalist
+			traits = {
+				trait_golden_truth_arbiter
+				trait_willard_inspector_general
+			}
+		}
+		add_stability = 0.25
+		add_political_power = 150
+	}
+}
+
+# .20 — Математический предел 1 / 2 578 917 (Инверсия Шеллинга)
+country_event = {
+	id = bernkastel_events.20
+	title = bernkastel_events.20.t
+	desc = bernkastel_events.20.desc
+	picture = GFX_report_event_logic_error
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.20.a
+		add_political_power = 100
+		add_war_support = 0.05
+		add_named_threat = {
+			threat = 6
+			name = BERN_schelling_limit_threat
+		}
+		add_to_variable = { var = BERN_existential_boredom value = -10 }
+		clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+	}
+}
+
+# .21 — Дилемма Лямбдадельты: 2 578 916 против 1 (Ультиматум великой державе)
+country_event = {
+	id = bernkastel_events.21
+	title = bernkastel_events.21.t
+	desc = bernkastel_events.21.desc
+	picture = GFX_report_event_logic_error
+	is_triggered_only = yes
+
+	# Вариант А: ИИ с вероятностью 90% идет на геополитические уступки США
+	option = {
+		name = bernkastel_events.21.a
+		ai_chance = {
+			factor = 90
+		}
+		add_ideas = BERN_schelling_coerced_idea
+		add_political_power = -150
+		add_stability = -0.15
+		if = {
+			limit = { has_event_target = bern_initiator_usa }
+			event_target:bern_initiator_usa = {
+				add_political_power = 200
+				add_stability = 0.05
+				add_war_support = 0.05
+				subtract_from_variable = { BERN_existential_boredom = 25 }
+				clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+				BERN_recalculate_catbox_modifiers = yes
+			}
+		}
+		else = {
+			add_political_power = 200
+			add_stability = 0.05
+		}
+	}
+
+	# Вариант Б: ИИ с вероятностью 10% отвергает ультиматум и объявляет войну
+	option = {
+		name = bernkastel_events.21.b
+		ai_chance = {
+			factor = 10
+		}
+		add_war_support = 0.20
+		add_stability = -0.10
+		if = {
+			limit = { has_event_target = bern_initiator_usa }
+			declare_war_on = {
+				target = event_target:bern_initiator_usa
+				type = topple_government
+			}
+			event_target:bern_initiator_usa = {
+				add_war_support = 0.15
+				add_named_threat = {
+					threat = 20
+					name = BERN_schelling_misfire_threat
+				}
+				subtract_from_variable = { BERN_existential_boredom = 40 }
+				clamp_variable = { var = BERN_existential_boredom min = 0 max = 100 }
+				BERN_recalculate_catbox_modifiers = yes
+			}
+		}
+		else = {
+			add_named_threat = {
+				threat = 20
+				name = BERN_schelling_misfire_threat
+			}
+		}
+	}
+}
+
+# .22 — СРЫВ 0.1%: Роковая единица — термоядерный удар по стратегии Шеллинга!
+country_event = {
+	id = bernkastel_events.22
+	title = bernkastel_events.22.t
+	desc = bernkastel_events.22.desc
+	picture = GFX_report_event_logic_error
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.22.a
+		if = {
+			limit = { has_event_target = bern_blackmail_target }
+			event_target:bern_blackmail_target = {
+				add_stability = -0.25
+				add_war_support = 0.20
+			}
+			if = {
+				limit = { has_variable = bern_nuke_state }
+				launch_nuke = {
+					state = var:ROOT.bern_nuke_state
+					use_nuke = no
+					nuke_type = thermonuclear_bomb
+				}
+			}
+			declare_war_on = {
+				target = event_target:bern_blackmail_target
+				type = topple_government
+			}
+			clear_global_event_target = bern_blackmail_target
+		}
+		else = {
+			add_named_threat = {
+				threat = 15
+				name = BERN_schelling_misfire_threat
+			}
+			add_stability = -0.08
+			add_political_power = -75
+			add_power_balance_value = {
+				id = BERN_boredom_bop
+				value = 0.10
+			}
+		}
+	}
+}
+
+# .23 — Истечение 210-дневного срока FVRA (5 U.S.C. § 3348)
+country_event = {
+	id = bernkastel_events.23
+	title = bernkastel_events.23.t
+	desc = bernkastel_events.23.desc
+	picture = GFX_report_event_willard_confrontation
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.23.a
+		add_political_power = -40
+		add_stability = -0.04
+		add_to_variable = { var = BERN_anti_magic_toxin value = 8 }
+		clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+	}
+
+	option = {
+		name = bernkastel_events.23.b
+		add_political_power = -25
+		add_to_variable = { var = BERN_acting_cabinet_slots value = -1 }
+		clamp_variable = { var = BERN_acting_cabinet_slots min = 0 max = 20 }
+		add_to_variable = { var = BERN_void_ab_initio_charges value = 1 }
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.05
+		}
+	}
+}
+
+# .24 — Бунт Уилларда Х. Райта во имя Сердца и 20 правил Ван Дайна
+country_event = {
+	id = bernkastel_events.24
+	title = bernkastel_events.24.t
+	desc = bernkastel_events.24.desc
+	picture = GFX_report_event_willard_confrontation
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.24.a
+		set_country_flag = BERN_willard_ascendant_flag
+		add_to_variable = { var = BERN_anti_magic_toxin value = -20 }
+		clamp_variable = { var = BERN_anti_magic_toxin min = 0 max = 100 }
+		add_popularity = {
+			ideology = conservative
+			popularity = 0.20
+		}
+		add_stability = 0.08
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = -0.12
+		}
+	}
+}
+
+# .100 — Финал Ветки IV: Республика Логической Ошибки
+country_event = {
+	id = bernkastel_events.100
+	title = bernkastel_events.100.t
+	desc = bernkastel_events.100.desc
+	picture = GFX_report_event_logic_error
+	is_triggered_only = yes
+
+	option = {
+		name = bernkastel_events.100.a
+		set_country_flag = BERN_catbox_sealed_eternally
+		set_variable = { var = BERN_existential_boredom value = 0 }
+		set_variable = { var = BERN_logic_error_progress value = 100 }
+		add_political_power = 200
+		add_war_support = 0.15
+		add_power_balance_value = {
+			id = BERN_boredom_bop
+			value = 0.25
+		}
+	}
+
+	option = {
+		name = bernkastel_events.100.b
+		country_event = { id = bernkastel_events.17 }
+	}
+}

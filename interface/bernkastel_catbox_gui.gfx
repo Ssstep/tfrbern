@@ -1,0 +1,172 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_bern_gui_architecture_art"
+		texturefile = "gfx/interface/decisions/bern_gui_architecture_art.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_architecture_bg"
+		texturefile = "gfx/interface/decisions/bern_gui_architecture_bg.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_catbox_grand_bg"
+		texturefile = "gfx/interface/decisions/bern_gui_catbox_grand_bg.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_frederica_bernkastel_small"
+		texturefile = "gfx/leaders/USA/portrait_frederica_bernkastel_small.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_portrait_erika"
+		texturefile = "gfx/interface/decisions/bern_portrait_erika.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_portrait_dlanor"
+		texturefile = "gfx/interface/decisions/bern_portrait_dlanor.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_portrait_willard"
+		texturefile = "gfx/interface/decisions/bern_portrait_willard.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_portrait_clair"
+		texturefile = "gfx/interface/decisions/bern_portrait_clair.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_void_stamp"
+		texturefile = "gfx/interface/decisions/bern_void_ab_initio_stamp.png"
+	}
+	spriteType = {
+		name = "GFX_bern_void_ab_initio_stamp"
+		texturefile = "gfx/interface/decisions/bern_void_ab_initio_stamp.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_pillar_blue"
+		texturefile = "gfx/interface/decisions/bern_pillar_blue.png"
+	}
+	spriteType = {
+		name = "GFX_bern_pillar_blue"
+		texturefile = "gfx/interface/decisions/bern_pillar_blue.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_pillar_red"
+		texturefile = "gfx/interface/decisions/bern_pillar_red.png"
+	}
+	spriteType = {
+		name = "GFX_bern_pillar_red"
+		texturefile = "gfx/interface/decisions/bern_pillar_red.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_pillar_grey"
+		texturefile = "gfx/interface/decisions/bern_pillar_grey.png"
+	}
+	spriteType = {
+		name = "GFX_bern_pillar_grey"
+		texturefile = "gfx/interface/decisions/bern_pillar_grey.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_chessboard_tray"
+		texturefile = "gfx/interface/decisions/bern_chessboard_tray.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_btn_blue"
+		texturefile = "gfx/interface/decisions/bern_gui_btn_blue.png"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_bern_gui_btn_red"
+		texturefile = "gfx/interface/decisions/bern_gui_btn_red.png"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_bern_gui_btn_grey"
+		texturefile = "gfx/interface/decisions/bern_gui_btn_grey.png"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_bern_gui_btn_purple"
+		texturefile = "gfx/interface/decisions/bern_gui_btn_purple.png"
+		noOfFrames = 2
+	}
+
+	# Cockpit Console & Tabs
+	spriteType = {
+		name = "GFX_bern_cockpit_console_bg"
+		texturefile = "gfx/interface/decisions/bern_cockpit_console_bg.png"
+	}
+	spriteType = {
+		name = "GFX_bern_gui_tab_arch"
+		texturefile = "gfx/interface/decisions/bern_gui_tab_arch.png"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_bern_gui_tab_cockpit"
+		texturefile = "gfx/interface/decisions/bern_gui_tab_cockpit.png"
+		noOfFrames = 2
+	}
+
+	# Interactive Umineko Tumblers / Levers
+	spriteType = {
+		name = "GFX_bern_tumbler_gold"
+		texturefile = "gfx/interface/decisions/bern_tumbler_gold.png"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_bern_tumbler_blue"
+		texturefile = "gfx/interface/decisions/bern_tumbler_blue.png"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_bern_tumbler_red"
+		texturefile = "gfx/interface/decisions/bern_tumbler_red.png"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_bern_tumbler_purple"
+		texturefile = "gfx/interface/decisions/bern_tumbler_purple.png"
+		noOfFrames = 2
+	}
+
+	# Tactical Cockpit Wide Action Buttons
+	spriteType = {
+		name = "GFX_bern_cockpit_btn_blue"
+		texturefile = "gfx/interface/decisions/bern_cockpit_btn_blue.png"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_bern_cockpit_btn_red"
+		texturefile = "gfx/interface/decisions/bern_cockpit_btn_red.png"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_bern_cockpit_btn_grey"
+		texturefile = "gfx/interface/decisions/bern_cockpit_btn_grey.png"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_bern_cockpit_btn_purple"
+		texturefile = "gfx/interface/decisions/bern_cockpit_btn_purple.png"
+		noOfFrames = 2
+	}
+
+	# Telemetry Status LEDs
+	spriteType = {
+		name = "GFX_bern_led_cyan"
+		texturefile = "gfx/interface/decisions/bern_led_cyan.png"
+	}
+	spriteType = {
+		name = "GFX_bern_led_purple"
+		texturefile = "gfx/interface/decisions/bern_led_purple.png"
+	}
+	spriteType = {
+		name = "GFX_bern_led_amber"
+		texturefile = "gfx/interface/decisions/bern_led_amber.png"
+	}
+	spriteType = {
+		name = "GFX_bern_led_red"
+		texturefile = "gfx/interface/decisions/bern_led_red.png"
+	}
+	spriteType = {
+		name = "GFX_bern_led_green"
+		texturefile = "gfx/interface/decisions/bern_led_green.png"
+	}
+}

@@ -1,0 +1,55 @@
+# Календарное окно подачи «карманной аннуляции» (2 U.S.C. § 683): с 15 августа по 30 сентября любого года
+BERN_is_pocket_rescission_window = {
+	custom_trigger_tooltip = {
+		tooltip = BERN_aug_15_sep_30_tt
+		OR = {
+			AND = { date > 2020.8.14 date < 2020.10.1 }
+			AND = { date > 2021.8.14 date < 2021.10.1 }
+			AND = { date > 2022.8.14 date < 2022.10.1 }
+			AND = { date > 2023.8.14 date < 2023.10.1 }
+			AND = { date > 2024.8.14 date < 2024.10.1 }
+			AND = { date > 2025.8.14 date < 2025.10.1 }
+			AND = { date > 2026.8.14 date < 2026.10.1 }
+			AND = { date > 2027.8.14 date < 2027.10.1 }
+			AND = { date > 2028.8.14 date < 2028.10.1 }
+			AND = { date > 2029.8.14 date < 2029.10.1 }
+			AND = { date > 2030.8.14 date < 2030.10.1 }
+			AND = { date > 2031.8.14 date < 2031.10.1 }
+			AND = { date > 2032.8.14 date < 2032.10.1 }
+			AND = { date > 2033.8.14 date < 2033.10.1 }
+			AND = { date > 2034.8.14 date < 2034.10.1 }
+			AND = { date > 2035.8.14 date < 2035.10.1 }
+			AND = { date > 2036.8.14 date < 2036.10.1 }
+			AND = { date > 2037.8.14 date < 2037.10.1 }
+			AND = { date > 2038.8.14 date < 2038.10.1 }
+		}
+	}
+}
+
+# Момент наступления нового финансового года (1 октября и далее, пока идет 45-дневное окно)
+BERN_is_october_window = {
+	custom_trigger_tooltip = {
+		tooltip = BERN_oct_1_burn_tt
+		OR = {
+			AND = { date > 2020.9.30 date < 2020.11.16 }
+			AND = { date > 2021.9.30 date < 2021.11.16 }
+			AND = { date > 2022.9.30 date < 2022.11.16 }
+			AND = { date > 2023.9.30 date < 2023.11.16 }
+			AND = { date > 2024.9.30 date < 2024.11.16 }
+			AND = { date > 2025.9.30 date < 2025.11.16 }
+			AND = { date > 2026.9.30 date < 2026.11.16 }
+			AND = { date > 2027.9.30 date < 2027.11.16 }
+			AND = { date > 2028.9.30 date < 2028.11.16 }
+			AND = { date > 2029.9.30 date < 2029.11.16 }
+			AND = { date > 2030.9.30 date < 2030.11.16 }
+			AND = { date > 2031.9.30 date < 2031.11.16 }
+			AND = { date > 2032.9.30 date < 2032.11.16 }
+			AND = { date > 2033.9.30 date < 2033.11.16 }
+			AND = { date > 2034.9.30 date < 2034.11.16 }
+			AND = { date > 2035.9.30 date < 2035.11.16 }
+			AND = { date > 2036.9.30 date < 2036.11.16 }
+			AND = { date > 2037.9.30 date < 2037.11.16 }
+			AND = { date > 2038.9.30 date < 2038.11.16 }
+		}
+	}
+}

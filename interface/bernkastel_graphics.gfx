@@ -1,0 +1,170 @@
+spriteTypes = {
+	# Leader and Advisor Portraits (156x210 PNG)
+	spriteType = {
+		name = "GFX_portrait_frederica_bernkastel"
+		texturefile = "gfx/leaders/USA/portrait_frederica_bernkastel.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_portrait_erika_furudo"
+		texturefile = "gfx/leaders/USA/portrait_erika_furudo.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_portrait_dlanor_a_knox"
+		texturefile = "gfx/leaders/USA/portrait_dlanor_a_knox.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_portrait_willard_h_wright"
+		texturefile = "gfx/leaders/USA/portrait_willard_h_wright.png"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_portrait_clair_vaux_bernardus"
+		texturefile = "gfx/leaders/USA/portrait_clair_vaux_bernardus.png"
+		legacy_lazy_load = no
+	}
+
+	# Cabinet Minister / Idea Icons (62x67 PNG)
+	spriteType = {
+		name = "GFX_idea_erika_furudo"
+		texturefile = "gfx/interface/ideas/idea_erika_furudo.png"
+	}
+	spriteType = {
+		name = "GFX_idea_dlanor_a_knox"
+		texturefile = "gfx/interface/ideas/idea_dlanor_a_knox.png"
+	}
+	spriteType = {
+		name = "GFX_idea_willard_h_wright"
+		texturefile = "gfx/interface/ideas/idea_willard_h_wright.png"
+	}
+	spriteType = {
+		name = "GFX_idea_clair_vaux_bernardus"
+		texturefile = "gfx/interface/ideas/idea_clair_vaux_bernardus.png"
+	}
+
+	# National Spirits (64x64 PNG)
+	spriteType = {
+		name = "GFX_idea_catbox_republic"
+		texturefile = "gfx/interface/ideas/idea_catbox_republic.png"
+	}
+	spriteType = {
+		name = "GFX_idea_gameboard_administration"
+		texturefile = "gfx/interface/ideas/idea_gameboard_administration.png"
+	}
+	spriteType = {
+		name = "GFX_idea_schedule_policy_furniture"
+		texturefile = "gfx/interface/ideas/idea_schedule_policy_furniture.png"
+	}
+	spriteType = {
+		name = "GFX_idea_red_truth_monopoly"
+		texturefile = "gfx/interface/ideas/idea_red_truth_monopoly.png"
+	}
+	spriteType = {
+		name = "GFX_idea_platinum_seigniorage"
+		texturefile = "gfx/interface/ideas/idea_platinum_seigniorage.png"
+	}
+	spriteType = {
+		name = "GFX_idea_pocket_rescissions"
+		texturefile = "gfx/interface/ideas/idea_pocket_rescissions.png"
+	}
+	spriteType = {
+		name = "GFX_idea_the_threat_that_leaves_chance"
+		texturefile = "gfx/interface/ideas/idea_the_threat_that_leaves_chance.png"
+	}
+	spriteType = {
+		name = "GFX_idea_existential_boredom"
+		texturefile = "gfx/interface/ideas/idea_existential_boredom.png"
+	}
+	spriteType = {
+		name = "GFX_idea_knox_inquisition"
+		texturefile = "gfx/interface/ideas/idea_knox_inquisition.png"
+	}
+	spriteType = {
+		name = "GFX_idea_willard_golden_rule"
+		texturefile = "gfx/interface/ideas/idea_willard_golden_rule.png"
+	}
+	spriteType = {
+		name = "GFX_idea_glorious_ambiguity_nato"
+		texturefile = "gfx/interface/ideas/idea_glorious_ambiguity_nato.png"
+	}
+	spriteType = {
+		name = "GFX_idea_acting_substitute"
+		texturefile = "gfx/interface/ideas/idea_acting_substitute.png"
+	}
+
+	# Balance of Power (78x88 PNG)
+	spriteType = {
+		name = "GFX_bop_BERN_planned_harmony"
+		texturefile = "gfx/interface/bop/bop_BERN_planned_harmony.png"
+	}
+	spriteType = {
+		name = "GFX_bop_BERN_logic_error"
+		texturefile = "gfx/interface/bop/bop_BERN_logic_error.png"
+	}
+
+	# Decision Category and Decision Icons
+	spriteType = {
+		name = "GFX_decision_category_bernkastel"
+		texturefile = "gfx/interface/decisions/decision_category_bernkastel.png"
+	}
+	spriteType = {
+		name = "GFX_decision_category_shard"
+		texturefile = "gfx/interface/decisions/decision_shard.png"
+	}
+	spriteType = {
+		name = "GFX_decision_cat_picture_bernkastel"
+		texturefile = "gfx/interface/decisions/decision_cat_picture_bernkastel.png"
+	}
+	spriteType = {
+		name = "GFX_decision_shard"
+		texturefile = "gfx/interface/decisions/decision_shard.png"
+	}
+	spriteType = {
+		name = "GFX_decision_trillion_coin"
+		texturefile = "gfx/interface/decisions/decision_trillion_coin.png"
+	}
+	spriteType = {
+		name = "GFX_decision_erika_tape"
+		texturefile = "gfx/interface/decisions/decision_erika_tape.png"
+	}
+	spriteType = {
+		name = "GFX_decision_void_ab_initio"
+		texturefile = "gfx/interface/decisions/decision_void_ab_initio.png"
+	}
+	spriteType = {
+		name = "GFX_decision_purple_truth"
+		texturefile = "gfx/interface/decisions/decision_purple_truth.png"
+	}
+	spriteType = {
+		name = "GFX_decision_pead"
+		texturefile = "gfx/interface/decisions/decision_pead.png"
+	}
+	spriteType = {
+		name = "GFX_decision_boredom"
+		texturefile = "gfx/interface/decisions/decision_boredom.png"
+	}
+
+	# Report Event Pictures (500x250 PNG)
+	spriteType = {
+		name = "GFX_report_event_bernkastel_inauguration"
+		texturefile = "gfx/event_pictures/report_event_bernkastel_inauguration.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_trillion_coin"
+		texturefile = "gfx/event_pictures/report_event_trillion_coin.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_tea_and_plums"
+		texturefile = "gfx/event_pictures/report_event_tea_and_plums.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_willard_confrontation"
+		texturefile = "gfx/event_pictures/report_event_willard_confrontation.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_logic_error"
+		texturefile = "gfx/event_pictures/report_event_logic_error.png"
+	}
+}

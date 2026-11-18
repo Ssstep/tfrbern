@@ -1,0 +1,66 @@
+characters = {
+	USA_frederica_bernkastel = {
+		name = USA_frederica_bernkastel
+		gender = female
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_frederica_bernkastel"
+			}
+		}
+		country_leader = {
+			ideology = autocrat
+			desc = USA_frederica_bernkastel_desc
+			traits = {
+				trait_witch_of_miracles
+				trait_gamemaster_of_shards
+				trait_cold_textualist
+			}
+			expire = "2999.1.1.1"
+			id = -1
+		}
+	}
+
+	USA_erika_furudo = {
+		name = USA_erika_furudo
+		gender = female
+		portraits = {
+			civilian = {
+				small = "GFX_idea_erika_furudo"
+				large = "GFX_portrait_erika_furudo"
+			}
+		}
+	}
+
+	USA_dlanor_a_knox = {
+		name = USA_dlanor_a_knox
+		gender = female
+		portraits = {
+			civilian = {
+				small = "GFX_idea_dlanor_a_knox"
+				large = "GFX_portrait_dlanor_a_knox"
+			}
+		}
+	}
+
+	USA_willard_h_wright = {
+		name = USA_willard_h_wright
+		gender = male
+		portraits = {
+			civilian = {
+				small = "GFX_idea_willard_h_wright"
+				large = "GFX_portrait_willard_h_wright"
+			}
+		}
+	}
+
+	USA_clair_vaux_bernardus = {
+		name = USA_clair_vaux_bernardus
+		gender = female
+		portraits = {
+			civilian = {
+				small = "GFX_idea_clair_vaux_bernardus"
+				large = "GFX_portrait_clair_vaux_bernardus"
+			}
+		}
+	}
+}

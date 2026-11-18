@@ -1,0 +1,5 @@
+music_station = "base_music"
+music = {
+	song = "bern_superevent_theme"
+	chance = { factor = 0 }
+}
