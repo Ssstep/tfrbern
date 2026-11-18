@@ -796,3 +796,60 @@ defined_text = {
 		localization_key = BERN_BAR_RED_100
 	}
 }
+
+defined_text = {
+	name = BERN_GetBopStageHeader
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 26 } }
+		localization_key = BERN_BOP_STAGE_1_NAME
+	}
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 51 } }
+		localization_key = BERN_BOP_STAGE_2_NAME
+	}
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 76 } }
+		localization_key = BERN_BOP_STAGE_3_NAME
+	}
+	text = {
+		localization_key = BERN_BOP_STAGE_4_NAME
+	}
+}
+
+defined_text = {
+	name = BERN_GetBopStageQuote
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 26 } }
+		localization_key = BERN_BOP_STAGE_1_QUOTE
+	}
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 51 } }
+		localization_key = BERN_BOP_STAGE_2_QUOTE
+	}
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 76 } }
+		localization_key = BERN_BOP_STAGE_3_QUOTE
+	}
+	text = {
+		localization_key = BERN_BOP_STAGE_4_QUOTE
+	}
+}
+
+defined_text = {
+	name = BERN_GetBopStageEffects
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 26 } }
+		localization_key = BERN_BOP_STAGE_1_EFFECTS
+	}
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 51 } }
+		localization_key = BERN_BOP_STAGE_2_EFFECTS
+	}
+	text = {
+		trigger = { check_variable = { BERN_existential_boredom < 76 } }
+		localization_key = BERN_BOP_STAGE_3_EFFECTS
+	}
+	text = {
+		localization_key = BERN_BOP_STAGE_4_EFFECTS
+	}
+}

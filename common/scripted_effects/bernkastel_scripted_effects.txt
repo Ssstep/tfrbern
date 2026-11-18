@@ -136,6 +136,29 @@ BERN_recalculate_catbox_modifiers = {
 	multiply_temp_variable = { inflation_prod_hit = 0.01 }
 	subtract_from_variable = { BERN_dm_construction_speed = inflation_prod_hit }
 
+	# Влияние стадий скуки Бернкастель (Этапы I..IV)
+	# Этап I (0-25%): Кровавый азарт (+15% ПП, +10% поддержка войны)
+	if = {
+		limit = { check_variable = { BERN_existential_boredom < 26 } }
+		add_to_variable = { BERN_dm_pp_factor = 0.15 }
+		add_to_variable = { BERN_dm_war_support = 0.10 }
+	}
+	# Этап III (51-75%): Ледяная пресыщенность (-10% ПП, -5% стабильность)
+	if = {
+		limit = {
+			check_variable = { BERN_existential_boredom > 50 }
+			check_variable = { BERN_existential_boredom < 76 }
+		}
+		subtract_from_variable = { BERN_dm_pp_factor = 0.10 }
+		subtract_from_variable = { BERN_dm_stability = 0.05 }
+	}
+	# Этап IV (76-100%): Экзистенциальная апатия (-25% ПП, -15% стабильность)
+	if = {
+		limit = { check_variable = { BERN_existential_boredom > 75 } }
+		subtract_from_variable = { BERN_dm_pp_factor = 0.25 }
+		subtract_from_variable = { BERN_dm_stability = 0.15 }
+	}
+
 	# Баффы от активных тумблеров (Interactive Umineko Levers)
 	set_variable = { BERN_dm_factory_output = 0.00 }
 	set_variable = { BERN_dm_decryption = 0.00 }

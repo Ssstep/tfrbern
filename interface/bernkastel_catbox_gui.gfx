@@ -169,4 +169,42 @@ spriteTypes = {
 		name = "GFX_bern_led_green"
 		texturefile = "gfx/interface/decisions/bern_led_green.png"
 	}
+
+	# Existential Balance / BoP Boredom Stages
+	spriteType = {
+		name = "GFX_bern_bop_bg"
+		texturefile = "gfx/interface/decisions/bern_bop_gui_bg.png"
+	}
+	spriteType = {
+		name = "GFX_bern_boredom_stage_1"
+		texturefile = "gfx/interface/decisions/bern_boredom_stage_1.png"
+	}
+	spriteType = {
+		name = "GFX_bern_boredom_stage_2"
+		texturefile = "gfx/interface/decisions/bern_boredom_stage_2.png"
+	}
+	spriteType = {
+		name = "GFX_bern_boredom_stage_3"
+		texturefile = "gfx/interface/decisions/bern_boredom_stage_3.png"
+	}
+	spriteType = {
+		name = "GFX_bern_boredom_stage_4"
+		texturefile = "gfx/interface/decisions/bern_boredom_stage_4.png"
+	}
+	spriteType = {
+		name = "GFX_bern_boredom_stage_1_small"
+		texturefile = "gfx/interface/decisions/bern_boredom_stage_1_small.png"
+	}
+	spriteType = {
+		name = "GFX_bern_boredom_stage_2_small"
+		texturefile = "gfx/interface/decisions/bern_boredom_stage_2_small.png"
+	}
+	spriteType = {
+		name = "GFX_bern_boredom_stage_3_small"
+		texturefile = "gfx/interface/decisions/bern_boredom_stage_3_small.png"
+	}
+	spriteType = {
+		name = "GFX_bern_boredom_stage_4_small"
+		texturefile = "gfx/interface/decisions/bern_boredom_stage_4_small.png"
+	}
 }

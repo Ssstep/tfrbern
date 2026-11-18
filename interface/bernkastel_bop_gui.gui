@@ -1,0 +1,126 @@
+guiTypes = {
+	containerWindowType = {
+		name = "bernkastel_bop_gui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 500 height = 210 }
+
+		# Фоновая панель
+		iconType = {
+			name = "bop_gui_bg"
+			spriteType = "GFX_bern_bop_bg"
+			position = { x = 0 y = 0 }
+			alwaystransparent = yes
+		}
+
+		# Портреты Ведьмы в зависимости от стадии скуки
+		containerWindowType = {
+			name = "bop_portrait_container"
+			position = { x = 14 y = 14 }
+			size = { width = 130 height = 160 }
+
+			iconType = {
+				name = "boredom_portrait_stage_1"
+				spriteType = "GFX_bern_boredom_stage_1"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "BERN_BOP_PORTRAIT_STAGE_1_TT"
+			}
+			iconType = {
+				name = "boredom_portrait_stage_2"
+				spriteType = "GFX_bern_boredom_stage_2"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "BERN_BOP_PORTRAIT_STAGE_2_TT"
+			}
+			iconType = {
+				name = "boredom_portrait_stage_3"
+				spriteType = "GFX_bern_boredom_stage_3"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "BERN_BOP_PORTRAIT_STAGE_3_TT"
+			}
+			iconType = {
+				name = "boredom_portrait_stage_4"
+				spriteType = "GFX_bern_boredom_stage_4"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "BERN_BOP_PORTRAIT_STAGE_4_TT"
+			}
+		}
+
+		# Плашка процентов скуки под портретом
+		instantTextBoxType = {
+			name = "boredom_percentage_badge"
+			position = { x = 14 y = 178 }
+			font = "hoi_16mbs"
+			text = "BERN_BOP_PERCENT_BADGE"
+			maxWidth = 130
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "BERN_GUI_BOREDOM_TT"
+		}
+
+		# Заголовок секции баланса
+		instantTextBoxType = {
+			name = "bop_header_title"
+			position = { x = 160 y = 14 }
+			font = "hoi_16mbs"
+			text = "BERN_BOP_GUI_TITLE"
+			maxWidth = 325
+			maxHeight = 18
+			format = left
+		}
+
+		# Название текущего этапа скуки
+		instantTextBoxType = {
+			name = "bop_stage_title"
+			position = { x = 160 y = 34 }
+			font = "hoi_18mbs"
+			text = "BERN_BOP_STAGE_HEADER"
+			maxWidth = 325
+			maxHeight = 22
+			format = left
+		}
+
+		# Прогресс-бар скуки
+		instantTextBoxType = {
+			name = "bop_bar_readout"
+			position = { x = 160 y = 58 }
+			font = "hoi_16mbs"
+			text = "BERN_BOP_BAR_READOUT"
+			maxWidth = 325
+			maxHeight = 18
+			format = left
+			pdx_tooltip = "BERN_GUI_BOREDOM_TT"
+		}
+
+		# Цитата Ведьмы для текущего этапа
+		instantTextBoxType = {
+			name = "bop_stage_quote"
+			position = { x = 160 y = 78 }
+			font = "hoi_16mbs"
+			text = "BERN_BOP_STAGE_QUOTE_TEXT"
+			maxWidth = 325
+			maxHeight = 48
+			format = left
+		}
+
+		# Активные эффекты и модификаторы этапа
+		instantTextBoxType = {
+			name = "bop_stage_effects"
+			position = { x = 160 y = 130 }
+			font = "hoi_16mbs"
+			text = "BERN_BOP_STAGE_EFFECTS_TEXT"
+			maxWidth = 325
+			maxHeight = 40
+			format = left
+		}
+
+		# Статус равновесия BoP и связь с Логической Ошибкой
+		instantTextBoxType = {
+			name = "bop_matrix_linkage"
+			position = { x = 160 y = 178 }
+			font = "hoi_16mbs"
+			text = "BERN_BOP_MATRIX_LINKAGE"
+			maxWidth = 325
+			maxHeight = 20
+			format = left
+		}
+	}
+}

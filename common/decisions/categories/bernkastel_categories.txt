@@ -35,6 +35,8 @@ BERN_balance_of_power_category = {
 	priority = 99
 	visible_when_empty = yes
 
+	scripted_gui = bernkastel_bop_gui
+
 	allowed = {
 		always = yes
 	}

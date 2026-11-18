@@ -238,4 +238,31 @@ scripted_gui = {
 			}
 		}
 	}
+
+	bernkastel_bop_gui = {
+		context_type = decision_category
+		window_name = "bernkastel_bop_gui_window"
+
+		visible = {
+			has_country_flag = BERN_bernkastel_ruling_flag
+			has_power_balance = { id = BERN_boredom_bop }
+		}
+
+		triggers = {
+			boredom_portrait_stage_1_visible = {
+				check_variable = { BERN_existential_boredom < 26 }
+			}
+			boredom_portrait_stage_2_visible = {
+				check_variable = { BERN_existential_boredom > 25 }
+				check_variable = { BERN_existential_boredom < 51 }
+			}
+			boredom_portrait_stage_3_visible = {
+				check_variable = { BERN_existential_boredom > 50 }
+				check_variable = { BERN_existential_boredom < 76 }
+			}
+			boredom_portrait_stage_4_visible = {
+				check_variable = { BERN_existential_boredom > 75 }
+			}
+		}
+	}
 }
